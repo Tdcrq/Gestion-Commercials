@@ -1,0 +1,6 @@
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBO\bin\Debug\CommercialsBO.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBO\bin\Debug\CommercialsBO.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.csproj.AssemblyReference.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.csproj.CoreCompileInputs.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.pdb

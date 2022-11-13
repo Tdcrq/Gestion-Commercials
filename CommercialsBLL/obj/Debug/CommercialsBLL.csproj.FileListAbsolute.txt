@@ -1,0 +1,6 @@
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBLL.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBLL.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.AssemblyReference.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CoreCompileInputs.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.pdb

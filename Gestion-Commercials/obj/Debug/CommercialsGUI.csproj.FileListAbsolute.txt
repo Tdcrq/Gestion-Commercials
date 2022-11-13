@@ -1,0 +1,10 @@
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.exe.config
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.exe
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.AssemblyReference.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.Properties.Resources.resources
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.GenerateResource.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CoreCompileInputs.cache
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.exe
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.pdb
