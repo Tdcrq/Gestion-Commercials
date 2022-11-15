@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.btnDevis = new System.Windows.Forms.Button();
             this.btnClients = new System.Windows.Forms.Button();
@@ -35,19 +36,26 @@
             this.btnProduits = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
-            this.btnNouveau = new System.Windows.Forms.Button();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.lblInfoCode = new System.Windows.Forms.Label();
-            this.txtInfoCode = new System.Windows.Forms.TextBox();
-            this.txtInfoLibelle = new System.Windows.Forms.TextBox();
-            this.lblInfoLibelle = new System.Windows.Forms.Label();
-            this.lblInfoCategorie = new System.Windows.Forms.Label();
+            this.listeInfoCategorie = new System.Windows.Forms.ComboBox();
+            this.btnInfoEnvoie = new System.Windows.Forms.Button();
             this.txtInfoPrix = new System.Windows.Forms.TextBox();
             this.lblInfoPrix = new System.Windows.Forms.Label();
-            this.btnInfoEnvoie = new System.Windows.Forms.Button();
-            this.listeInfoCategorie = new System.Windows.Forms.ComboBox();
+            this.lblInfoCategorie = new System.Windows.Forms.Label();
+            this.txtInfoLibelle = new System.Windows.Forms.TextBox();
+            this.lblInfoLibelle = new System.Windows.Forms.Label();
+            this.txtInfoCode = new System.Windows.Forms.TextBox();
+            this.lblInfoCode = new System.Windows.Forms.Label();
+            this.btnNouveau = new System.Windows.Forms.Button();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.dECLICINFODataSet = new Gestion_Commercials.DECLICINFODataSet();
+            this.dECLICINFODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cATEGORIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cATEGORIETableAdapter = new Gestion_Commercials.DECLICINFODataSetTableAdapters.CATEGORIETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCategorie
@@ -123,6 +131,82 @@
             this.gpBoxInformations.TabStop = false;
             this.gpBoxInformations.Text = "Informations";
             // 
+            // listeInfoCategorie
+            // 
+            this.listeInfoCategorie.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.cATEGORIEBindingSource, "libelle_cat", true));
+            this.listeInfoCategorie.DataSource = this.dECLICINFODataSetBindingSource;
+            this.listeInfoCategorie.FormattingEnabled = true;
+            this.listeInfoCategorie.Location = new System.Drawing.Point(137, 173);
+            this.listeInfoCategorie.Name = "listeInfoCategorie";
+            this.listeInfoCategorie.Size = new System.Drawing.Size(128, 24);
+            this.listeInfoCategorie.TabIndex = 9;
+            // 
+            // btnInfoEnvoie
+            // 
+            this.btnInfoEnvoie.Location = new System.Drawing.Point(190, 277);
+            this.btnInfoEnvoie.Name = "btnInfoEnvoie";
+            this.btnInfoEnvoie.Size = new System.Drawing.Size(75, 23);
+            this.btnInfoEnvoie.TabIndex = 8;
+            this.btnInfoEnvoie.Text = "Envoyer";
+            this.btnInfoEnvoie.UseVisualStyleBackColor = true;
+            // 
+            // txtInfoPrix
+            // 
+            this.txtInfoPrix.Location = new System.Drawing.Point(137, 227);
+            this.txtInfoPrix.Name = "txtInfoPrix";
+            this.txtInfoPrix.Size = new System.Drawing.Size(100, 22);
+            this.txtInfoPrix.TabIndex = 7;
+            // 
+            // lblInfoPrix
+            // 
+            this.lblInfoPrix.AutoSize = true;
+            this.lblInfoPrix.Location = new System.Drawing.Point(32, 230);
+            this.lblInfoPrix.Name = "lblInfoPrix";
+            this.lblInfoPrix.Size = new System.Drawing.Size(84, 16);
+            this.lblInfoPrix.TabIndex = 6;
+            this.lblInfoPrix.Text = "Prix de vente";
+            // 
+            // lblInfoCategorie
+            // 
+            this.lblInfoCategorie.AutoSize = true;
+            this.lblInfoCategorie.Location = new System.Drawing.Point(32, 177);
+            this.lblInfoCategorie.Name = "lblInfoCategorie";
+            this.lblInfoCategorie.Size = new System.Drawing.Size(66, 16);
+            this.lblInfoCategorie.TabIndex = 4;
+            this.lblInfoCategorie.Text = "Catégorie";
+            // 
+            // txtInfoLibelle
+            // 
+            this.txtInfoLibelle.Location = new System.Drawing.Point(137, 122);
+            this.txtInfoLibelle.Name = "txtInfoLibelle";
+            this.txtInfoLibelle.Size = new System.Drawing.Size(100, 22);
+            this.txtInfoLibelle.TabIndex = 3;
+            // 
+            // lblInfoLibelle
+            // 
+            this.lblInfoLibelle.AutoSize = true;
+            this.lblInfoLibelle.Location = new System.Drawing.Point(32, 125);
+            this.lblInfoLibelle.Name = "lblInfoLibelle";
+            this.lblInfoLibelle.Size = new System.Drawing.Size(47, 16);
+            this.lblInfoLibelle.TabIndex = 2;
+            this.lblInfoLibelle.Text = "Libellé";
+            // 
+            // txtInfoCode
+            // 
+            this.txtInfoCode.Location = new System.Drawing.Point(137, 65);
+            this.txtInfoCode.Name = "txtInfoCode";
+            this.txtInfoCode.Size = new System.Drawing.Size(100, 22);
+            this.txtInfoCode.TabIndex = 1;
+            // 
+            // lblInfoCode
+            // 
+            this.lblInfoCode.AutoSize = true;
+            this.lblInfoCode.Location = new System.Drawing.Point(32, 68);
+            this.lblInfoCode.Name = "lblInfoCode";
+            this.lblInfoCode.Size = new System.Drawing.Size(40, 16);
+            this.lblInfoCode.TabIndex = 0;
+            this.lblInfoCode.Text = "Code";
+            // 
             // btnNouveau
             // 
             this.btnNouveau.Location = new System.Drawing.Point(637, 80);
@@ -141,79 +225,24 @@
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
             // 
-            // lblInfoCode
+            // dECLICINFODataSet
             // 
-            this.lblInfoCode.AutoSize = true;
-            this.lblInfoCode.Location = new System.Drawing.Point(32, 68);
-            this.lblInfoCode.Name = "lblInfoCode";
-            this.lblInfoCode.Size = new System.Drawing.Size(50, 20);
-            this.lblInfoCode.TabIndex = 0;
-            this.lblInfoCode.Text = "Code";
+            this.dECLICINFODataSet.DataSetName = "DECLICINFODataSet";
+            this.dECLICINFODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // txtInfoCode
+            // dECLICINFODataSetBindingSource
             // 
-            this.txtInfoCode.Location = new System.Drawing.Point(137, 65);
-            this.txtInfoCode.Name = "txtInfoCode";
-            this.txtInfoCode.Size = new System.Drawing.Size(100, 22);
-            this.txtInfoCode.TabIndex = 1;
+            this.dECLICINFODataSetBindingSource.DataSource = this.dECLICINFODataSet;
+            this.dECLICINFODataSetBindingSource.Position = 0;
             // 
-            // txtInfoLibelle
+            // cATEGORIEBindingSource
             // 
-            this.txtInfoLibelle.Location = new System.Drawing.Point(137, 122);
-            this.txtInfoLibelle.Name = "txtInfoLibelle";
-            this.txtInfoLibelle.Size = new System.Drawing.Size(100, 22);
-            this.txtInfoLibelle.TabIndex = 3;
+            this.cATEGORIEBindingSource.DataMember = "CATEGORIE";
+            this.cATEGORIEBindingSource.DataSource = this.dECLICINFODataSet;
             // 
-            // lblInfoLibelle
+            // cATEGORIETableAdapter
             // 
-            this.lblInfoLibelle.AutoSize = true;
-            this.lblInfoLibelle.Location = new System.Drawing.Point(32, 125);
-            this.lblInfoLibelle.Name = "lblInfoLibelle";
-            this.lblInfoLibelle.Size = new System.Drawing.Size(47, 16);
-            this.lblInfoLibelle.TabIndex = 2;
-            this.lblInfoLibelle.Text = "Libellé";
-            // 
-            // lblInfoCategorie
-            // 
-            this.lblInfoCategorie.AutoSize = true;
-            this.lblInfoCategorie.Location = new System.Drawing.Point(32, 177);
-            this.lblInfoCategorie.Name = "lblInfoCategorie";
-            this.lblInfoCategorie.Size = new System.Drawing.Size(83, 20);
-            this.lblInfoCategorie.TabIndex = 4;
-            this.lblInfoCategorie.Text = "Catégorie";
-            // 
-            // txtInfoPrix
-            // 
-            this.txtInfoPrix.Location = new System.Drawing.Point(137, 227);
-            this.txtInfoPrix.Name = "txtInfoPrix";
-            this.txtInfoPrix.Size = new System.Drawing.Size(100, 22);
-            this.txtInfoPrix.TabIndex = 7;
-            // 
-            // lblInfoPrix
-            // 
-            this.lblInfoPrix.AutoSize = true;
-            this.lblInfoPrix.Location = new System.Drawing.Point(32, 230);
-            this.lblInfoPrix.Name = "lblInfoPrix";
-            this.lblInfoPrix.Size = new System.Drawing.Size(105, 20);
-            this.lblInfoPrix.TabIndex = 6;
-            this.lblInfoPrix.Text = "Prix de vente";
-            // 
-            // btnInfoEnvoie
-            // 
-            this.btnInfoEnvoie.Location = new System.Drawing.Point(190, 277);
-            this.btnInfoEnvoie.Name = "btnInfoEnvoie";
-            this.btnInfoEnvoie.Size = new System.Drawing.Size(75, 23);
-            this.btnInfoEnvoie.TabIndex = 8;
-            this.btnInfoEnvoie.Text = "Envoyer";
-            this.btnInfoEnvoie.UseVisualStyleBackColor = true;
-            // 
-            // listeInfoCategorie
-            // 
-            this.listeInfoCategorie.FormattingEnabled = true;
-            this.listeInfoCategorie.Location = new System.Drawing.Point(137, 173);
-            this.listeInfoCategorie.Name = "listeInfoCategorie";
-            this.listeInfoCategorie.Size = new System.Drawing.Size(128, 24);
-            this.listeInfoCategorie.TabIndex = 9;
+            this.cATEGORIETableAdapter.ClearBeforeFill = true;
             // 
             // FrmCrudProduit
             // 
@@ -231,9 +260,13 @@
             this.Controls.Add(this.lblCategorie);
             this.Name = "FrmCrudProduit";
             this.Text = "PRODUIT";
+            this.Load += new System.EventHandler(this.FrmCrudProduit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);
             this.gpBoxInformations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +292,9 @@
         private System.Windows.Forms.Label lblInfoCode;
         private System.Windows.Forms.Button btnInfoEnvoie;
         private System.Windows.Forms.ComboBox listeInfoCategorie;
+        private System.Windows.Forms.BindingSource dECLICINFODataSetBindingSource;
+        private DECLICINFODataSet dECLICINFODataSet;
+        private System.Windows.Forms.BindingSource cATEGORIEBindingSource;
+        private DECLICINFODataSetTableAdapters.CATEGORIETableAdapter cATEGORIETableAdapter;
     }
 }

@@ -16,5 +16,12 @@ namespace Gestion_Commercials
         {
             InitializeComponent();
         }
+
+        private void FrmCrudProduit_Load(object sender, EventArgs e)
+        {
+            // TODO: cette ligne de code charge les données dans la table 'dECLICINFODataSet.CATEGORIE'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.cATEGORIETableAdapter.Fill(this.dECLICINFODataSet.CATEGORIE);
+
+        }
     }
 }
