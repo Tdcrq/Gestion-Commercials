@@ -34,12 +34,13 @@
             this.btnClients = new System.Windows.Forms.Button();
             this.btnSyntheseClients = new System.Windows.Forms.Button();
             this.btnProduits = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewProduit = new System.Windows.Forms.DataGridView();
+            this.pRODUITBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dECLICINFODataSet = new Gestion_Commercials.DECLICINFODataSet();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
             this.listeInfoCategorie = new System.Windows.Forms.ComboBox();
-            this.cATEGORIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dECLICINFODataSet = new Gestion_Commercials.DECLICINFODataSet();
-            this.dECLICINFODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cATEGORIEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dECLICINFODataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.btnInfoEnvoie = new System.Windows.Forms.Button();
             this.txtInfoPrix = new System.Windows.Forms.TextBox();
             this.lblInfoPrix = new System.Windows.Forms.Label();
@@ -48,18 +49,28 @@
             this.lblInfoLibelle = new System.Windows.Forms.Label();
             this.txtInfoCode = new System.Windows.Forms.TextBox();
             this.lblInfoCode = new System.Windows.Forms.Label();
+            this.cATEGORIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dECLICINFODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnNouveau = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
             this.cATEGORIETableAdapter = new Gestion_Commercials.DECLICINFODataSetTableAdapters.CATEGORIETableAdapter();
             this.dECLICINFODataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dECLICINFODataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.gpBoxInformations.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).BeginInit();
+            this.pRODUITBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pRODUITTableAdapter = new Gestion_Commercials.DECLICINFODataSetTableAdapters.PRODUITTableAdapter();
+            this.libelleprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prixhtprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkcodecatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUITBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).BeginInit();
+            this.gpBoxInformations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUITBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCategorie
@@ -107,15 +118,35 @@
             this.btnProduits.Text = "Produits";
             this.btnProduits.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewProduit
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(180, 80);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(366, 384);
-            this.dataGridView1.TabIndex = 5;
+            this.dataGridViewProduit.AllowUserToAddRows = false;
+            this.dataGridViewProduit.AutoGenerateColumns = false;
+            this.dataGridViewProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.libelleprodDataGridViewTextBoxColumn,
+            this.prixhtprodDataGridViewTextBoxColumn,
+            this.fkcodecatDataGridViewTextBoxColumn,
+            this.btnDataGridViewModifier});
+            this.dataGridViewProduit.DataSource = this.pRODUITBindingSource1;
+            this.dataGridViewProduit.Location = new System.Drawing.Point(180, 80);
+            this.dataGridViewProduit.Name = "dataGridViewProduit";
+            this.dataGridViewProduit.RowHeadersVisible = false;
+            this.dataGridViewProduit.RowHeadersWidth = 51;
+            this.dataGridViewProduit.RowTemplate.Height = 24;
+            this.dataGridViewProduit.Size = new System.Drawing.Size(623, 393);
+            this.dataGridViewProduit.TabIndex = 5;
+            this.dataGridViewProduit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.modifLigne);
+            // 
+            // pRODUITBindingSource1
+            // 
+            this.pRODUITBindingSource1.DataMember = "PRODUIT";
+            this.pRODUITBindingSource1.DataSource = this.dECLICINFODataSet;
+            // 
+            // dECLICINFODataSet
+            // 
+            this.dECLICINFODataSet.DataSetName = "DECLICINFODataSet";
+            this.dECLICINFODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gpBoxInformations
             // 
@@ -128,7 +159,7 @@
             this.gpBoxInformations.Controls.Add(this.lblInfoLibelle);
             this.gpBoxInformations.Controls.Add(this.txtInfoCode);
             this.gpBoxInformations.Controls.Add(this.lblInfoCode);
-            this.gpBoxInformations.Location = new System.Drawing.Point(602, 144);
+            this.gpBoxInformations.Location = new System.Drawing.Point(903, 144);
             this.gpBoxInformations.Name = "gpBoxInformations";
             this.gpBoxInformations.Size = new System.Drawing.Size(280, 320);
             this.gpBoxInformations.TabIndex = 6;
@@ -137,7 +168,7 @@
             // 
             // listeInfoCategorie
             // 
-            this.listeInfoCategorie.DataSource = this.cATEGORIEBindingSource;
+            this.listeInfoCategorie.DataSource = this.cATEGORIEBindingSource1;
             this.listeInfoCategorie.DisplayMember = "libelle_cat";
             this.listeInfoCategorie.FormattingEnabled = true;
             this.listeInfoCategorie.Location = new System.Drawing.Point(137, 173);
@@ -146,20 +177,15 @@
             this.listeInfoCategorie.TabIndex = 9;
             this.listeInfoCategorie.ValueMember = "code_cat";
             // 
-            // cATEGORIEBindingSource
+            // cATEGORIEBindingSource1
             // 
-            this.cATEGORIEBindingSource.DataMember = "CATEGORIE";
-            this.cATEGORIEBindingSource.DataSource = this.dECLICINFODataSet;
+            this.cATEGORIEBindingSource1.DataMember = "CATEGORIE";
+            this.cATEGORIEBindingSource1.DataSource = this.dECLICINFODataSetBindingSource2;
             // 
-            // dECLICINFODataSet
+            // dECLICINFODataSetBindingSource2
             // 
-            this.dECLICINFODataSet.DataSetName = "DECLICINFODataSet";
-            this.dECLICINFODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dECLICINFODataSetBindingSource
-            // 
-            this.dECLICINFODataSetBindingSource.DataSource = this.dECLICINFODataSet;
-            this.dECLICINFODataSetBindingSource.Position = 0;
+            this.dECLICINFODataSetBindingSource2.DataSource = this.dECLICINFODataSet;
+            this.dECLICINFODataSetBindingSource2.Position = 0;
             // 
             // btnInfoEnvoie
             // 
@@ -227,9 +253,19 @@
             this.lblInfoCode.TabIndex = 0;
             this.lblInfoCode.Text = "Code";
             // 
+            // cATEGORIEBindingSource
+            // 
+            this.cATEGORIEBindingSource.DataMember = "CATEGORIE";
+            this.cATEGORIEBindingSource.DataSource = this.dECLICINFODataSet;
+            // 
+            // dECLICINFODataSetBindingSource
+            // 
+            this.dECLICINFODataSetBindingSource.DataSource = this.dECLICINFODataSet;
+            this.dECLICINFODataSetBindingSource.Position = 0;
+            // 
             // btnNouveau
             // 
-            this.btnNouveau.Location = new System.Drawing.Point(637, 80);
+            this.btnNouveau.Location = new System.Drawing.Point(938, 80);
             this.btnNouveau.Name = "btnNouveau";
             this.btnNouveau.Size = new System.Drawing.Size(75, 23);
             this.btnNouveau.TabIndex = 0;
@@ -238,7 +274,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(764, 80);
+            this.btnModifier.Location = new System.Drawing.Point(1065, 80);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(75, 23);
             this.btnModifier.TabIndex = 7;
@@ -254,20 +290,55 @@
             this.dECLICINFODataSetBindingSource1.DataSource = this.dECLICINFODataSet;
             this.dECLICINFODataSetBindingSource1.Position = 0;
             // 
-            // dECLICINFODataSetBindingSource2
+            // pRODUITBindingSource
             // 
-            this.dECLICINFODataSetBindingSource2.DataSource = this.dECLICINFODataSet;
-            this.dECLICINFODataSetBindingSource2.Position = 0;
+            this.pRODUITBindingSource.DataMember = "PRODUIT";
+            this.pRODUITBindingSource.DataSource = this.dECLICINFODataSetBindingSource;
+            // 
+            // pRODUITTableAdapter
+            // 
+            this.pRODUITTableAdapter.ClearBeforeFill = true;
+            // 
+            // libelleprodDataGridViewTextBoxColumn
+            // 
+            this.libelleprodDataGridViewTextBoxColumn.DataPropertyName = "libelle_prod";
+            this.libelleprodDataGridViewTextBoxColumn.HeaderText = "nom";
+            this.libelleprodDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.libelleprodDataGridViewTextBoxColumn.Name = "libelleprodDataGridViewTextBoxColumn";
+            this.libelleprodDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // prixhtprodDataGridViewTextBoxColumn
+            // 
+            this.prixhtprodDataGridViewTextBoxColumn.DataPropertyName = "prix_ht_prod";
+            this.prixhtprodDataGridViewTextBoxColumn.HeaderText = "prix ht";
+            this.prixhtprodDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.prixhtprodDataGridViewTextBoxColumn.Name = "prixhtprodDataGridViewTextBoxColumn";
+            this.prixhtprodDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fkcodecatDataGridViewTextBoxColumn
+            // 
+            this.fkcodecatDataGridViewTextBoxColumn.DataPropertyName = "fk_code_cat";
+            this.fkcodecatDataGridViewTextBoxColumn.HeaderText = "catégorie";
+            this.fkcodecatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fkcodecatDataGridViewTextBoxColumn.Name = "fkcodecatDataGridViewTextBoxColumn";
+            this.fkcodecatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // btnDataGridViewModifier
+            // 
+            this.btnDataGridViewModifier.HeaderText = "modifier";
+            this.btnDataGridViewModifier.MinimumWidth = 6;
+            this.btnDataGridViewModifier.Name = "btnDataGridViewModifier";
+            this.btnDataGridViewModifier.Width = 125;
             // 
             // FrmCrudProduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 531);
+            this.ClientSize = new System.Drawing.Size(1214, 657);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.btnNouveau);
             this.Controls.Add(this.gpBoxInformations);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewProduit);
             this.Controls.Add(this.btnProduits);
             this.Controls.Add(this.btnSyntheseClients);
             this.Controls.Add(this.btnClients);
@@ -276,14 +347,17 @@
             this.Name = "FrmCrudProduit";
             this.Text = "PRODUIT";
             this.Load += new System.EventHandler(this.FrmCrudProduit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUITBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);
             this.gpBoxInformations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pRODUITBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +370,7 @@
         private System.Windows.Forms.Button btnClients;
         private System.Windows.Forms.Button btnSyntheseClients;
         private System.Windows.Forms.Button btnProduits;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewProduit;
         private System.Windows.Forms.GroupBox gpBoxInformations;
         private System.Windows.Forms.Button btnNouveau;
         private System.Windows.Forms.Button btnModifier;
@@ -315,5 +389,13 @@
         private DECLICINFODataSetTableAdapters.CATEGORIETableAdapter cATEGORIETableAdapter;
         private System.Windows.Forms.BindingSource dECLICINFODataSetBindingSource1;
         private System.Windows.Forms.BindingSource dECLICINFODataSetBindingSource2;
+        private System.Windows.Forms.BindingSource pRODUITBindingSource;
+        private DECLICINFODataSetTableAdapters.PRODUITTableAdapter pRODUITTableAdapter;
+        private System.Windows.Forms.BindingSource cATEGORIEBindingSource1;
+        private System.Windows.Forms.BindingSource pRODUITBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libelleprodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prixhtprodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fkcodecatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn btnDataGridViewModifier;
     }
 }
