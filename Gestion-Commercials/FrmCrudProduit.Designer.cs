@@ -37,6 +37,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
             this.listeInfoCategorie = new System.Windows.Forms.ComboBox();
+            this.cATEGORIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dECLICINFODataSet = new Gestion_Commercials.DECLICINFODataSet();
+            this.dECLICINFODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnInfoEnvoie = new System.Windows.Forms.Button();
             this.txtInfoPrix = new System.Windows.Forms.TextBox();
             this.lblInfoPrix = new System.Windows.Forms.Label();
@@ -47,15 +50,16 @@
             this.lblInfoCode = new System.Windows.Forms.Label();
             this.btnNouveau = new System.Windows.Forms.Button();
             this.btnModifier = new System.Windows.Forms.Button();
-            this.dECLICINFODataSet = new Gestion_Commercials.DECLICINFODataSet();
-            this.dECLICINFODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cATEGORIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cATEGORIETableAdapter = new Gestion_Commercials.DECLICINFODataSetTableAdapters.CATEGORIETableAdapter();
+            this.dECLICINFODataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dECLICINFODataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCategorie
@@ -133,13 +137,29 @@
             // 
             // listeInfoCategorie
             // 
-            this.listeInfoCategorie.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.cATEGORIEBindingSource, "libelle_cat", true));
-            this.listeInfoCategorie.DataSource = this.dECLICINFODataSetBindingSource;
+            this.listeInfoCategorie.DataSource = this.cATEGORIEBindingSource;
+            this.listeInfoCategorie.DisplayMember = "libelle_cat";
             this.listeInfoCategorie.FormattingEnabled = true;
             this.listeInfoCategorie.Location = new System.Drawing.Point(137, 173);
             this.listeInfoCategorie.Name = "listeInfoCategorie";
             this.listeInfoCategorie.Size = new System.Drawing.Size(128, 24);
             this.listeInfoCategorie.TabIndex = 9;
+            this.listeInfoCategorie.ValueMember = "code_cat";
+            // 
+            // cATEGORIEBindingSource
+            // 
+            this.cATEGORIEBindingSource.DataMember = "CATEGORIE";
+            this.cATEGORIEBindingSource.DataSource = this.dECLICINFODataSet;
+            // 
+            // dECLICINFODataSet
+            // 
+            this.dECLICINFODataSet.DataSetName = "DECLICINFODataSet";
+            this.dECLICINFODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dECLICINFODataSetBindingSource
+            // 
+            this.dECLICINFODataSetBindingSource.DataSource = this.dECLICINFODataSet;
+            this.dECLICINFODataSetBindingSource.Position = 0;
             // 
             // btnInfoEnvoie
             // 
@@ -225,24 +245,19 @@
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseVisualStyleBackColor = true;
             // 
-            // dECLICINFODataSet
-            // 
-            this.dECLICINFODataSet.DataSetName = "DECLICINFODataSet";
-            this.dECLICINFODataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dECLICINFODataSetBindingSource
-            // 
-            this.dECLICINFODataSetBindingSource.DataSource = this.dECLICINFODataSet;
-            this.dECLICINFODataSetBindingSource.Position = 0;
-            // 
-            // cATEGORIEBindingSource
-            // 
-            this.cATEGORIEBindingSource.DataMember = "CATEGORIE";
-            this.cATEGORIEBindingSource.DataSource = this.dECLICINFODataSet;
-            // 
             // cATEGORIETableAdapter
             // 
             this.cATEGORIETableAdapter.ClearBeforeFill = true;
+            // 
+            // dECLICINFODataSetBindingSource1
+            // 
+            this.dECLICINFODataSetBindingSource1.DataSource = this.dECLICINFODataSet;
+            this.dECLICINFODataSetBindingSource1.Position = 0;
+            // 
+            // dECLICINFODataSetBindingSource2
+            // 
+            this.dECLICINFODataSetBindingSource2.DataSource = this.dECLICINFODataSet;
+            this.dECLICINFODataSetBindingSource2.Position = 0;
             // 
             // FrmCrudProduit
             // 
@@ -264,9 +279,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);
             this.gpBoxInformations.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSetBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +313,7 @@
         private DECLICINFODataSet dECLICINFODataSet;
         private System.Windows.Forms.BindingSource cATEGORIEBindingSource;
         private DECLICINFODataSetTableAdapters.CATEGORIETableAdapter cATEGORIETableAdapter;
+        private System.Windows.Forms.BindingSource dECLICINFODataSetBindingSource1;
+        private System.Windows.Forms.BindingSource dECLICINFODataSetBindingSource2;
     }
 }
