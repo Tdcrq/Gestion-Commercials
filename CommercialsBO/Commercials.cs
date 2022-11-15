@@ -12,7 +12,7 @@ namespace CommercialsBO
         private string code;
         private string identifiant;
         private string mdp;
-        private bool verif;
+        private bool verif = false;
 
         public Commercial(string code, string identifiant, string mdp)
         {
@@ -25,7 +25,6 @@ namespace CommercialsBO
         {
             this.identifiant = identifiant;
             this.mdp = mdp;
-            this.verif = false;
         }
 
         public string GetCode()

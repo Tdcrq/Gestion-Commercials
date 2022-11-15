@@ -24,3 +24,6 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Co
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.exe
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.pdb
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
+C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialDAL.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialDAL.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialDAL.dll.config

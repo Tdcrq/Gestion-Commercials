@@ -15,3 +15,4 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\Commerc
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CopyComplete
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.dll
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialDAL.dll.config

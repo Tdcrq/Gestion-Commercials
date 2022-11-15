@@ -50,7 +50,7 @@
             this.lblMdpCo.Location = new System.Drawing.Point(302, 167);
             this.lblMdpCo.Name = "lblMdpCo";
             this.lblMdpCo.Size = new System.Drawing.Size(176, 16);
-            this.lblMdpCo.TabIndex = 1;
+            this.lblMdpCo.TabIndex = 0;
             this.lblMdpCo.Text = "Saisisez votre mot de passe";
             // 
             // txtIdCo
@@ -58,21 +58,21 @@
             this.txtIdCo.Location = new System.Drawing.Point(315, 118);
             this.txtIdCo.Name = "txtIdCo";
             this.txtIdCo.Size = new System.Drawing.Size(147, 22);
-            this.txtIdCo.TabIndex = 2;
+            this.txtIdCo.TabIndex = 1;
             // 
             // txtMdpCo
             // 
             this.txtMdpCo.Location = new System.Drawing.Point(315, 203);
             this.txtMdpCo.Name = "txtMdpCo";
             this.txtMdpCo.Size = new System.Drawing.Size(147, 22);
-            this.txtMdpCo.TabIndex = 3;
+            this.txtMdpCo.TabIndex = 2;
             // 
             // btnCo
             // 
             this.btnCo.Location = new System.Drawing.Point(315, 257);
             this.btnCo.Name = "btnCo";
             this.btnCo.Size = new System.Drawing.Size(147, 30);
-            this.btnCo.TabIndex = 4;
+            this.btnCo.TabIndex = 3;
             this.btnCo.Text = "connexion";
             this.btnCo.UseVisualStyleBackColor = true;
             this.btnCo.Click += new System.EventHandler(this.btnCo_Click);
@@ -89,10 +89,13 @@
             this.Controls.Add(this.lblMdpCo);
             this.Name = "FrmConnexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "CONNEXION";
             this.ResumeLayout(false);
             this.PerformLayout();
-
+            //
+            //Pasword
+            //
+            txtMdpCo.PasswordChar = '*';
         }
 
         #endregion
