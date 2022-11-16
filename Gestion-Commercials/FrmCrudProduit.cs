@@ -27,14 +27,37 @@ namespace Gestion_Commercials
             this.cATEGORIETableAdapter.Fill(this.dECLICINFODataSet.CATEGORIE);
         }
 
-        private void modifLigne(object sender, DataGridViewCellEventArgs e)
+        private void ModifLigne(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 3)
+            //Console.WriteLine("TTT");
+            if (e.ColumnIndex == 4)
             {
-                string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[0].Value.ToString();
-                float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[1].Value.ToString());
-                int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString());
+                bool verifModif = false;
+
+                int id = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[0].Value.ToString());
+                string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[1].Value.ToString();
+                float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString());
+                int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString());
+
+                Produit prod = new Produit(id, lbl, prix, categ);
+
+                verifModif = GestionProduits.ModifierProduit(prod);
             }
         }
     }
 }
+
+
+
+
+
+/*
+
+System.NullReferenceException
+  HResult = 0x80004003
+  Message=La référence d'objet n'est pas définie à une instance d'un objet.
+  Source=Gestion-Commercials
+  Arborescence des appels de procédure :
+   at Gestion_Commercials.FrmCrudProduit.modifLigne(Object sender, DataGridViewCellEventArgs e) in C: \Users\tducr\source\repos\PPE - C#\gestion-commercials\Gestion-Commercials\FrmCrudProduit.cs:line 34
+
+*/

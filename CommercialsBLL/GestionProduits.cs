@@ -10,7 +10,7 @@ namespace CommercialsBLL
 {
     public class GestionProduits
     {
-        public static int ModifierProduit(Produit majProduit)
+        public static bool ModifierProduit(CommercialsBO.Produit majProduit)
         {
             return ProduitDAO.ModifierProduitDAO(majProduit);
         }

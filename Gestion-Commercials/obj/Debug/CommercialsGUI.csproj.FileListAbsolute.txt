@@ -15,3 +15,5 @@ C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\D
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudProduit.resources
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CopyComplete
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialDAL.dll
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialDAL.pdb

@@ -13,7 +13,7 @@ namespace CommercialsBO
         private float prix;
         private int idCateg;
 
-        Produit(int id, string label, float prix, int idCateg)
+        public Produit(int id, string label, float prix, int idCateg)
         {
             this.id = id;
             this.label = label;

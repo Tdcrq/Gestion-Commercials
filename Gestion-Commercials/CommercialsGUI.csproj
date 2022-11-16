@@ -36,7 +36,8 @@
     <Reference Include="CommercialsBLL">
       <HintPath>..\CommercialsBLL\bin\Debug\CommercialsBLL.dll</HintPath>
     </Reference>
-    <Reference Include="CommercialsBO">
+    <Reference Include="CommercialsBO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CommercialsBO\bin\Debug\CommercialsBO.dll</HintPath>
     </Reference>
     <Reference Include="System" />

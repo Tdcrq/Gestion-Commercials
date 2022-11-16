@@ -57,6 +57,7 @@
             this.dECLICINFODataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pRODUITBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pRODUITTableAdapter = new Gestion_Commercials.DECLICINFODataSetTableAdapters.PRODUITTableAdapter();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libelleprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prixhtprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fkcodecatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,6 +125,7 @@
             this.dataGridViewProduit.AutoGenerateColumns = false;
             this.dataGridViewProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.libelleprodDataGridViewTextBoxColumn,
             this.prixhtprodDataGridViewTextBoxColumn,
             this.fkcodecatDataGridViewTextBoxColumn,
@@ -136,7 +138,7 @@
             this.dataGridViewProduit.RowTemplate.Height = 24;
             this.dataGridViewProduit.Size = new System.Drawing.Size(623, 393);
             this.dataGridViewProduit.TabIndex = 5;
-            this.dataGridViewProduit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.modifLigne);
+            this.dataGridViewProduit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ModifLigne);
             // 
             // pRODUITBindingSource1
             // 
@@ -299,6 +301,16 @@
             // 
             this.pRODUITTableAdapter.ClearBeforeFill = true;
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "code_prod";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
             // libelleprodDataGridViewTextBoxColumn
             // 
             this.libelleprodDataGridViewTextBoxColumn.DataPropertyName = "libelle_prod";
@@ -393,6 +405,7 @@
         private DECLICINFODataSetTableAdapters.PRODUITTableAdapter pRODUITTableAdapter;
         private System.Windows.Forms.BindingSource cATEGORIEBindingSource1;
         private System.Windows.Forms.BindingSource pRODUITBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleprodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn prixhtprodDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fkcodecatDataGridViewTextBoxColumn;

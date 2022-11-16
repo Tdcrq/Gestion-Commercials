@@ -8,19 +8,17 @@ using System.Threading.Tasks;
 
 namespace CommercialDAL
 {
-    public class ProduitDAO
+    public static class ProduitDAO
     {
-        public static int ModifierProduitDAO(Produit pro)
+        public static bool ModifierProduitDAO(Produit pro)
         {
-            int nbEnr = 0;
-
             /* Chaîne de connexion*/
-            SqlConnection conn = new SqlConnection("Data Source=UI-VICTUS;Initial Catalog=BD_Utilisateurs;Integrated Security=True");
+            SqlConnection conn = new SqlConnection("Data Source=UI-VICTUS;Initial Catalog=DECLICINFO;Integrated Security=True");
             conn.Open();
 
             /* Préparation de la requete */
             SqlCommand command = new SqlCommand(
-                "UPDATE PRODUIT SET label_prod = @label, prix_ht_prod = @prix, fk_code_cat = @categ WHERE code_prod = @id",
+                "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = @label, prix_ht_prod = @prix, fk_code_cat = @categ WHERE code_prod = @id",
                 conn
             );
             /* Attributions valeurs aux parametres de la requete */
@@ -29,18 +27,19 @@ namespace CommercialDAL
             command.Parameters.AddWithValue("@categ", pro.IdCateg);
             command.Parameters.AddWithValue("@id", pro.Id);
 
-            /* Éxécution de la requete */
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = "UPDATE PRODUIT SET label_prod = @label, prix_ht_prod = @prix, fk_code_cat = @categ.Label";
-
             /* Récupération du nombre d'enregistrement */
-            nbEnr = cmd.ExecuteNonQuery();
+            int nbEnr = command.ExecuteNonQuery();
 
             /* Fermeture de la connexion */
             conn.Close();
 
-            return nbEnr;
+            if (nbEnr == 1) 
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
     }
 }
