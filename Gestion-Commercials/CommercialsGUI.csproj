@@ -52,6 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DECLICINFODataSet.cs">
+      <DependentUpon>DECLICINFODataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DECLICINFODataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
