@@ -25,7 +25,10 @@ namespace Gestion_Commercials
 
             if (Comm.GetVerif() == true)
             {
-                this.Close();
+                FrmCrudProduit FrmModLect;
+                FrmModLect = new FrmCrudProduit();
+                this.Hide();
+                FrmModLect.ShowDialog(); 
                 //FrmConnexion.ShowDialog(); // ouverture du formulaire
             }
             else
