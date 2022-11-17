@@ -21,6 +21,7 @@ namespace Gestion_Commercials
             InitializeComponent();
             ConnexionBD.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Gestion_Commercials.Properties.Settings.DECLICINFOConnectionString"]);
 
+            #region DGV
             // Blocage de la génération automatique des colonnes
             dataGridViewProduit.AutoGenerateColumns = false;
 
@@ -71,6 +72,10 @@ namespace Gestion_Commercials
 
             // Rattachement de la List à la source de données du datagridview
             dataGridViewProduit.DataSource = liste;
+            #endregion
+
+            #region comboBox
+            #endregion
         }
 
         private void BtnAjout_Click(object sender, EventArgs e)
