@@ -8,10 +8,9 @@ namespace CommercialsBO
 {
     public class Produit
     {
-        private int id_prod;
+        private Int32 id_prod, fk_id_cat;
         private string libelle_prod;
         private float prix_ht_prod;
-        private int fk_id_cat;
 
         public Produit(int id_prod, string libelle_prod, float prix_ht_prod, int fk_id_cat)
         {

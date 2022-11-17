@@ -22,15 +22,14 @@ namespace CommercialDAL
         }
 
         // Cette méthode retourne une List contenant les objets Produits contenus dans la table Identification
-        public static List<CommercialsBO.Produit> GetProduits()
+        public static List<Produit> GetProduits()
         {
             int id, fk_cat;
             string nom;
             float prix;
             Produit unProduit;
             // Connexion à la BD
-            SqlConnection maConnexion =
-           ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
             List<Produit> lesProduits = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
@@ -41,7 +40,7 @@ namespace CommercialDAL
             // Remplissage de la liste
             while (monReader.Read())
             {
-                id = Int32.Parse(monReader["code.prod"].ToString());
+                id = int.Parse(monReader["code_prod"].ToString());
                 if (monReader["libelle_prod"] == DBNull.Value)
                 {
                     nom = default(string);
@@ -58,13 +57,13 @@ namespace CommercialDAL
                 {
                     prix = float.Parse(monReader["prix_ht_prod"].ToString());
                 }
-                if (monReader["prix_ht_prod"] == DBNull.Value)
+                if (monReader["fk_code_cat"] == DBNull.Value)
                 {
                     fk_cat = default(int);
                 }
                 else
                 {
-                    fk_cat = int.Parse(monReader["prix_ht_prod"].ToString());
+                    fk_cat = int.Parse(monReader["fk_code_cat"].ToString());
                 }
                 unProduit = new Produit(id, nom, prix, fk_cat);
                 lesProduits.Add(unProduit);
@@ -73,32 +72,30 @@ namespace CommercialDAL
             maConnexion.Close();
             return lesProduits;
         }
+
         public static int AjoutProduit(Produit unProduit)
         {
             int nbEnr;
             // Connexion à la BD
-            SqlConnection maConnexion =
-           ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.PRODUIT values('" +
-           unProduit.Libelle_prod + "')";
+            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.PRODUIT values('" + unProduit.Libelle_prod + "')";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
         }
+
         // Cette méthode modifie un Produit passé en paramètre dans la BD
         public static int UpdateProduit(Produit unProduit)
         {
             int nbEnr;
             // Connexion à la BD
-            SqlConnection maConnexion =
-           ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = '"
-                + unProduit.Libelle_prod + "' WHERE code.prod = " + unProduit.Id_prod;
+            cmd.CommandText = "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = '" + unProduit.Libelle_prod + "' WHERE code.prod = " + unProduit.Id_prod;
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

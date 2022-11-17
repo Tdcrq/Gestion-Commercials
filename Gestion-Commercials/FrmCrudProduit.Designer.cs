@@ -36,7 +36,7 @@
             this.btnDevis = new System.Windows.Forms.Button();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.listeInfoCategorie = new System.Windows.Forms.ComboBox();
-            this.btnAjout = new System.Windows.Forms.Button();
+            this.BtnAjout = new System.Windows.Forms.Button();
             this.txtInfoPrix = new System.Windows.Forms.TextBox();
             this.lblInfoPrix = new System.Windows.Forms.Label();
             this.lblInfoCategorie = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             this.dataGridViewProduit.RowTemplate.Height = 24;
             this.dataGridViewProduit.Size = new System.Drawing.Size(467, 319);
             this.dataGridViewProduit.TabIndex = 21;
-            this.dataGridViewProduit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.btnModifLigne);
+            this.dataGridViewProduit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BtnModifLigne);
             // 
             // btnDataGridViewModifier
             // 
@@ -129,15 +129,15 @@
             this.listeInfoCategorie.Size = new System.Drawing.Size(97, 21);
             this.listeInfoCategorie.TabIndex = 9;
             // 
-            // btnAjout
+            // BtnAjout
             // 
-            this.btnAjout.Location = new System.Drawing.Point(117, 179);
-            this.btnAjout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAjout.Name = "btnAjout";
-            this.btnAjout.Size = new System.Drawing.Size(77, 19);
-            this.btnAjout.TabIndex = 8;
-            this.btnAjout.Text = "AJOUTER";
-            this.btnAjout.UseVisualStyleBackColor = true;
+            this.BtnAjout.Location = new System.Drawing.Point(117, 179);
+            this.BtnAjout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAjout.Name = "BtnAjout";
+            this.BtnAjout.Size = new System.Drawing.Size(77, 19);
+            this.BtnAjout.TabIndex = 8;
+            this.BtnAjout.Text = "AJOUTER";
+            this.BtnAjout.UseVisualStyleBackColor = true;
             // 
             // txtInfoPrix
             // 
@@ -188,7 +188,7 @@
             // gpBoxInformations
             // 
             this.gpBoxInformations.Controls.Add(this.listeInfoCategorie);
-            this.gpBoxInformations.Controls.Add(this.btnAjout);
+            this.gpBoxInformations.Controls.Add(this.BtnAjout);
             this.gpBoxInformations.Controls.Add(this.txtInfoPrix);
             this.gpBoxInformations.Controls.Add(this.lblInfoPrix);
             this.gpBoxInformations.Controls.Add(this.lblInfoCategorie);
@@ -236,7 +236,7 @@
         private System.Windows.Forms.Button btnDevis;
         private System.Windows.Forms.Label lblCategorie;
         private System.Windows.Forms.ComboBox listeInfoCategorie;
-        private System.Windows.Forms.Button btnAjout;
+        private System.Windows.Forms.Button BtnAjout;
         private System.Windows.Forms.TextBox txtInfoPrix;
         private System.Windows.Forms.Label lblInfoPrix;
         private System.Windows.Forms.Label lblInfoCategorie;
