@@ -138,6 +138,7 @@
             this.BtnAjout.TabIndex = 8;
             this.BtnAjout.Text = "AJOUTER";
             this.BtnAjout.UseVisualStyleBackColor = true;
+            this.BtnAjout.Click += new System.EventHandler(this.BtnAjout_Click);
             // 
             // txtInfoPrix
             // 

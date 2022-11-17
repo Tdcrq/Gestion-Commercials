@@ -81,7 +81,7 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.PRODUIT values('" + unProduit.Libelle_prod + "')";
+            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.PRODUIT(libelle_prod, prix_ht_prod, fk_code_cat) values('" + unProduit.Libelle_prod + "', " + unProduit.Prix_ht_prod + ", " + unProduit.Fk_id_cat + ")";
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
