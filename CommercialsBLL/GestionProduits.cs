@@ -29,16 +29,16 @@ namespace CommercialsBLL
             return ProduitDAO.GetProduits();
         }
 
-        // Méthode qui renvoi l’objet Produit en l'ajoutant à la BD avec la méthode AjoutProduit de la DAL
-        public static bool CreerProduit(Produit ut)
+        // Méthode qui renvoi l’objet Produit en l'ajoprodant à la BD avec la méthode AjoprodProduit de la DAL
+        public static bool CreerProduit(Produit prod)
         {
-            return ProduitDAO.AjoutProduit(ut) != 0;
+            return ProduitDAO.AjoutProduit(prod) != 0;
         }
 
         // Méthode qui modifie un nouvel Produit avec la méthode UpdateProduit de la DAL
-        public static bool ModifierProduit(Produit ut)
+        public static bool ModifierProduit(Produit prod)
         {
-            return ProduitDAO.UpdateProduit(ut) != 0;
+            return ProduitDAO.UpdateProduit(prod) != 0;
         }
     }
 }

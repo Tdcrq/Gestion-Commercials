@@ -29,7 +29,7 @@ namespace Gestion_Commercials
             // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
 
-            IdColumn.DataPropertyName = "code_prod";
+            IdColumn.DataPropertyName = "id_prod";
             IdColumn.HeaderText = "Identifiant";
             IdColumn.Visible = false;
 
@@ -48,7 +48,7 @@ namespace Gestion_Commercials
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn CategColumn = new DataGridViewTextBoxColumn();
 
-            CategColumn.DataPropertyName = "fk_code_cat";
+            CategColumn.DataPropertyName = "fk_id_cat";
             CategColumn.HeaderText = "Catégorie";
 
             // Ajout des 2 en-têtes de colonne au datagridview
@@ -70,7 +70,7 @@ namespace Gestion_Commercials
             liste = GestionProduits.GetProduits();
 
             // Rattachement de la List à la source de données du datagridview
-            //dataGridViewProduit.DataSource = liste;
+            dataGridViewProduit.DataSource = liste;
         }
 
         private void BtnAjout_Click(object sender, EventArgs e)
@@ -92,15 +92,13 @@ namespace Gestion_Commercials
 
         private void BtnModifLigne(object sender, DataGridViewCellEventArgs e)
         {
-            //Console.WriteLine("TTT");
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 0)
             {
                 bool verifModif = false;
-
-                int id = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[0].Value.ToString());
-                string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[1].Value.ToString();
-                float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString());
-                int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString());
+                int id = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[1].Value.ToString());
+                string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString();
+                float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString());
+                int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[4].Value.ToString());
 
                 Produit prod = new Produit(id, lbl, prix, categ);
 

@@ -34,7 +34,7 @@ namespace CommercialDAL
             List<Produit> lesProduits = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = " SELECT * FROM DECLICINFO.dbo.PRODUIT";
+            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.PRODUIT";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             // Remplissage de la liste
@@ -67,6 +67,7 @@ namespace CommercialDAL
                 }
                 unProduit = new Produit(id, nom, prix, fk_cat);
                 lesProduits.Add(unProduit);
+                //Console.WriteLine(id);
             }
             // Fermeture de la connexion
             maConnexion.Close();
@@ -95,8 +96,10 @@ namespace CommercialDAL
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = '" + unProduit.Libelle_prod + "' WHERE code.prod = " + unProduit.Id_prod;
+            cmd.CommandText = "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = '" + unProduit.Libelle_prod + "', prix_ht_prod = " + unProduit.Prix_ht_prod + ", " +
+                "fk_code_cat = " + unProduit.Fk_id_cat + " WHERE code_prod = " + unProduit.Id_prod;
             nbEnr = cmd.ExecuteNonQuery();
+            Console.WriteLine(nbEnr);
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
