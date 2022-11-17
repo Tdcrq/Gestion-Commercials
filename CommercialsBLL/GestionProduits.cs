@@ -30,14 +30,14 @@ namespace CommercialsBLL
         }
         // Méthode qui renvoi l’objet Produit en l'ajoutant à la
         // BD avec la méthode AjoutProduit de la DAL
-        public static int CreerProduit(Produit ut)
+        public static bool CreerProduit(Produit ut)
         {
-            return ProduitDAO.AjoutProduit(ut);
+            return ProduitDAO.AjoutProduit(ut) == 1;
         }
         // Méthode qui modifie un nouvel Produit avec la méthode UpdateProduit de la DAL
-        public static int ModifierProduit(Produit ut)
+        public static bool ModifierProduit(Produit ut)
         {
-            return ProduitDAO.UpdateProduit(ut);
+            return ProduitDAO.UpdateProduit(ut) == 1;
         }
     }
 }
