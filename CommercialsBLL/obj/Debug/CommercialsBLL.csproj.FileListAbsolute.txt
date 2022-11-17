@@ -4,3 +4,8 @@ C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CoreCompileInputs.cache
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.dll
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialDAL.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBO.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialDAL.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBO.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CopyComplete

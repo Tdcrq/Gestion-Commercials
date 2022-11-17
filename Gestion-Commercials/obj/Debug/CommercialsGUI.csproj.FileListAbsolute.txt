@@ -8,3 +8,11 @@ C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\D
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CoreCompileInputs.cache
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.exe
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialsBLL.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialsBO.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialsBLL.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialsBO.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CopyComplete
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialDAL.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialDAL.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudProduit.resources
