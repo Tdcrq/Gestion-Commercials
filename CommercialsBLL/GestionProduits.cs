@@ -14,5 +14,10 @@ namespace CommercialsBLL
         {
             return ProduitDAO.ModifierProduitDAO(majProduit);
         }
+
+        public static bool AjoutProduit(CommercialsBO.Produit ajoutProduit)
+        {
+            return ProduitDAO.AjoutProduitDAO(ajoutProduit);
+        }
     }
 }

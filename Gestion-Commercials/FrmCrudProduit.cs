@@ -44,20 +44,17 @@ namespace Gestion_Commercials
                 verifModif = GestionProduits.ModifierProduit(prod);
             }
         }
+
+        private void btnAjout_Click(object sender, EventArgs e)
+        {
+            bool verifAjout = false;
+            int categ = int.Parse(listeInfoCategorie.SelectedValue.ToString());
+            string lbl = txtInfoLibelle.Text;
+            float prix = float.Parse(txtInfoPrix.Text);
+
+            Produit prod = new Produit(lbl,prix,categ);
+
+            verifAjout = GestionProduits.AjoutProduit(prod);
+        }
     }
 }
-
-
-
-
-
-/*
-
-System.NullReferenceException
-  HResult = 0x80004003
-  Message=La référence d'objet n'est pas définie à une instance d'un objet.
-  Source=Gestion-Commercials
-  Arborescence des appels de procédure :
-   at Gestion_Commercials.FrmCrudProduit.modifLigne(Object sender, DataGridViewCellEventArgs e) in C: \Users\tducr\source\repos\PPE - C#\gestion-commercials\Gestion-Commercials\FrmCrudProduit.cs:line 34
-
-*/

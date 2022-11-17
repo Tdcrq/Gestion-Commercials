@@ -21,6 +21,13 @@ namespace CommercialsBO
             this.idCateg = idCateg;
         }
 
+        public Produit(string label, float prix, int idCateg)
+        {
+            this.label = label;
+            this.prix = prix;
+            this.idCateg = idCateg;
+        }
+
         public string Label { get => label; set => label = value; }
         public float Prix { get => prix; set => prix = value; }
         public int IdCateg { get => idCateg; set => idCateg = value; }

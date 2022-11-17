@@ -35,20 +35,23 @@
             this.btnSyntheseClients = new System.Windows.Forms.Button();
             this.btnProduits = new System.Windows.Forms.Button();
             this.dataGridViewProduit = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libelleprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prixhtprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fkcodecatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pRODUITBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dECLICINFODataSet = new Gestion_Commercials.DECLICINFODataSet();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
             this.listeInfoCategorie = new System.Windows.Forms.ComboBox();
             this.cATEGORIEBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dECLICINFODataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.btnInfoEnvoie = new System.Windows.Forms.Button();
+            this.btnAjout = new System.Windows.Forms.Button();
             this.txtInfoPrix = new System.Windows.Forms.TextBox();
             this.lblInfoPrix = new System.Windows.Forms.Label();
             this.lblInfoCategorie = new System.Windows.Forms.Label();
             this.txtInfoLibelle = new System.Windows.Forms.TextBox();
             this.lblInfoLibelle = new System.Windows.Forms.Label();
-            this.txtInfoCode = new System.Windows.Forms.TextBox();
-            this.lblInfoCode = new System.Windows.Forms.Label();
             this.cATEGORIEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dECLICINFODataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnNouveau = new System.Windows.Forms.Button();
@@ -57,11 +60,6 @@
             this.dECLICINFODataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.pRODUITBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pRODUITTableAdapter = new Gestion_Commercials.DECLICINFODataSetTableAdapters.PRODUITTableAdapter();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libelleprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixhtprodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fkcodecatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pRODUITBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dECLICINFODataSet)).BeginInit();
@@ -140,6 +138,47 @@
             this.dataGridViewProduit.TabIndex = 5;
             this.dataGridViewProduit.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ModifLigne);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "code_prod";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
+            // 
+            // libelleprodDataGridViewTextBoxColumn
+            // 
+            this.libelleprodDataGridViewTextBoxColumn.DataPropertyName = "libelle_prod";
+            this.libelleprodDataGridViewTextBoxColumn.HeaderText = "nom";
+            this.libelleprodDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.libelleprodDataGridViewTextBoxColumn.Name = "libelleprodDataGridViewTextBoxColumn";
+            this.libelleprodDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // prixhtprodDataGridViewTextBoxColumn
+            // 
+            this.prixhtprodDataGridViewTextBoxColumn.DataPropertyName = "prix_ht_prod";
+            this.prixhtprodDataGridViewTextBoxColumn.HeaderText = "prix ht";
+            this.prixhtprodDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.prixhtprodDataGridViewTextBoxColumn.Name = "prixhtprodDataGridViewTextBoxColumn";
+            this.prixhtprodDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // fkcodecatDataGridViewTextBoxColumn
+            // 
+            this.fkcodecatDataGridViewTextBoxColumn.DataPropertyName = "fk_code_cat";
+            this.fkcodecatDataGridViewTextBoxColumn.HeaderText = "catégorie";
+            this.fkcodecatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fkcodecatDataGridViewTextBoxColumn.Name = "fkcodecatDataGridViewTextBoxColumn";
+            this.fkcodecatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // btnDataGridViewModifier
+            // 
+            this.btnDataGridViewModifier.HeaderText = "modifier";
+            this.btnDataGridViewModifier.MinimumWidth = 6;
+            this.btnDataGridViewModifier.Name = "btnDataGridViewModifier";
+            this.btnDataGridViewModifier.Width = 125;
+            // 
             // pRODUITBindingSource1
             // 
             this.pRODUITBindingSource1.DataMember = "PRODUIT";
@@ -153,14 +192,12 @@
             // gpBoxInformations
             // 
             this.gpBoxInformations.Controls.Add(this.listeInfoCategorie);
-            this.gpBoxInformations.Controls.Add(this.btnInfoEnvoie);
+            this.gpBoxInformations.Controls.Add(this.btnAjout);
             this.gpBoxInformations.Controls.Add(this.txtInfoPrix);
             this.gpBoxInformations.Controls.Add(this.lblInfoPrix);
             this.gpBoxInformations.Controls.Add(this.lblInfoCategorie);
             this.gpBoxInformations.Controls.Add(this.txtInfoLibelle);
             this.gpBoxInformations.Controls.Add(this.lblInfoLibelle);
-            this.gpBoxInformations.Controls.Add(this.txtInfoCode);
-            this.gpBoxInformations.Controls.Add(this.lblInfoCode);
             this.gpBoxInformations.Location = new System.Drawing.Point(903, 144);
             this.gpBoxInformations.Name = "gpBoxInformations";
             this.gpBoxInformations.Size = new System.Drawing.Size(280, 320);
@@ -170,6 +207,7 @@
             // 
             // listeInfoCategorie
             // 
+            this.listeInfoCategorie.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.cATEGORIEBindingSource1, "code_cat", true));
             this.listeInfoCategorie.DataSource = this.cATEGORIEBindingSource1;
             this.listeInfoCategorie.DisplayMember = "libelle_cat";
             this.listeInfoCategorie.FormattingEnabled = true;
@@ -189,14 +227,15 @@
             this.dECLICINFODataSetBindingSource2.DataSource = this.dECLICINFODataSet;
             this.dECLICINFODataSetBindingSource2.Position = 0;
             // 
-            // btnInfoEnvoie
+            // btnAjout
             // 
-            this.btnInfoEnvoie.Location = new System.Drawing.Point(190, 277);
-            this.btnInfoEnvoie.Name = "btnInfoEnvoie";
-            this.btnInfoEnvoie.Size = new System.Drawing.Size(75, 23);
-            this.btnInfoEnvoie.TabIndex = 8;
-            this.btnInfoEnvoie.Text = "Envoyer";
-            this.btnInfoEnvoie.UseVisualStyleBackColor = true;
+            this.btnAjout.Location = new System.Drawing.Point(162, 277);
+            this.btnAjout.Name = "btnAjout";
+            this.btnAjout.Size = new System.Drawing.Size(103, 23);
+            this.btnAjout.TabIndex = 8;
+            this.btnAjout.Text = "AJOUTER";
+            this.btnAjout.UseVisualStyleBackColor = true;
+            this.btnAjout.Click += new System.EventHandler(this.btnAjout_Click);
             // 
             // txtInfoPrix
             // 
@@ -238,22 +277,6 @@
             this.lblInfoLibelle.Size = new System.Drawing.Size(47, 16);
             this.lblInfoLibelle.TabIndex = 2;
             this.lblInfoLibelle.Text = "Libellé";
-            // 
-            // txtInfoCode
-            // 
-            this.txtInfoCode.Location = new System.Drawing.Point(137, 65);
-            this.txtInfoCode.Name = "txtInfoCode";
-            this.txtInfoCode.Size = new System.Drawing.Size(100, 22);
-            this.txtInfoCode.TabIndex = 1;
-            // 
-            // lblInfoCode
-            // 
-            this.lblInfoCode.AutoSize = true;
-            this.lblInfoCode.Location = new System.Drawing.Point(32, 68);
-            this.lblInfoCode.Name = "lblInfoCode";
-            this.lblInfoCode.Size = new System.Drawing.Size(40, 16);
-            this.lblInfoCode.TabIndex = 0;
-            this.lblInfoCode.Text = "Code";
             // 
             // cATEGORIEBindingSource
             // 
@@ -300,47 +323,6 @@
             // pRODUITTableAdapter
             // 
             this.pRODUITTableAdapter.ClearBeforeFill = true;
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "code_prod";
-            this.id.HeaderText = "id";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 125;
-            // 
-            // libelleprodDataGridViewTextBoxColumn
-            // 
-            this.libelleprodDataGridViewTextBoxColumn.DataPropertyName = "libelle_prod";
-            this.libelleprodDataGridViewTextBoxColumn.HeaderText = "nom";
-            this.libelleprodDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.libelleprodDataGridViewTextBoxColumn.Name = "libelleprodDataGridViewTextBoxColumn";
-            this.libelleprodDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // prixhtprodDataGridViewTextBoxColumn
-            // 
-            this.prixhtprodDataGridViewTextBoxColumn.DataPropertyName = "prix_ht_prod";
-            this.prixhtprodDataGridViewTextBoxColumn.HeaderText = "prix ht";
-            this.prixhtprodDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.prixhtprodDataGridViewTextBoxColumn.Name = "prixhtprodDataGridViewTextBoxColumn";
-            this.prixhtprodDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // fkcodecatDataGridViewTextBoxColumn
-            // 
-            this.fkcodecatDataGridViewTextBoxColumn.DataPropertyName = "fk_code_cat";
-            this.fkcodecatDataGridViewTextBoxColumn.HeaderText = "catégorie";
-            this.fkcodecatDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fkcodecatDataGridViewTextBoxColumn.Name = "fkcodecatDataGridViewTextBoxColumn";
-            this.fkcodecatDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // btnDataGridViewModifier
-            // 
-            this.btnDataGridViewModifier.HeaderText = "modifier";
-            this.btnDataGridViewModifier.MinimumWidth = 6;
-            this.btnDataGridViewModifier.Name = "btnDataGridViewModifier";
-            this.btnDataGridViewModifier.Width = 125;
             // 
             // FrmCrudProduit
             // 
@@ -391,9 +373,7 @@
         private System.Windows.Forms.Label lblInfoCategorie;
         private System.Windows.Forms.TextBox txtInfoLibelle;
         private System.Windows.Forms.Label lblInfoLibelle;
-        private System.Windows.Forms.TextBox txtInfoCode;
-        private System.Windows.Forms.Label lblInfoCode;
-        private System.Windows.Forms.Button btnInfoEnvoie;
+        private System.Windows.Forms.Button btnAjout;
         private System.Windows.Forms.ComboBox listeInfoCategorie;
         private System.Windows.Forms.BindingSource dECLICINFODataSetBindingSource;
         private DECLICINFODataSet dECLICINFODataSet;

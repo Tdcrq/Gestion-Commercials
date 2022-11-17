@@ -9,3 +9,14 @@ C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\CommercialsBLL\bin\Debug\
 C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\CommercialsBLL\bin\Debug\CommercialDAL.pdb
 C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\CommercialsBLL\bin\Debug\CommercialsBO.pdb
 C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CopyComplete
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBLL.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBLL.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialDAL.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBO.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialDAL.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\bin\Debug\CommercialsBO.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.AssemblyReference.cache
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CoreCompileInputs.cache
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.csproj.CopyComplete
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBLL\obj\Debug\CommercialsBLL.pdb

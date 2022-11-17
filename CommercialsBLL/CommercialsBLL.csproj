@@ -52,5 +52,11 @@
     <Compile Include="GestionProduits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gestion-Commercials\CommercialsGUI.csproj">
+      <Project>{69c808bb-ab48-4738-b756-771959a9ce49}</Project>
+      <Name>CommercialsGUI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
