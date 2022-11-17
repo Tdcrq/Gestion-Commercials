@@ -54,7 +54,7 @@
             this.dataGridViewProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDataGridViewModifier});
             this.dataGridViewProduit.Location = new System.Drawing.Point(236, 101);
-            this.dataGridViewProduit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewProduit.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewProduit.Name = "dataGridViewProduit";
             this.dataGridViewProduit.RowHeadersVisible = false;
             this.dataGridViewProduit.RowHeadersWidth = 51;
@@ -73,7 +73,7 @@
             // btnProduits
             // 
             this.btnProduits.Location = new System.Drawing.Point(45, 334);
-            this.btnProduits.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProduits.Margin = new System.Windows.Forms.Padding(2);
             this.btnProduits.Name = "btnProduits";
             this.btnProduits.Size = new System.Drawing.Size(92, 19);
             this.btnProduits.TabIndex = 20;
@@ -83,7 +83,7 @@
             // btnSyntheseClients
             // 
             this.btnSyntheseClients.Location = new System.Drawing.Point(45, 279);
-            this.btnSyntheseClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSyntheseClients.Margin = new System.Windows.Forms.Padding(2);
             this.btnSyntheseClients.Name = "btnSyntheseClients";
             this.btnSyntheseClients.Size = new System.Drawing.Size(92, 19);
             this.btnSyntheseClients.TabIndex = 19;
@@ -93,7 +93,7 @@
             // btnClients
             // 
             this.btnClients.Location = new System.Drawing.Point(45, 223);
-            this.btnClients.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClients.Margin = new System.Windows.Forms.Padding(2);
             this.btnClients.Name = "btnClients";
             this.btnClients.Size = new System.Drawing.Size(92, 19);
             this.btnClients.TabIndex = 18;
@@ -103,7 +103,7 @@
             // btnDevis
             // 
             this.btnDevis.Location = new System.Drawing.Point(45, 171);
-            this.btnDevis.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDevis.Margin = new System.Windows.Forms.Padding(2);
             this.btnDevis.Name = "btnDevis";
             this.btnDevis.Size = new System.Drawing.Size(92, 19);
             this.btnDevis.TabIndex = 17;
@@ -124,7 +124,7 @@
             // 
             this.listeInfoCategorie.FormattingEnabled = true;
             this.listeInfoCategorie.Location = new System.Drawing.Point(96, 84);
-            this.listeInfoCategorie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listeInfoCategorie.Margin = new System.Windows.Forms.Padding(2);
             this.listeInfoCategorie.Name = "listeInfoCategorie";
             this.listeInfoCategorie.Size = new System.Drawing.Size(97, 21);
             this.listeInfoCategorie.TabIndex = 9;
@@ -132,7 +132,7 @@
             // BtnAjout
             // 
             this.BtnAjout.Location = new System.Drawing.Point(117, 179);
-            this.BtnAjout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnAjout.Margin = new System.Windows.Forms.Padding(2);
             this.BtnAjout.Name = "BtnAjout";
             this.BtnAjout.Size = new System.Drawing.Size(77, 19);
             this.BtnAjout.TabIndex = 8;
@@ -142,7 +142,7 @@
             // txtInfoPrix
             // 
             this.txtInfoPrix.Location = new System.Drawing.Point(96, 128);
-            this.txtInfoPrix.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInfoPrix.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfoPrix.Name = "txtInfoPrix";
             this.txtInfoPrix.Size = new System.Drawing.Size(76, 20);
             this.txtInfoPrix.TabIndex = 7;
@@ -170,7 +170,7 @@
             // txtInfoLibelle
             // 
             this.txtInfoLibelle.Location = new System.Drawing.Point(96, 42);
-            this.txtInfoLibelle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInfoLibelle.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfoLibelle.Name = "txtInfoLibelle";
             this.txtInfoLibelle.Size = new System.Drawing.Size(76, 20);
             this.txtInfoLibelle.TabIndex = 3;
@@ -195,9 +195,9 @@
             this.gpBoxInformations.Controls.Add(this.txtInfoLibelle);
             this.gpBoxInformations.Controls.Add(this.lblInfoLibelle);
             this.gpBoxInformations.Location = new System.Drawing.Point(794, 153);
-            this.gpBoxInformations.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpBoxInformations.Margin = new System.Windows.Forms.Padding(2);
             this.gpBoxInformations.Name = "gpBoxInformations";
-            this.gpBoxInformations.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpBoxInformations.Padding = new System.Windows.Forms.Padding(2);
             this.gpBoxInformations.Size = new System.Drawing.Size(218, 219);
             this.gpBoxInformations.TabIndex = 22;
             this.gpBoxInformations.TabStop = false;
@@ -215,7 +215,7 @@
             this.Controls.Add(this.btnDevis);
             this.Controls.Add(this.lblCategorie);
             this.Controls.Add(this.gpBoxInformations);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCrudProduit";
             this.Text = "PRODUIT";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).EndInit();

@@ -75,6 +75,10 @@ namespace Gestion_Commercials
             #endregion
 
             #region comboBox
+            List<Categorie> listeCat = CategorieDAO.GetCategories();
+            listeInfoCategorie.DisplayMember = "libelle_cat";
+            listeInfoCategorie.ValueMember = "code_cat";
+            listeInfoCategorie.DataSource = listeCat;
             #endregion
         }
 
