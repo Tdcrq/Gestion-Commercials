@@ -22,12 +22,5 @@ namespace CommercialsBLL
             }
             return uneGestionCommercials;
         }
-
-        // Définit la chaîne de connexion grâce à la méthode SetchaineConnexion de la DAL
-        public static void SetchaineConnexion(ConnectionStringSettings chset)
-        {
-            string chaine = chset.ConnectionString;
-            ConnexionBD.GetConnexionBD().SetchaineConnexion(chaine);
-        }
     }
 }

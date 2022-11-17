@@ -57,17 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCrudProduit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCrudProduit.Designer.cs">
-      <DependentUpon>FrmCrudProduit.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCrudProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrudProduit.Designer.cs">
+      <DependentUpon>FrmCrudProduit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
