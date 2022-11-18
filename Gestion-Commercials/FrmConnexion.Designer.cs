@@ -64,6 +64,7 @@
             // 
             this.txtMdpCo.Location = new System.Drawing.Point(315, 203);
             this.txtMdpCo.Name = "txtMdpCo";
+            this.txtMdpCo.PasswordChar = '*';
             this.txtMdpCo.Size = new System.Drawing.Size(147, 22);
             this.txtMdpCo.TabIndex = 2;
             // 
@@ -92,10 +93,7 @@
             this.Text = "CONNEXION";
             this.ResumeLayout(false);
             this.PerformLayout();
-            //
-            //Pasword
-            //
-            txtMdpCo.PasswordChar = '*';
+
         }
 
         #endregion

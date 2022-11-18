@@ -101,23 +101,31 @@ namespace Gestion_Commercials
             }
         }
 
-        private void BtnModifLigne(object sender, DataGridViewCellEventArgs e)
+        private void BtnEvent(object sender, DataGridViewCellEventArgs e)
         {
+            bool verifModif = false;
+            bool verifSuppression = false;
+            int id = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString());
+            string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString();
+            float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[4].Value.ToString());
+            int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[5].Value.ToString());
+
+            Produit prod = new Produit(id, lbl, prix, categ);
+
             if (e.ColumnIndex == 0)
             {
-                bool verifModif = false;
-                int id = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[1].Value.ToString());
-                string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString();
-                float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString());
-                int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[4].Value.ToString());
-
-                Produit prod = new Produit(id, lbl, prix, categ);
-
                 verifModif = GestionProduits.ModifierProduit(prod);
-
                 if (!verifModif)
                 {
                     MessageBox.Show("ERREUR LORS DE LA MODIFICATION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                verifSuppression = GestionProduits.DeleteProduit(prod);
+                if (!verifSuppression)
+                {
+                    MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

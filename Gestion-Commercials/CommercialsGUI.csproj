@@ -71,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmConnexion.resx">
+      <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudProduit.resx">
       <DependentUpon>FrmCrudProduit.cs</DependentUpon>
     </EmbeddedResource>

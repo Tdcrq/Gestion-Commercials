@@ -40,6 +40,12 @@ namespace CommercialsBLL
         {
             return ProduitDAO.UpdateProduit(prod) != 0;
         }
+
+        // Méthode qui supprime un  Produit avec la méthode DelteProduit de la DAL
+        public static bool DeleteProduit(Produit prod)
+        {
+            return ProduitDAO.DeleteProduit(prod) != 0;
+        }
     }
 }
 

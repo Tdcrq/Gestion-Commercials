@@ -104,6 +104,22 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
+
+        // Cette méthode supprime de la BD un utilisateur dont l'id est passé en paramètre
+        public static int DeleteProduit(Produit unProduit)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "DELETE FROM DECLICINFO.dbo.PRODUIT WHERE code_prod = " + unProduit.Id_prod;
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return nbEnr;
+        }
+
     }
 }
 
