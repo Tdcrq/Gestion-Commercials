@@ -38,7 +38,7 @@ namespace Gestion_Commercials
             DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
             NomColumn.DataPropertyName = "libelle_prod";
-            NomColumn.HeaderText = "Nom du Produit";
+            NomColumn.HeaderText = "Nom";
 
             // Création d'une en-tête de colonne pour la colonne 3
             DataGridViewTextBoxColumn PrixColumn = new DataGridViewTextBoxColumn();
@@ -128,6 +128,16 @@ namespace Gestion_Commercials
                     MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void BtnActualiser_Click(object sender, EventArgs e)
+        {
+            // Création d'un objet List d'Produit à afficher dans le datagridview
+            List<Produit> liste = new List<Produit>();
+            liste = GestionProduits.GetProduits();
+
+            // Rattachement de la List à la source de données du datagridview
+            dataGridViewProduit.DataSource = liste;
         }
     }
 }

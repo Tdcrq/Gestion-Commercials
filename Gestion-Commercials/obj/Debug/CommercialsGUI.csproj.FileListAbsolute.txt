@@ -35,3 +35,4 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Co
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.exe
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.pdb
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
