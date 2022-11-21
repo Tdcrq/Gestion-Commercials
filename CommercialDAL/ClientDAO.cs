@@ -24,8 +24,8 @@ namespace CommercialDAL
         // Cette méthode retourne une List contenant les objets Client contenus dans la table Client
         public static List<Client> GetClient()
         {
-            string nom, rueFac, rueLivr, villeFac, villeLiv, cpFac, cpLiv, tel, fax, email;
-            int code, numFac, numLivr;
+            string nom, rueFac, rueLiv, villeFac, villeLiv, cpFac, cpLiv, tel, fax, email;
+            int code, numFac, numLiv;
             Client unClient;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
@@ -82,19 +82,19 @@ namespace CommercialDAL
                 }
                 if (monReader["num_liv_cli"] == DBNull.Value)
                 {
-                    numLivr = default(int);
+                    numLiv = default(int);
                 }
                 else
                 {
-                    numLivr = int.Parse(monReader["num_liv_cli"].ToString());
+                    numLiv = int.Parse(monReader["num_liv_cli"].ToString());
                 }
                 if (monReader["rue_liv_cli"] == DBNull.Value)
                 {
-                    rueLivr = default(string);
+                    rueLiv = default(string);
                 }
                 else
                 {
-                    rueLivr = monReader["rue_liv_cli"].ToString();
+                    rueLiv = monReader["rue_liv_cli"].ToString();
                 }
                 if (monReader["ville_liv_cli"] == DBNull.Value)
                 {
@@ -137,7 +137,7 @@ namespace CommercialDAL
                     email = monReader["email_cli"].ToString();
                 }
 
-                unClient = new Client(code, nom, numFac, rueFac, villeFac, cpFac, villeLiv, cpLiv, tel, fax, email);
+                unClient = new Client(code, nom, numFac, rueFac, villeFac, cpFac, numLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
                 lesClients.Add(unClient);
             }
             // Fermeture de la connexion
