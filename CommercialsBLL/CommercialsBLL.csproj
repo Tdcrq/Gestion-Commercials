@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestionCategories.cs" />
+    <Compile Include="GestionClients.cs" />
     <Compile Include="GestionCommercials.cs" />
     <Compile Include="GestionProduits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

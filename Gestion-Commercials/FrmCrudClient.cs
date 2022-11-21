@@ -65,7 +65,7 @@ namespace Gestion_Commercials
             DataGridViewTextBoxColumn fax = new DataGridViewTextBoxColumn();
 
             fax.DataPropertyName = "fax_cli";
-            fax.HeaderText = "rue";
+            fax.HeaderText = "fax";
 
             // Création d'une en-tête de colonne pour la colonne 
             DataGridViewTextBoxColumn email = new DataGridViewTextBoxColumn();
@@ -90,7 +90,7 @@ namespace Gestion_Commercials
 
             // Création d'un objet List client à afficher dans le datagridview
             List<Client> liste = new List<Client>();
-            /*liste = GestionClients.GetClient();*/
+            liste = GestionClients.GetClients();
 
             // Rattachement de la List à la source de données du datagridview
             dataGridViewProduit.DataSource = liste;

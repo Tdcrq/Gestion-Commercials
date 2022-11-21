@@ -80,37 +80,37 @@ namespace CommercialDAL
                 {
                     cpFac = monReader["cp_fac_cli"].ToString();
                 }
-                if (monReader["num_livr_cli"] == DBNull.Value)
+                if (monReader["num_liv_cli"] == DBNull.Value)
                 {
                     numLivr = default(int);
                 }
                 else
                 {
-                    numLivr = int.Parse(monReader["num_livr_cli"].ToString());
+                    numLivr = int.Parse(monReader["num_liv_cli"].ToString());
                 }
-                if (monReader["rue_livr_cli"] == DBNull.Value)
+                if (monReader["rue_liv_cli"] == DBNull.Value)
                 {
                     rueLivr = default(string);
                 }
                 else
                 {
-                    rueLivr = monReader["rue_livr_cli"].ToString();
+                    rueLivr = monReader["rue_liv_cli"].ToString();
                 }
-                if (monReader["ville_livr_cli"] == DBNull.Value)
+                if (monReader["ville_liv_cli"] == DBNull.Value)
                 {
                     villeLivr = default(string);
                 }
                 else
                 {
-                    villeLivr = monReader["ville_livr_cli"].ToString();
+                    villeLivr = monReader["ville_liv_cli"].ToString();
                 }
-                if (monReader["cp_livr_cli"] == DBNull.Value)
+                if (monReader["cp_liv_cli"] == DBNull.Value)
                 {
                     cpLivr = default(string);
                 }
                 else
                 {
-                    cpLivr = monReader["cp_livr_cli"].ToString();
+                    cpLivr = monReader["cp_liv_cli"].ToString();
                 }
                 if (monReader["telephone_cli"] == DBNull.Value)
                 {
