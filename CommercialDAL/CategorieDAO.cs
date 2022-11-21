@@ -62,24 +62,30 @@ namespace CommercialDAL
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.Categorie values('" + unCategorie.Libelle_cat + "')";
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO DECLICINFO.dbo.Categorie values(@libelle)", 
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@libelle", unCategorie.Libelle_cat);
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
         }
 
-        // Cette méthode modifie un Categorie passé en paramètre dans la BD
+        // Cette méthode modifie une Categorie passé en paramètre dans la BD
         public static int UpdateCategorie(Categorie unCategorie)
         {
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE DECLICINFO.dbo.Categorie SET Libelle_cat = '" + unCategorie.Libelle_cat + "' WHERE code_cat = " + unCategorie.Code_cat;
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE DECLICINFO.dbo.Categorie SET Libelle_cat = @libelle" +
+                "WHERE code_cat = @code_cat",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@libelle", unCategorie.Libelle_cat);
+            cmd.Parameters.AddWithValue("@code_cat", unCategorie.Code_cat);
             nbEnr = cmd.ExecuteNonQuery();
             Console.WriteLine(nbEnr);
             // Fermeture de la connexion

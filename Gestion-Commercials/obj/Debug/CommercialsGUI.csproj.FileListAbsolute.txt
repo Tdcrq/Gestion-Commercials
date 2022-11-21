@@ -37,3 +37,4 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Ge
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
