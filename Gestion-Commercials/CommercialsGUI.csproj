@@ -63,6 +63,12 @@
     <Compile Include="FrmConnexion.Designer.cs">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCrudClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrudClient.Designer.cs">
+      <DependentUpon>FrmCrudClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCrudProduit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrudClient.resx">
+      <DependentUpon>FrmCrudClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudProduit.resx">
       <DependentUpon>FrmCrudProduit.cs</DependentUpon>

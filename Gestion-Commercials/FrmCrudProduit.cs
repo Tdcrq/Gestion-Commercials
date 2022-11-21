@@ -139,5 +139,21 @@ namespace Gestion_Commercials
             // Rattachement de la List à la source de données du datagridview
             dataGridViewProduit.DataSource = liste;
         }
+
+        private void btnProduits_Click(object sender, EventArgs e)
+        {
+            FrmCrudProduit FrmProd;
+            FrmProd = new FrmCrudProduit();
+            this.Hide();
+            FrmProd.ShowDialog();
+        }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            FrmCrudClient FrmClient;
+            FrmClient = new FrmCrudClient();
+            this.Hide();
+            FrmClient.ShowDialog();
+        }
     }
 }
