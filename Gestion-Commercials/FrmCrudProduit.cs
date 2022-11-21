@@ -99,6 +99,13 @@ namespace Gestion_Commercials
             {
                 MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // Création d'un objet List d'Produit à afficher dans le datagridview
+            List<Produit> liste = new List<Produit>();
+            liste = GestionProduits.GetProduits();
+
+            // Rattachement de la List à la source de données du datagridview
+            dataGridViewProduit.DataSource = liste;
         }
 
         private void BtnEvent(object sender, DataGridViewCellEventArgs e)
@@ -128,10 +135,7 @@ namespace Gestion_Commercials
                     MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
 
-        private void BtnActualiser_Click(object sender, EventArgs e)
-        {
             // Création d'un objet List d'Produit à afficher dans le datagridview
             List<Produit> liste = new List<Produit>();
             liste = GestionProduits.GetProduits();
