@@ -38,6 +38,7 @@
             this.btnDevis = new System.Windows.Forms.Button();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtFax = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.lblNumFac = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
             this.SuspendLayout();
@@ -150,9 +150,9 @@
             this.lblCategorie.AutoSize = true;
             this.lblCategorie.Location = new System.Drawing.Point(114, 25);
             this.lblCategorie.Name = "lblCategorie";
-            this.lblCategorie.Size = new System.Drawing.Size(213, 16);
+            this.lblCategorie.Size = new System.Drawing.Size(199, 16);
             this.lblCategorie.TabIndex = 24;
-            this.lblCategorie.Text = "Gestion commercials - PRODUITS";
+            this.lblCategorie.Text = "Gestion commercials - CLIENTS";
             // 
             // gpBoxInformations
             // 
@@ -185,6 +185,15 @@
             this.gpBoxInformations.TabIndex = 30;
             this.gpBoxInformations.TabStop = false;
             this.gpBoxInformations.Text = "Informations";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(196, 328);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "AJOUTER";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtEmail
             // 
@@ -345,15 +354,6 @@
             this.lblNom.Size = new System.Drawing.Size(33, 16);
             this.lblNom.TabIndex = 0;
             this.lblNom.Text = "nom";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(196, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "AJOUTER";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmCrudClient
             // 
