@@ -79,9 +79,15 @@ namespace CommercialDAL
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.PRODUIT(libelle_prod, prix_ht_prod, fk_code_cat) values('" + unProduit.Libelle_prod + "', " + unProduit.Prix_ht_prod + ", " + unProduit.Fk_id_cat + ")";
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO DECLICINFO.dbo.PRODUIT(libelle_prod, prix_ht_prod, fk_code_cat) " +
+                "VALUES(@libelle, @prix, @fk_id_cat)",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@libelle", unProduit.Libelle_prod);
+            cmd.Parameters.AddWithValue("@prix", unProduit.Prix_ht_prod);
+            cmd.Parameters.AddWithValue("@fk_id_cat", unProduit.Fk_id_cat);
+            /* Exécution de la requête + stockage du nbre de ligne impactée */
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -93,13 +99,20 @@ namespace CommercialDAL
         {
             int nbEnr;
             // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = '" + unProduit.Libelle_prod + "', prix_ht_prod = " + unProduit.Prix_ht_prod + ", " +
-                "fk_code_cat = " + unProduit.Fk_id_cat + " WHERE code_prod = " + unProduit.Id_prod;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();            
+            /* Préparation de la requête */
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE DECLICINFO.dbo.PRODUIT " +
+                "SET libelle_prod = @libelle, prix_ht_prod = @prix, fk_code_cat = @fk_id_cat " +
+                "WHERE code_prod = @id",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@libelle", unProduit.Libelle_prod);
+            cmd.Parameters.AddWithValue("@prix", unProduit.Prix_ht_prod);
+            cmd.Parameters.AddWithValue("@fk_id_cat", unProduit.Fk_id_cat);
+            cmd.Parameters.AddWithValue("@id", unProduit.Id_prod);
+            /* Exécution de la requête + stockage du nbre de ligne impactée */
             nbEnr = cmd.ExecuteNonQuery();
-            Console.WriteLine(nbEnr);
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
@@ -111,9 +124,11 @@ namespace CommercialDAL
             int nbEnr;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM DECLICINFO.dbo.PRODUIT WHERE code_prod = " + unProduit.Id_prod;
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM DECLICINFO.dbo.PRODUIT WHERE code_prod = @id",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", unProduit.Id_prod);
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();

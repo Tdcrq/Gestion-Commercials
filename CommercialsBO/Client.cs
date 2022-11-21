@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CommercialsBO
 {
-    internal class Client
+    public class Client
     {
         private string nom_cli, rueFac, rueLivr, villeFac, villeLivr, cpFac, cpLivr, tel, fax ,email;
-        private Int32 numFac, numLivr;
+        private Int32 code, numFac, numLivr;
 
-        public Client(string nom_cli, string rueFac, string rueLivr, string villeFac, string villeLivr, string cpFac, string cpLivr, string tel, string fax, string email, int numFac, int numLivr)
+        public Client(string nom_cli, string rueFac, string rueLivr, string villeFac, string villeLivr, string cpFac, string cpLivr, string tel, string fax, string email, int code, int numFac, int numLivr)
         {
             this.nom_cli = nom_cli;
             this.rueFac = rueFac;
@@ -23,6 +23,7 @@ namespace CommercialsBO
             this.tel = tel;
             this.fax = fax;
             this.email = email;
+            this.code = code;
             this.numFac = numFac;
             this.numLivr = numLivr;
         }
@@ -37,6 +38,7 @@ namespace CommercialsBO
         public string Tel { get => tel; set => tel = value; }
         public string Fax { get => fax; set => fax = value; }
         public string Email { get => email; set => email = value; }
+        public int Code { get => code; set => code = value; }
         public int NumFac { get => numFac; set => numFac = value; }
         public int NumLivr { get => numLivr; set => numLivr = value; }
     }

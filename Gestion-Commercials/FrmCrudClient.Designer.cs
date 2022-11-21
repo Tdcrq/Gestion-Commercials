@@ -38,7 +38,7 @@
             this.btnDevis = new System.Windows.Forms.Button();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAjout = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtFax = new System.Windows.Forms.TextBox();
@@ -156,7 +156,7 @@
             // 
             // gpBoxInformations
             // 
-            this.gpBoxInformations.Controls.Add(this.button1);
+            this.gpBoxInformations.Controls.Add(this.btnAjout);
             this.gpBoxInformations.Controls.Add(this.txtEmail);
             this.gpBoxInformations.Controls.Add(this.lblEmail);
             this.gpBoxInformations.Controls.Add(this.txtFax);
@@ -186,14 +186,14 @@
             this.gpBoxInformations.TabStop = false;
             this.gpBoxInformations.Text = "Informations";
             // 
-            // button1
+            // btnAjout
             // 
-            this.button1.Location = new System.Drawing.Point(196, 328);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "AJOUTER";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAjout.Location = new System.Drawing.Point(196, 328);
+            this.btnAjout.Name = "btnAjout";
+            this.btnAjout.Size = new System.Drawing.Size(103, 23);
+            this.btnAjout.TabIndex = 20;
+            this.btnAjout.Text = "AJOUTER";
+            this.btnAjout.UseVisualStyleBackColor = true;
             // 
             // txtEmail
             // 
@@ -410,6 +410,6 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtFax;
         private System.Windows.Forms.Label lblFax;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAjout;
     }
 }

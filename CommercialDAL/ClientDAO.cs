@@ -21,104 +21,128 @@ namespace CommercialDAL
             return unClientDAO;
         }
 
-        // Cette méthode retourne une List contenant les objets Produits contenus dans la table Identification
-        public static List<Produit> GetProduits()
+        // Cette méthode retourne une List contenant les objets Client contenus dans la table Client
+        public static List<Client> GetClient()
         {
-            int id, fk_cat;
-            string nom;
-            float prix;
-            Produit unProduit;
+            string nom, rueFac, rueLivr, villeFac, villeLivr, cpFac, cpLivr, tel, fax, email;
+            int code, numFac, numLivr;
+            Client unClient;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Produits
-            List<Produit> lesProduits = new List<Produit>();
+            List<Client> lesClients = new List<Client>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.PRODUIT";
+            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.CLIENT";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             // Remplissage de la liste
             while (monReader.Read())
             {
-                id = int.Parse(monReader["code_prod"].ToString());
-                if (monReader["libelle_prod"] == DBNull.Value)
+                code = int.Parse(monReader["code_cli"].ToString());
+                if (monReader["nom_cli"] == DBNull.Value)
                 {
                     nom = default(string);
                 }
                 else
                 {
-                    nom = monReader["libelle_prod"].ToString();
+                    nom = monReader["nom_cli"].ToString();
                 }
-                if (monReader["prix_ht_prod"] == DBNull.Value)
+                if (monReader["num_fac_cli"] == DBNull.Value)
                 {
-                    prix = default(float);
+                    numFac = default(int);
                 }
                 else
                 {
-                    prix = float.Parse(monReader["prix_ht_prod"].ToString());
+                    numFac = int.Parse(monReader["num_fac_cli"].ToString());
                 }
-                if (monReader["fk_code_cat"] == DBNull.Value)
+                if (monReader["rue_fac_cli"] == DBNull.Value)
                 {
-                    fk_cat = default(int);
+                    rueFac = default(string);
                 }
                 else
                 {
-                    fk_cat = int.Parse(monReader["fk_code_cat"].ToString());
+                    rueFac = monReader["rue_fac_cli"].ToString();
                 }
-                unProduit = new Produit(id, nom, prix, fk_cat);
-                lesProduits.Add(unProduit);
-                //Console.WriteLine(id);
+                if (monReader["ville_fac_cli"] == DBNull.Value)
+                {
+                    villeFac = default(string);
+                }
+                else
+                {
+                    villeFac = monReader["ville_fac_cli"].ToString();
+                }
+                if (monReader["cp_fac_cli"] == DBNull.Value)
+                {
+                    cpFac = default(string);
+                }
+                else
+                {
+                    cpFac = monReader["cp_fac_cli"].ToString();
+                }
+                if (monReader["num_livr_cli"] == DBNull.Value)
+                {
+                    numLivr = default(int);
+                }
+                else
+                {
+                    numLivr = int.Parse(monReader["num_livr_cli"].ToString());
+                }
+                if (monReader["rue_livr_cli"] == DBNull.Value)
+                {
+                    rueLivr = default(string);
+                }
+                else
+                {
+                    rueLivr = monReader["rue_livr_cli"].ToString();
+                }
+                if (monReader["ville_livr_cli"] == DBNull.Value)
+                {
+                    villeLivr = default(string);
+                }
+                else
+                {
+                    villeLivr = monReader["ville_livr_cli"].ToString();
+                }
+                if (monReader["cp_livr_cli"] == DBNull.Value)
+                {
+                    cpLivr = default(string);
+                }
+                else
+                {
+                    cpLivr = monReader["cp_livr_cli"].ToString();
+                }
+                if (monReader["telephone_cli"] == DBNull.Value)
+                {
+                    tel = default(string);
+                }
+                else
+                {
+                    tel = monReader["telephone_cli"].ToString();
+                }
+                if (monReader["fax_cli"] == DBNull.Value)
+                {
+                    fax = default(string);
+                }
+                else
+                {
+                    fax = monReader["fax_cli"].ToString();
+                }
+                if (monReader["email_cli"] == DBNull.Value)
+                {
+                    email = default(string);
+                }
+                else
+                {
+                    email = monReader["email_cli"].ToString();
+                }
+
+                unClient = new Client(nom, rueFac, rueLivr, villeFac, villeLivr, cpFac, cpLivr, tel, fax, email, code, numFac, numLivr);
+                lesClients.Add(unClient);
             }
             // Fermeture de la connexion
             maConnexion.Close();
-            return lesProduits;
+            return lesClients;
         }
-
-        public static int AjoutProduit(Produit unProduit)
-        {
-            int nbEnr;
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "INSERT INTO DECLICINFO.dbo.PRODUIT(libelle_prod, prix_ht_prod, fk_code_cat) values('" + unProduit.Libelle_prod + "', " + unProduit.Prix_ht_prod + ", " + unProduit.Fk_id_cat + ")";
-            nbEnr = cmd.ExecuteNonQuery();
-            // Fermeture de la connexion
-            maConnexion.Close();
-            return nbEnr;
-        }
-
-        // Cette méthode modifie un Produit passé en paramètre dans la BD
-        public static int UpdateProduit(Produit unProduit)
-        {
-            int nbEnr;
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "UPDATE DECLICINFO.dbo.PRODUIT SET libelle_prod = '" + unProduit.Libelle_prod + "', prix_ht_prod = " + unProduit.Prix_ht_prod + ", " +
-                "fk_code_cat = " + unProduit.Fk_id_cat + " WHERE code_prod = " + unProduit.Id_prod;
-            nbEnr = cmd.ExecuteNonQuery();
-            Console.WriteLine(nbEnr);
-            // Fermeture de la connexion
-            maConnexion.Close();
-            return nbEnr;
-        }
-
-        // Cette méthode supprime de la BD un utilisateur dont l'id est passé en paramètre
-        public static int DeleteProduit(Produit unProduit)
-        {
-            int nbEnr;
-            // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = maConnexion;
-            cmd.CommandText = "DELETE FROM DECLICINFO.dbo.PRODUIT WHERE code_prod = " + unProduit.Id_prod;
-            nbEnr = cmd.ExecuteNonQuery();
-            // Fermeture de la connexion
-            maConnexion.Close();
-            return nbEnr;
-        }
-
     }
 }
