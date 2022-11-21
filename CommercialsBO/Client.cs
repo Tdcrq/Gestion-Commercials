@@ -12,7 +12,7 @@ namespace CommercialsBO
         private Int32 code, numFac, numLiv;
 
         
-        public Client(int code, string nom_cli, int numFac, string rueFac, string villeFac, string cpFac, string villeLiv, string cpLiv, string tel, string fax, string email)
+        public Client(int code, string nom_cli, int numFac, string rueFac, string villeFac, string cpFac, int numLiv, string rueLiv, string villeLiv, string cpLiv, string tel, string fax, string email)
         {
             this.code = code;
             this.nom_cli = nom_cli;
