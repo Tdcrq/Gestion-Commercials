@@ -30,8 +30,6 @@
         {
             this.BtnActualiser = new System.Windows.Forms.Button();
             this.dataGridViewProduit = new System.Windows.Forms.DataGridView();
-            this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnEvent = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnProduits = new System.Windows.Forms.Button();
             this.btnSyntheseClients = new System.Windows.Forms.Button();
             this.btnClients = new System.Windows.Forms.Button();
@@ -59,6 +57,8 @@
             this.lblNumFac = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lblNom = new System.Windows.Forms.Label();
+            this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnEvent = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
             this.SuspendLayout();
@@ -80,28 +80,14 @@
             this.dataGridViewProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDataGridViewModifier,
             this.btnEvent});
-            this.dataGridViewProduit.Location = new System.Drawing.Point(324, 113);
+            this.dataGridViewProduit.Location = new System.Drawing.Point(270, 113);
             this.dataGridViewProduit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewProduit.Name = "dataGridViewProduit";
             this.dataGridViewProduit.RowHeadersVisible = false;
             this.dataGridViewProduit.RowHeadersWidth = 51;
             this.dataGridViewProduit.RowTemplate.Height = 24;
-            this.dataGridViewProduit.Size = new System.Drawing.Size(648, 393);
+            this.dataGridViewProduit.Size = new System.Drawing.Size(764, 393);
             this.dataGridViewProduit.TabIndex = 29;
-            // 
-            // btnDataGridViewModifier
-            // 
-            this.btnDataGridViewModifier.HeaderText = "modifier";
-            this.btnDataGridViewModifier.MinimumWidth = 6;
-            this.btnDataGridViewModifier.Name = "btnDataGridViewModifier";
-            this.btnDataGridViewModifier.Width = 80;
-            // 
-            // btnEvent
-            // 
-            this.btnEvent.HeaderText = "supprimer";
-            this.btnEvent.MinimumWidth = 6;
-            this.btnEvent.Name = "btnEvent";
-            this.btnEvent.Width = 125;
             // 
             // btnProduits
             // 
@@ -150,9 +136,9 @@
             this.lblCategorie.AutoSize = true;
             this.lblCategorie.Location = new System.Drawing.Point(114, 25);
             this.lblCategorie.Name = "lblCategorie";
-            this.lblCategorie.Size = new System.Drawing.Size(199, 16);
+            this.lblCategorie.Size = new System.Drawing.Size(190, 16);
             this.lblCategorie.TabIndex = 24;
-            this.lblCategorie.Text = "Gestion commercials - CLIENTS";
+            this.lblCategorie.Text = "Gestion commercials - CLIENT";
             // 
             // gpBoxInformations
             // 
@@ -355,6 +341,20 @@
             this.lblNom.TabIndex = 0;
             this.lblNom.Text = "nom";
             // 
+            // btnDataGridViewModifier
+            // 
+            this.btnDataGridViewModifier.HeaderText = "modif";
+            this.btnDataGridViewModifier.MinimumWidth = 55;
+            this.btnDataGridViewModifier.Name = "btnDataGridViewModifier";
+            this.btnDataGridViewModifier.Width = 60;
+            // 
+            // btnEvent
+            // 
+            this.btnEvent.HeaderText = "supp";
+            this.btnEvent.MinimumWidth = 55;
+            this.btnEvent.Name = "btnEvent";
+            this.btnEvent.Width = 55;
+            // 
             // FrmCrudClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,8 +382,6 @@
 
         private System.Windows.Forms.Button BtnActualiser;
         private System.Windows.Forms.DataGridView dataGridViewProduit;
-        private System.Windows.Forms.DataGridViewButtonColumn btnDataGridViewModifier;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEvent;
         private System.Windows.Forms.Button btnProduits;
         private System.Windows.Forms.Button btnSyntheseClients;
         private System.Windows.Forms.Button btnClients;
@@ -411,5 +409,7 @@
         private System.Windows.Forms.TextBox txtFax;
         private System.Windows.Forms.Label lblFax;
         private System.Windows.Forms.Button btnAjout;
+        private System.Windows.Forms.DataGridViewButtonColumn btnDataGridViewModifier;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEvent;
     }
 }

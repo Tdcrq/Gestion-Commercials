@@ -28,54 +28,56 @@ namespace Gestion_Commercials
             dataGridViewProduit.ColumnHeadersVisible = true;
 
             // Création d'une en-tête de colonne pour la colonne 
+            DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
+
+            IdColumn.DataPropertyName = "code";
+            IdColumn.HeaderText = "Id";
+            IdColumn.Visible = false;
+
+            // Création d'une en-tête de colonne pour la colonne 
             DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
             NomColumn.DataPropertyName = "nom_cli";
-            NomColumn.HeaderText = "Nom";
-
-            /*
-            
-            // Création d'une en-tête de colonne pour la colonne 
-            DataGridViewTextBoxColumn numFac = new DataGridViewTextBoxColumn();
-
-            numFac.DataPropertyName = "num_fac_cli";
-            numFac.HeaderText = "N°";
+            NomColumn.HeaderText = "nom";
+            NomColumn.Width = 43;
 
             // Création d'une en-tête de colonne pour la colonne 
-            DataGridViewTextBoxColumn rueFac = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn addresseLivColumn = new DataGridViewTextBoxColumn();
 
-            rueFac.DataPropertyName = "rue_fac_cli";
-            rueFac.HeaderText = "rue";
+            addresseLivColumn.DataPropertyName = "addresseLiv";
+            addresseLivColumn.HeaderText = "addresse liv";
 
             // Création d'une en-tête de colonne pour la colonne 
-            DataGridViewTextBoxColumn villeFac = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn addresseFacColumn = new DataGridViewTextBoxColumn();
 
-            villeFac.DataPropertyName = "rue_fac_cli";
-            villeFac.HeaderText = "rue";
-            
-             */
+            addresseFacColumn.DataPropertyName = "addresseFac";
+            addresseFacColumn.HeaderText = "addresse fac";
 
             // Création d'une en-tête de colonne pour la colonne 
             DataGridViewTextBoxColumn tel = new DataGridViewTextBoxColumn();
 
-            tel.DataPropertyName = "telephone_cli";
+            tel.DataPropertyName = "Tel";
             tel.HeaderText = "telephone";
 
             // Création d'une en-tête de colonne pour la colonne 
             DataGridViewTextBoxColumn fax = new DataGridViewTextBoxColumn();
 
-            fax.DataPropertyName = "fax_cli";
+            fax.DataPropertyName = "Fax";
             fax.HeaderText = "fax";
+            fax.Width = 40;
 
             // Création d'une en-tête de colonne pour la colonne 
             DataGridViewTextBoxColumn email = new DataGridViewTextBoxColumn();
 
-            email.DataPropertyName = "email_cli";
+            email.DataPropertyName = "Email";
             email.HeaderText = "email";
 
 
             // Ajout des 2 en-têtes de colonne au datagridview
+            dataGridViewProduit.Columns.Add(IdColumn);
             dataGridViewProduit.Columns.Add(NomColumn);
+            dataGridViewProduit.Columns.Add(addresseLivColumn);
+            dataGridViewProduit.Columns.Add(addresseFacColumn);
             dataGridViewProduit.Columns.Add(tel);
             dataGridViewProduit.Columns.Add(fax);
             dataGridViewProduit.Columns.Add(email);
@@ -84,7 +86,7 @@ namespace Gestion_Commercials
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
 
             columnHeaderStyle.BackColor = Color.Beige;
-            columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
+            columnHeaderStyle.Font = new Font("Verdana", 9, FontStyle.Bold);
 
             dataGridViewProduit.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
 
@@ -95,7 +97,12 @@ namespace Gestion_Commercials
             // Rattachement de la List à la source de données du datagridview
             dataGridViewProduit.DataSource = liste;
             #endregion
+            foreach(Client client in liste)
+            {
+                Console.WriteLine(client.NumLiv.ToString() + " " + client.RueLiv.ToString() + "," + client.VilleLiv.ToString() + "," + client.CpLiv.ToString());
+            }
         }
+
 
         private void btnProduits_Click(object sender, EventArgs e)
         {

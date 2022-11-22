@@ -138,6 +138,7 @@ namespace CommercialDAL
                 }
 
                 unClient = new Client(code, nom, numFac, rueFac, villeFac, cpFac, numLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
+                Console.WriteLine(unClient.AddresseFac);
                 lesClients.Add(unClient);
             }
             // Fermeture de la connexion
