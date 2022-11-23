@@ -1,5 +1,6 @@
 ﻿using CommercialsBLL;
 using CommercialDAL;
+using CommercialsBO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CommercialsBO;
 using System.Configuration;
 
 namespace Gestion_Commercials
@@ -118,6 +118,45 @@ namespace Gestion_Commercials
             FrmClient = new FrmCrudClient();
             this.Hide();
             FrmClient.ShowDialog();
+        }
+
+        private void AjouterClient(object sender, EventArgs e)
+        {
+            bool verifAjoutClient = false;
+
+            string nom = txtNom.Text;
+            int numFac = 0, numLiv = 0;
+            #region Verif des int
+            if (txtNumFac.Text != "" || txtNumLiv.Text != "")
+            {
+                numFac = int.Parse(txtNumFac.Text);
+                numLiv = int.Parse(txtNumLiv.Text);
+                string rueFac = txtRueFac.Text;
+                string rueLiv = txtRueLiv.Text;
+                string villeFac = txtVilleFac.Text;
+                string villeLiv = txtVilleLiv.Text;
+                string cpFac = txtCpFac.Text;
+                string cpLiv = txtCpLiv.Text;
+                string tel = txtTel.Text;
+                string fax = txtFax.Text;
+                string email = txtEmail.Text;
+
+                Client cli = new Client(nom, numFac, rueFac, villeFac, cpFac, numLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
+                verifAjoutClient = GestionClients.CreerClient(cli);
+                if (!verifAjoutClient)
+                {
+                    MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez renseigner tous les champs", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+            /* Actualisation  des données du DGV */
+            List<Client> liste = new List<Client>();
+            liste = GestionClients.GetClients();
+            dataGridViewProduit.DataSource = liste;
         }
     }
 }
