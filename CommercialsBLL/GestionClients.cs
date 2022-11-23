@@ -28,5 +28,10 @@ namespace CommercialsBLL
         {
             return ClientDAO.GetClient();
         }
+
+        public static bool CreerClient(Client cli)
+        {
+            return ClientDAO.AjoutClient(cli) != 0;
+        }
     }
 }

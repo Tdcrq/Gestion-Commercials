@@ -29,7 +29,7 @@ namespace CommercialDAL
             Client unClient;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
-            // Création d'une liste vide d'objets Produits
+            // Création d'une liste vide d'objets Clients
             List<Client> lesClients = new List<Client>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
@@ -138,12 +138,44 @@ namespace CommercialDAL
                 }
 
                 unClient = new Client(code, nom, numFac, rueFac, villeFac, cpFac, numLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
-                Console.WriteLine(unClient.AddresseFac);
                 lesClients.Add(unClient);
             }
             // Fermeture de la connexion
             maConnexion.Close();
             return lesClients;
+        }
+
+        public static int AjoutClient(Client unClient)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "INSERT INTO DECLICINFO.dbo.CLIENT(nom_cli, num_fac_cli, rue_fac_cli, ville_fac_cli, cp_fac_cli, num_liv_cli, rue_liv_cli, ville_liv_cli, cp_liv_cli, telephone_cli, fax_cli, email_cli) " +
+                "VALUES(@nom, @num_fac, @rue_fac, @ville_fac, @cp_fac, @num_liv, @rue_liv, @ville_liv, @cp_liv, @tel, @fax, @email)",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@nom", unClient.Nom_cli);
+            cmd.Parameters.AddWithValue("@num_fac", unClient.NumFac);
+            cmd.Parameters.AddWithValue("@rue_fac", unClient.RueFac);
+            cmd.Parameters.AddWithValue("@ville_fac", unClient.VilleFac);
+            cmd.Parameters.AddWithValue("@cp_fac", unClient.CpFac);
+            cmd.Parameters.AddWithValue("@num_liv", unClient.NumLiv);
+            cmd.Parameters.AddWithValue("@rue_liv", unClient.RueLiv);
+            cmd.Parameters.AddWithValue("@ville_liv", unClient.VilleLiv);
+            cmd.Parameters.AddWithValue("@cp_liv", unClient.CpLiv);
+            cmd.Parameters.AddWithValue("@tel", unClient.Tel);
+            cmd.Parameters.AddWithValue("@fax", unClient.Fax);
+            cmd.Parameters.AddWithValue("@email", unClient.Email);
+
+            /* Exécution de la requête + stockage du nbre de ligne impactée */
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
+            Console.WriteLine(nbEnr);
+            return nbEnr;
         }
     }
 }
