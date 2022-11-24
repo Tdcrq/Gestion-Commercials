@@ -143,6 +143,16 @@ namespace Gestion_Commercials
                     {
                         MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                    else
+                    {
+                        foreach (var groupbox in this.Controls.OfType<GroupBox>())
+                        {
+                            foreach (var textboxitem in groupbox.Controls.OfType<TextBox>())
+                            {
+                                textboxitem.Clear();
+                            }
+                        }
+                    }
                 }
                 else
                 {
