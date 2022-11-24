@@ -180,7 +180,7 @@ namespace Gestion_Commercials
             {
                 string lbl = dataGridViewClient.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-                if (int.TryParse(addFacSplit[0], out NumFac) || int.TryParse(addLivSplit[0], out NumLiv))
+                if (!int.TryParse(addFacSplit[0], out NumFac) || !int.TryParse(addLivSplit[0], out NumLiv))
                 {
                     MessageBox.Show("Veuillez renseigner tous les champs", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
