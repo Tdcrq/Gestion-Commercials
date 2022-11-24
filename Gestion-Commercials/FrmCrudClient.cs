@@ -97,10 +97,6 @@ namespace Gestion_Commercials
             // Rattachement de la List à la source de données du datagridview
             dataGridViewProduit.DataSource = liste;
             #endregion
-            foreach(Client client in liste)
-            {
-                Console.WriteLine(client.NumLiv.ToString() + " " + client.RueLiv.ToString() + "," + client.VilleLiv.ToString() + "," + client.CpLiv.ToString());
-            }
         }
 
 
