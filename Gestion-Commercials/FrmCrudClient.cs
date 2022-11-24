@@ -161,50 +161,70 @@ namespace Gestion_Commercials
             bool verifModif = false;
             bool verifSuppression = false;
             int id = int.Parse(dataGridViewClient.Rows[e.RowIndex].Cells[2].Value.ToString());
-            string lbl = dataGridViewClient.Rows[e.RowIndex].Cells[3].Value.ToString();
 
             string addFac = dataGridViewClient.Rows[e.RowIndex].Cells[4].Value.ToString();
-            string[] addFacSplit= addFac.Split(',');
-            int NumFac = int.Parse(addFacSplit[0]);
-            string rueFac = addFacSplit[1];
-            string villeFac = addFacSplit[2];
-            string cpFac = addFacSplit[3];
+            string[] addFacSplit = addFac.Split(',');
+
 
             string addLiv = dataGridViewClient.Rows[e.RowIndex].Cells[5].Value.ToString();
             string[] addLivSplit = addLiv.Split(',');
-            int NumLiv = int.Parse(addLivSplit[0]);
-            string rueLiv = addLivSplit[1];
-            string villeLiv = addLivSplit[2];
-            string cpLiv = addLivSplit[3];
 
-            string tel = dataGridViewClient.Rows[e.RowIndex].Cells[6].Value.ToString();
-            string fax = dataGridViewClient.Rows[e.RowIndex].Cells[7].Value.ToString();
-            string email = dataGridViewClient.Rows[e.RowIndex].Cells[8].Value.ToString();
-
-            Client client = new Client(id, lbl, NumFac, rueFac, villeFac, cpFac, NumLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
-
-            if (e.ColumnIndex == 0)
+            int NumFac, NumLiv;
+            if (dataGridViewClient.Rows[e.RowIndex].Cells[4].Value.ToString() != null && addFacSplit.Length == 4 && addLivSplit.Length == 4 && 
+                dataGridViewClient.Rows[e.RowIndex].Cells[6].Value.ToString() != null && dataGridViewClient.Rows[e.RowIndex].Cells[7].Value.ToString() != null && 
+                dataGridViewClient.Rows[e.RowIndex].Cells[8].Value.ToString() != null)
             {
-                verifModif = GestionClients.ModifierClient(client);
-                if (!verifModif)
+                string lbl = dataGridViewClient.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+                if (int.TryParse(addFacSplit[0], out NumFac) || int.TryParse(addLivSplit[0], out NumLiv))
                 {
-                    MessageBox.Show("ERREUR LORS DE LA MODIFICATION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Veuillez renseigner tous les champs", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else if (e.ColumnIndex == 1)
-            {
-                if (MessageBox.Show("Voulez-vous vraiment supprimer ce client ?", "Validation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                else
                 {
-                    verifSuppression = GestionClients.SupprimerClient(client);
-                    if (!verifSuppression)
+
+                    string rueFac = addFacSplit[1];
+                    string villeFac = addFacSplit[2];
+                    string cpFac = addFacSplit[3];
+
+                    string rueLiv = addLivSplit[1];
+                    string villeLiv = addLivSplit[2];
+                    string cpLiv = addLivSplit[3];
+
+                    string tel = dataGridViewClient.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    string fax = dataGridViewClient.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    string email = dataGridViewClient.Rows[e.RowIndex].Cells[8].Value.ToString();
+
+                    Client client = new Client(id, lbl, NumFac, rueFac, villeFac, cpFac, NumLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
+
+                    if (e.ColumnIndex == 0)
                     {
-                        MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        verifModif = GestionClients.ModifierClient(client);
+                        if (!verifModif)
+                        {
+                            MessageBox.Show("ERREUR LORS DE LA MODIFICATION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else if (e.ColumnIndex == 1)
+                    {
+                        if (MessageBox.Show("Voulez-vous vraiment supprimer ce client ?", "Validation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            verifSuppression = GestionClients.SupprimerClient(client);
+                            if (!verifSuppression)
+                            {
+                                MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        /* Actualisation  des données du DGV */
+                        List<Client> liste = new List<Client>();
+                        liste = GestionClients.GetClients();
+                        dataGridViewClient.DataSource = liste;
                     }
                 }
-                /* Actualisation  des données du DGV */
-                List<Client> liste = new List<Client>();
-                liste = GestionClients.GetClients();
-                dataGridViewClient.DataSource = liste;
+            }
+            else
+            {
+                MessageBox.Show("Veuillez renseigner tous les champs", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
