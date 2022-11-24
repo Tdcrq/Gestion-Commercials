@@ -193,7 +193,39 @@ namespace CommercialDAL
             cmd.Parameters.AddWithValue("@id", cli.Code);
             nbEnr = cmd.ExecuteNonQuery();
             maConnexion.Close();
-            Console.WriteLine(nbEnr);
+            return nbEnr;
+        }
+
+        public static int UpdateClient(Client unClient)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            /* Préparation de la requête */
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE DECLICINFO.dbo.CLIENT " +
+                "SET nom_cli = @nom, num_fac_cli = @num_fac, rue_fac_cli = @rue_fac, ville_fac_cli = @ville_fac, cp_fac_cli = @cp_fac," +
+                "num_liv_cli = @num_liv, rue_liv_cli = @rue_liv, ville_liv_cli = @ville_liv, cp_liv_cli = @cp_liv, telephone_cli = @tel, fax_cli = @fax, email_cli = @email " +
+                "WHERE code_cli = @id",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@nom", unClient.Nom_cli);
+            cmd.Parameters.AddWithValue("@num_fac", unClient.NumFac);
+            cmd.Parameters.AddWithValue("@rue_fac", unClient.RueFac);
+            cmd.Parameters.AddWithValue("@ville_fac", unClient.VilleFac);
+            cmd.Parameters.AddWithValue("@cp_fac", unClient.CpFac);
+            cmd.Parameters.AddWithValue("@num_liv", unClient.NumLiv);
+            cmd.Parameters.AddWithValue("@rue_liv", unClient.RueLiv);
+            cmd.Parameters.AddWithValue("@ville_liv", unClient.VilleLiv);
+            cmd.Parameters.AddWithValue("@cp_liv", unClient.CpLiv);
+            cmd.Parameters.AddWithValue("@tel", unClient.Tel);
+            cmd.Parameters.AddWithValue("@fax", unClient.Fax);
+            cmd.Parameters.AddWithValue("@email", unClient.Email);
+            cmd.Parameters.AddWithValue("@id", unClient.Code);
+            /* Exécution de la requête + stockage du nbre de ligne impactée */
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
+            maConnexion.Close();
             return nbEnr;
         }
     }

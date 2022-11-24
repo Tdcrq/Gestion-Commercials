@@ -38,5 +38,10 @@ namespace CommercialsBLL
         {
             return ClientDAO.SupprimerClient(cli) != 0;
         }
+
+        public static bool ModifierClient(Client cli)
+        {
+            return ClientDAO.UpdateClient(cli) != 0;
+        }
     }
 }

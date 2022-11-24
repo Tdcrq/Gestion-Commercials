@@ -27,8 +27,14 @@ namespace CommercialsBO
             this.tel = tel;
             this.fax = fax;
             this.email = email;
-            this.addresseLiv = numLiv.ToString() + rueLiv.ToString();
-            this.addresseFac = numFac.ToString() + rueFac.ToString();
+            this.addresseLiv = numLiv.ToString() + "," +
+                               rueLiv + "," +
+                               villeLiv + "," +
+                               cpLiv;
+            this.addresseFac = NumFac.ToString() + "," +
+                               rueFac + "," +
+                               villeFac + "," +
+                               cpFac;
         }
 
         public Client(string nom_cli, int numFac, string rueFac, string villeFac, string cpFac, int numLiv, string rueLiv, string villeLiv, string cpLiv, string tel, string fax, string email)
@@ -62,8 +68,8 @@ namespace CommercialsBO
         public string Tel { get => tel; set => tel = value; }
         public string Fax { get => fax; set => fax = value; }
         public string Email { get => email; set => email = value; }
-        public string AddresseFac { get => addresseFac; }
-        public string AddresseLiv { get => addresseLiv; }
+        public string AddresseFac { get => addresseFac; set => addresseFac = value;}
+        public string AddresseLiv { get => addresseLiv; set => addresseLiv = value; }
 
         public void setNumFac(int numFac)
         {
