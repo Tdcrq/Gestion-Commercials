@@ -120,11 +120,12 @@ namespace Gestion_Commercials
         {
             bool verifAjoutClient = false;
 
-            string nom = txtNom.Text;
-            int numFac = 0, numLiv = 0;
-            #region Verif des int
-            if (txtNumFac.Text != "" || txtNumLiv.Text != "")
+            int numFac, numLiv;
+            #region Verif des champs
+            if (txtNom.Text != "" && txtNumFac.Text != "" && txtNumLiv.Text != "" && txtRueFac.Text != "" && txtRueLiv.Text != "" && txtVilleFac.Text != "" && 
+                txtVilleLiv.Text != "" && txtCpFac.Text !="" && txtCpLiv.Text!="" && txtTel.Text !="" && txtFax.Text!="" && txtEmail.Text!="")
             {
+                string nom = txtNom.Text;
                 numFac = int.Parse(txtNumFac.Text);
                 numLiv = int.Parse(txtNumLiv.Text);
                 string rueFac = txtRueFac.Text;
@@ -192,10 +193,18 @@ namespace Gestion_Commercials
             }
             else if (e.ColumnIndex == 1)
             {
-                if (!verifSuppression)
+                if (MessageBox.Show("Voulez-vous vraiment supprimer ce client ?", "Validation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    verifSuppression = GestionClients.SupprimerClient(client);
+                    if (!verifSuppression)
+                    {
+                        MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                /* Actualisation  des données du DGV */
+                List<Client> liste = new List<Client>();
+                liste = GestionClients.GetClients();
+                dataGridViewClient.DataSource = liste;
             }
         }
     }
