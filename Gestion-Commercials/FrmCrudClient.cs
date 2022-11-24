@@ -126,23 +126,27 @@ namespace Gestion_Commercials
                 txtVilleLiv.Text != "" && txtCpFac.Text !="" && txtCpLiv.Text!="" && txtTel.Text !="" && txtFax.Text!="" && txtEmail.Text!="")
             {
                 string nom = txtNom.Text;
-                numFac = int.Parse(txtNumFac.Text);
-                numLiv = int.Parse(txtNumLiv.Text);
-                string rueFac = txtRueFac.Text;
-                string rueLiv = txtRueLiv.Text;
-                string villeFac = txtVilleFac.Text;
-                string villeLiv = txtVilleLiv.Text;
-                string cpFac = txtCpFac.Text;
-                string cpLiv = txtCpLiv.Text;
-                string tel = txtTel.Text;
-                string fax = txtFax.Text;
-                string email = txtEmail.Text;
-
-                Client cli = new Client(nom, numFac, rueFac, villeFac, cpFac, numLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
-                verifAjoutClient = GestionClients.CreerClient(cli);
-                if (!verifAjoutClient)
+                if (int.TryParse(txtNumFac.Text, out numFac) && int.TryParse(txtNumLiv.Text, out numLiv))
                 {
-                    MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string rueFac = txtRueFac.Text;
+                    string rueLiv = txtRueLiv.Text;
+                    string villeFac = txtVilleFac.Text;
+                    string villeLiv = txtVilleLiv.Text;
+                    string cpFac = txtCpFac.Text;
+                    string cpLiv = txtCpLiv.Text;
+                    string tel = txtTel.Text;
+                    string fax = txtFax.Text;
+                    string email = txtEmail.Text;
+                    Client cli = new Client(nom, numFac, rueFac, villeFac, cpFac, numLiv, rueLiv, villeLiv, cpLiv, tel, fax, email);
+                    verifAjoutClient = GestionClients.CreerClient(cli);
+                    if (!verifAjoutClient)
+                    {
+                        MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Entier attendu pour N°Facturation/N°Livraison", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
