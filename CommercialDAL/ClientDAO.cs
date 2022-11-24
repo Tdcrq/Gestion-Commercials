@@ -187,7 +187,9 @@ namespace CommercialDAL
 
 
             SqlCommand cmd = new SqlCommand(
-                "DELETE FROM DECLICINFO.dbo.CLIENT WHERE code_cli = @id",
+                "DELETE FROM DECLICINFO.dbo.CLIENT " +
+                "WHERE code_cli = @id " +
+                "AND code_cli not in (SELECT fk_code_cli FROM DECLICINFO.dbo.DEVIS)",
                 maConnexion
             );
             cmd.Parameters.AddWithValue("@id", cli.Code);

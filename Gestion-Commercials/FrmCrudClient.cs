@@ -226,7 +226,7 @@ namespace Gestion_Commercials
                             verifSuppression = GestionClients.SupprimerClient(client);
                             if (!verifSuppression)
                             {
-                                MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Ce client est rattaché à un devis,\nimpossible de la supprimer.", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         /* Actualisation  des données du DGV */
