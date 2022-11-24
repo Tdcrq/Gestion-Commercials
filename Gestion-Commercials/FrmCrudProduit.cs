@@ -92,9 +92,6 @@ namespace Gestion_Commercials
             Produit prod = new Produit(lbl, prix, categ);
 
             verifAjout = GestionProduits.CreerProduit(prod);
-            Console.WriteLine("cat : " + categ + " lib : " + lbl + " prix : " + prix);
-            Console.Write(verifAjout);
-
             if (!verifAjout)
             {
                 MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
