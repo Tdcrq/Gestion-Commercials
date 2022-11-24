@@ -23,9 +23,9 @@ namespace Gestion_Commercials
 
             #region DGV
             // Blocage de la génération automatique des colonnes
-            dataGridViewProduit.AutoGenerateColumns = false;
+            dataGridViewClient.AutoGenerateColumns = false;
 
-            dataGridViewProduit.ColumnHeadersVisible = true;
+            dataGridViewClient.ColumnHeadersVisible = true;
 
             // Création d'une en-tête de colonne pour la colonne 
             DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
@@ -74,13 +74,13 @@ namespace Gestion_Commercials
 
 
             // Ajout des 2 en-têtes de colonne au datagridview
-            dataGridViewProduit.Columns.Add(IdColumn);
-            dataGridViewProduit.Columns.Add(NomColumn);
-            dataGridViewProduit.Columns.Add(addresseLivColumn);
-            dataGridViewProduit.Columns.Add(addresseFacColumn);
-            dataGridViewProduit.Columns.Add(tel);
-            dataGridViewProduit.Columns.Add(fax);
-            dataGridViewProduit.Columns.Add(email);
+            dataGridViewClient.Columns.Add(IdColumn);
+            dataGridViewClient.Columns.Add(NomColumn);
+            dataGridViewClient.Columns.Add(addresseLivColumn);
+            dataGridViewClient.Columns.Add(addresseFacColumn);
+            dataGridViewClient.Columns.Add(tel);
+            dataGridViewClient.Columns.Add(fax);
+            dataGridViewClient.Columns.Add(email);
 
             // Définition du style apporté au datagridview
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
@@ -88,14 +88,14 @@ namespace Gestion_Commercials
             columnHeaderStyle.BackColor = Color.Beige;
             columnHeaderStyle.Font = new Font("Verdana", 9, FontStyle.Bold);
 
-            dataGridViewProduit.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            dataGridViewClient.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
 
             // Création d'un objet List client à afficher dans le datagridview
             List<Client> liste = new List<Client>();
             liste = GestionClients.GetClients();
 
             // Rattachement de la List à la source de données du datagridview
-            dataGridViewProduit.DataSource = liste;
+            dataGridViewClient.DataSource = liste;
             #endregion
             foreach(Client client in liste)
             {
@@ -156,7 +156,14 @@ namespace Gestion_Commercials
             /* Actualisation  des données du DGV */
             List<Client> liste = new List<Client>();
             liste = GestionClients.GetClients();
-            dataGridViewProduit.DataSource = liste;
+            dataGridViewClient.DataSource = liste;
+        }
+
+        private void DgvEvent(object sender, DataGridViewCellEventArgs e)
+        {
+            bool verifSupp = false;
+            int id = int.Parse(dataGridViewClient.Rows[e.RowIndex].Cells[2].Value.ToString());
+            
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewProduit = new System.Windows.Forms.DataGridView();
+            this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEvent = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnProduits = new System.Windows.Forms.Button();
@@ -62,25 +62,26 @@
             this.lblRueLiv = new System.Windows.Forms.Label();
             this.txtRueFac = new System.Windows.Forms.TextBox();
             this.lblRueFac = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewProduit
+            // dataGridViewClient
             // 
-            this.dataGridViewProduit.AllowUserToAddRows = false;
-            this.dataGridViewProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewClient.AllowUserToAddRows = false;
+            this.dataGridViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDataGridViewModifier,
             this.btnEvent});
-            this.dataGridViewProduit.Location = new System.Drawing.Point(202, 92);
-            this.dataGridViewProduit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridViewProduit.Name = "dataGridViewProduit";
-            this.dataGridViewProduit.RowHeadersVisible = false;
-            this.dataGridViewProduit.RowHeadersWidth = 51;
-            this.dataGridViewProduit.RowTemplate.Height = 24;
-            this.dataGridViewProduit.Size = new System.Drawing.Size(573, 319);
-            this.dataGridViewProduit.TabIndex = 29;
+            this.dataGridViewClient.Location = new System.Drawing.Point(202, 92);
+            this.dataGridViewClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewClient.Name = "dataGridViewClient";
+            this.dataGridViewClient.RowHeadersVisible = false;
+            this.dataGridViewClient.RowHeadersWidth = 51;
+            this.dataGridViewClient.RowTemplate.Height = 24;
+            this.dataGridViewClient.Size = new System.Drawing.Size(573, 319);
+            this.dataGridViewClient.TabIndex = 29;
+            this.dataGridViewClient.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEvent);
             // 
             // btnDataGridViewModifier
             // 
@@ -416,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 458);
-            this.Controls.Add(this.dataGridViewProduit);
+            this.Controls.Add(this.dataGridViewClient);
             this.Controls.Add(this.btnProduits);
             this.Controls.Add(this.btnSyntheseClients);
             this.Controls.Add(this.btnClients);
@@ -426,7 +427,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmCrudClient";
             this.Text = "CLIENT";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);
             this.gpBoxInformations.PerformLayout();
             this.ResumeLayout(false);
@@ -435,7 +436,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridViewProduit;
+        private System.Windows.Forms.DataGridView dataGridViewClient;
         private System.Windows.Forms.Button btnProduits;
         private System.Windows.Forms.Button btnSyntheseClients;
         private System.Windows.Forms.Button btnClients;

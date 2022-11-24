@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using CommercialsBO;
@@ -173,6 +174,24 @@ namespace CommercialDAL
             /* Exécution de la requête + stockage du nbre de ligne impactée */
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
+            maConnexion.Close();
+            Console.WriteLine(nbEnr);
+            return nbEnr;
+        }
+
+        public static int SupprimerClient(Client cli)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM DECLICINFO.dbo.CLIENT WHERE code_cli = @id",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", cli.Code);
+            nbEnr = cmd.ExecuteNonQuery();
             maConnexion.Close();
             Console.WriteLine(nbEnr);
             return nbEnr;
