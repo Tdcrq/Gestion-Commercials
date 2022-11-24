@@ -415,6 +415,7 @@
             this.Controls.Add(this.gpBoxInformations);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCrudClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CLIENT";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);
