@@ -16,8 +16,7 @@ namespace Gestion_Commercials
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /*Application.Run(new FrmConnexion());*/
-            Application.Run(new FrmCrudClient());
+            Application.Run(new FrmConnexion());
         }
     }
 }

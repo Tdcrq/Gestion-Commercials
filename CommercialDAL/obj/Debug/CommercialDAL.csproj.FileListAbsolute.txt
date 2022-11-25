@@ -16,3 +16,5 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialDAL\obj\Debug\Commerci
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialDAL\obj\Debug\CommercialDAL.csproj.CopyComplete
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialDAL\obj\Debug\CommercialDAL.dll
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialDAL\obj\Debug\CommercialDAL.pdb
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialDAL\bin\Debug\CommercialsBLL.dll
+C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\CommercialDAL\bin\Debug\CommercialsBLL.pdb

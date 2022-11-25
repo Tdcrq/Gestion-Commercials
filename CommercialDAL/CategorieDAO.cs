@@ -10,15 +10,15 @@ namespace CommercialDAL
 {
     public class CategorieDAO
     {
-        private static CategorieDAO unCategorieDAO;
+        private static CategorieDAO uneCategorieDAO;
         // Accesseur en lecture, renvoi une instance
-        public static CategorieDAO GetunCategorieDAO()
+        public static CategorieDAO GetuneCategorieDAO()
         {
-            if (unCategorieDAO == null)
+            if (uneCategorieDAO == null)
             {
-                unCategorieDAO = new CategorieDAO();
+                uneCategorieDAO = new CategorieDAO();
             }
-            return unCategorieDAO;
+            return uneCategorieDAO;
         }
 
         // Cette méthode retourne une List contenant les objets Categories contenus dans la table Identification
@@ -26,7 +26,7 @@ namespace CommercialDAL
         {
             int id;
             string nom;
-            Categorie unCategorie;
+            Categorie uneCategorie;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Categories
@@ -48,8 +48,8 @@ namespace CommercialDAL
                 {
                     nom = monReader["Libelle_cat"].ToString();
                 }
-                unCategorie = new Categorie(id, nom);
-                lesCategories.Add(unCategorie);
+                uneCategorie = new Categorie(id, nom);
+                lesCategories.Add(uneCategorie);
                 //Console.WriteLine(id);
             }
             // Fermeture de la connexion
@@ -57,7 +57,7 @@ namespace CommercialDAL
             return lesCategories;
         }
 
-        public static int AjoutCategorie(Categorie unCategorie)
+        public static int AjoutCategorie(Categorie uneCategorie)
         {
             int nbEnr;
             // Connexion à la BD
@@ -66,7 +66,7 @@ namespace CommercialDAL
                 "INSERT INTO DECLICINFO.dbo.Categorie values(@libelle)", 
                 maConnexion
             );
-            cmd.Parameters.AddWithValue("@libelle", unCategorie.Libelle_cat);
+            cmd.Parameters.AddWithValue("@libelle", uneCategorie.Libelle_cat);
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
             maConnexion.Close();
@@ -74,7 +74,7 @@ namespace CommercialDAL
         }
 
         // Cette méthode modifie une Categorie passé en paramètre dans la BD
-        public static int UpdateCategorie(Categorie unCategorie)
+        public static int UpdateCategorie(Categorie uneCategorie)
         {
             int nbEnr;
             // Connexion à la BD
@@ -84,13 +84,32 @@ namespace CommercialDAL
                 "WHERE code_cat = @code_cat",
                 maConnexion
             );
-            cmd.Parameters.AddWithValue("@libelle", unCategorie.Libelle_cat);
-            cmd.Parameters.AddWithValue("@code_cat", unCategorie.Code_cat);
+            cmd.Parameters.AddWithValue("@libelle", uneCategorie.Libelle_cat);
+            cmd.Parameters.AddWithValue("@code_cat", uneCategorie.Code_cat);
             nbEnr = cmd.ExecuteNonQuery();
             Console.WriteLine(nbEnr);
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
+        }
+        
+        public static Categorie GetCategorieById(int id)
+        {
+            string libelle;
+            Categorie uneCategorie;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            // Création d'une liste vide d'objets Categories
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Connection = maConnexion;
+            cmd2.CommandText = "SELECT * FROM DECLICINFO.dbo.Categorie WHERE code_cat = @code";
+            cmd2.Parameters.AddWithValue("@code", id);
+            SqlDataReader monReader = cmd2.ExecuteReader();
+
+            libelle = monReader["libelle_cat"].ToString();
+            uneCategorie = new Categorie(id, libelle);
+
+            return uneCategorie;
         }
     }
 }

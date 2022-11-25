@@ -38,5 +38,10 @@ namespace CommercialsBLL
         {
             return CategorieDAO.UpdateCategorie(prod) != 0;
         }
+
+        public static Categorie GetCategorieById(int id)
+        {
+            return CategorieDAO.GetCategorieById(id);
+        }
     }
 }

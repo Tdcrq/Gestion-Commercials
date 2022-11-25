@@ -42,7 +42,12 @@ namespace CommercialDAL
             {
                 maConnexion = new SqlConnection();
             }
-            maConnexion.ConnectionString = chaineConnexion;
+
+            if (maConnexion.State != System.Data.ConnectionState.Open)
+            {
+                maConnexion.ConnectionString = chaineConnexion;
+            }
+            //maConnexion.ConnectionString = chaineConnexion;
             // Si la connexion est fermée, on l’ouvre
             if (maConnexion.State == System.Data.ConnectionState.Closed)
             {

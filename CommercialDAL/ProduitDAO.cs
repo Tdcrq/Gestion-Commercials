@@ -1,10 +1,11 @@
-﻿using System;
+﻿using CommercialsBO;
+using CommercialsBLL;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CommercialsBO;
 
 namespace CommercialDAL
 {
@@ -24,7 +25,8 @@ namespace CommercialDAL
         // Cette méthode retourne une List contenant les objets Produits contenus dans la table Identification
         public static List<Produit> GetProduits()
         {
-            int id, fk_cat;
+            int id;
+            Categorie fk_cat;
             string nom;
             float prix;
             Produit unProduit;
@@ -34,7 +36,7 @@ namespace CommercialDAL
             List<Produit> lesProduits = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.PRODUIT";
+            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.PRODUIT, DECLICINFO.dbo.CATEGORIE WHERE fk_code_cat = code_cat";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             // Remplissage de la liste
@@ -57,17 +59,10 @@ namespace CommercialDAL
                 {
                     prix = float.Parse(monReader["prix_ht_prod"].ToString());
                 }
-                if (monReader["fk_code_cat"] == DBNull.Value)
-                {
-                    fk_cat = default(int);
-                }
-                else
-                {
-                    fk_cat = int.Parse(monReader["fk_code_cat"].ToString());
-                }
+                fk_cat = new Categorie((int)monReader["code_cat"], monReader["libelle_cat"].ToString());
+                //fk_cat =  GestionCategories.GetCategorieById(int.Parse(monReader["fk_code_cat"].ToString()));
                 unProduit = new Produit(id, nom, prix, fk_cat);
                 lesProduits.Add(unProduit);
-                //Console.WriteLine(id);
             }
             // Fermeture de la connexion
             maConnexion.Close();
@@ -86,7 +81,7 @@ namespace CommercialDAL
             );
             cmd.Parameters.AddWithValue("@libelle", unProduit.Libelle_prod);
             cmd.Parameters.AddWithValue("@prix", unProduit.Prix_ht_prod);
-            cmd.Parameters.AddWithValue("@fk_id_cat", unProduit.Fk_id_cat);
+            cmd.Parameters.AddWithValue("@fk_id_cat", unProduit.Cat.Code_cat);
             /* Exécution de la requête + stockage du nbre de ligne impactée */
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion
@@ -109,7 +104,7 @@ namespace CommercialDAL
             );
             cmd.Parameters.AddWithValue("@libelle", unProduit.Libelle_prod);
             cmd.Parameters.AddWithValue("@prix", unProduit.Prix_ht_prod);
-            cmd.Parameters.AddWithValue("@fk_id_cat", unProduit.Fk_id_cat);
+            cmd.Parameters.AddWithValue("@fk_id_cat", unProduit.Cat.Code_cat);
             cmd.Parameters.AddWithValue("@id", unProduit.Id_prod);
             /* Exécution de la requête + stockage du nbre de ligne impactée */
             nbEnr = cmd.ExecuteNonQuery();
