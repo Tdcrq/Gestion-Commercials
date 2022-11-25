@@ -11,16 +11,9 @@ namespace CommercialsBLL
 {
     public class GestionCommercials
     {
-        private static GestionCommercials uneGestionCommercials; // objet BLL
-
-        // Accesseur en lecture
-        public static GestionCommercials GetGestionCommercials()
+        public static void VerifCommercials(Commercial Comm)
         {
-            if (uneGestionCommercials == null)
-            {
-                uneGestionCommercials = new GestionCommercials();
-            }
-            return uneGestionCommercials;
+            CommercialDAO.VerifCommercials(Comm);
         }
     }
 }

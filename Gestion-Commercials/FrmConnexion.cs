@@ -21,7 +21,8 @@ namespace Gestion_Commercials
         {
             // Création de l'objet Commercial avec le nom récupéré dans la GUI
             Commercial Comm = new Commercial(txtIdCo.Text, txtMdpCo.Text);
-            CommercialDAO.VerifCommercials(Comm);
+            GestionCommercials.VerifCommercials(Comm);
+            /*CommercialDAO.VerifCommercials(Comm);*/
 
             if (Comm.GetVerif() == true)
             {
