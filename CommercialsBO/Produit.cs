@@ -34,5 +34,6 @@ namespace CommercialsBO
         public Categorie Cat { get => cat; set => cat = value; }
 
         public string CatLib { get => this.Cat.Libelle_cat; }
+        public int CatCode { get => this.Cat.Code_cat; }
     }
 }

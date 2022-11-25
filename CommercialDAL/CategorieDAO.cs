@@ -100,11 +100,11 @@ namespace CommercialDAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Categories
-            SqlCommand cmd2 = new SqlCommand();
-            cmd2.Connection = maConnexion;
-            cmd2.CommandText = "SELECT * FROM DECLICINFO.dbo.Categorie WHERE code_cat = @code";
-            cmd2.Parameters.AddWithValue("@code", id);
-            SqlDataReader monReader = cmd2.ExecuteReader();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.Categorie WHERE code_cat = @code";
+            cmd.Parameters.AddWithValue("@code", id);
+            SqlDataReader monReader = cmd.ExecuteReader();
 
             libelle = monReader["libelle_cat"].ToString();
             uneCategorie = new Categorie(id, libelle);

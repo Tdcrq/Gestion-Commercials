@@ -47,16 +47,23 @@ namespace Gestion_Commercials
             PrixColumn.HeaderText = "Prix";
 
             // Création d'une en-tête de colonne pour la colonne 4
-            DataGridViewTextBoxColumn CategColumn = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn CategLibColumn = new DataGridViewTextBoxColumn();
 
-            CategColumn.DataPropertyName = "CatLib";
-            CategColumn.HeaderText = "Catégorie";
+            CategLibColumn.DataPropertyName = "CatLib";
+            CategLibColumn.HeaderText = "Catégorie";
+
+            // Création d'une en-tête de colonne pour la colonne 5
+            DataGridViewTextBoxColumn CategCodeColumn = new DataGridViewTextBoxColumn();
+
+            CategCodeColumn.DataPropertyName = "CatCode";
+            CategCodeColumn.Visible = false;
 
             // Ajout des 2 en-têtes de colonne au datagridview
             dataGridViewProduit.Columns.Add(IdColumn);
             dataGridViewProduit.Columns.Add(NomColumn);
             dataGridViewProduit.Columns.Add(PrixColumn);
-            dataGridViewProduit.Columns.Add(CategColumn);
+            dataGridViewProduit.Columns.Add(CategLibColumn);
+            dataGridViewProduit.Columns.Add(CategCodeColumn);
 
             // Définition du style apporté au datagridview
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
@@ -118,8 +125,9 @@ namespace Gestion_Commercials
             int id = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[2].Value.ToString());
             string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString();
             float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[4].Value.ToString());
-            int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[5].Value.ToString());
-            Categorie tempCat = GestionCategories.GetCategorieById(categ);
+            int categCode = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[6].Value.ToString());
+            string categLib = dataGridViewProduit.Rows[e.RowIndex].Cells[5].Value.ToString();
+            Categorie tempCat = new Categorie(categCode, categLib);
 
             Produit prod = new Produit(id, lbl, prix, tempCat);
 
