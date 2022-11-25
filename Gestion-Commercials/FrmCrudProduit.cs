@@ -87,22 +87,30 @@ namespace Gestion_Commercials
             bool verifAjout = false;
             int categ = int.Parse(listeInfoCategorie.SelectedValue.ToString());
             string lbl = txtInfoLibelle.Text;
-            float prix = float.Parse(txtInfoPrix.Text);
+            float prix;
 
-            Produit prod = new Produit(lbl, prix, categ);
-
-            verifAjout = GestionProduits.CreerProduit(prod);
-            if (!verifAjout)
+            if (float.TryParse(txtInfoPrix.Text, out prix))
             {
-                MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Categorie tempCat = GestionCategories.GetCategorieById(categ);
+                Produit prod = new Produit(lbl, prix, tempCat);
+
+                verifAjout = GestionProduits.CreerProduit(prod);
+                if (!verifAjout)
+                {
+                    MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Création d'un objet List d'Produit à afficher dans le datagridview
+                List<Produit> liste = new List<Produit>();
+                liste = GestionProduits.GetProduits();
+
+                // Rattachement de la List à la source de données du datagridview
+                dataGridViewProduit.DataSource = liste;
             }
-
-            // Création d'un objet List d'Produit à afficher dans le datagridview
-            List<Produit> liste = new List<Produit>();
-            liste = GestionProduits.GetProduits();
-
-            // Rattachement de la List à la source de données du datagridview
-            dataGridViewProduit.DataSource = liste;
+            else
+            {
+                MessageBox.Show("Réel attendu pour le prix du produit", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnEvent(object sender, DataGridViewCellEventArgs e)
@@ -113,8 +121,9 @@ namespace Gestion_Commercials
             string lbl = dataGridViewProduit.Rows[e.RowIndex].Cells[3].Value.ToString();
             float prix = float.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[4].Value.ToString());
             int categ = int.Parse(dataGridViewProduit.Rows[e.RowIndex].Cells[5].Value.ToString());
+            Categorie tempCat = GestionCategories.GetCategorieById(categ);
 
-            Produit prod = new Produit(id, lbl, prix, categ);
+            Produit prod = new Produit(id, lbl, prix, tempCat);
 
             if (e.ColumnIndex == 0)
             {

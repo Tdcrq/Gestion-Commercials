@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommercialsBLL">
+      <HintPath>..\CommercialsBLL\bin\Debug\CommercialsBLL.dll</HintPath>
+    </Reference>
     <Reference Include="CommercialsBO">
       <HintPath>..\CommercialsBO\bin\Debug\CommercialsBO.dll</HintPath>
     </Reference>
