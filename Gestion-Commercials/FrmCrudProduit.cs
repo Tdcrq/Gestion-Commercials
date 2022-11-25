@@ -49,7 +49,7 @@ namespace Gestion_Commercials
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn CategColumn = new DataGridViewTextBoxColumn();
 
-            CategColumn.DataPropertyName = "fk_id_cat";
+            CategColumn.DataPropertyName = "CatCode";
             CategColumn.HeaderText = "Catégorie";
 
             // Ajout des 2 en-têtes de colonne au datagridview

@@ -36,7 +36,7 @@ namespace CommercialDAL
             List<Produit> lesProduits = new List<Produit>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.PRODUIT";
+            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.PRODUIT, DECLICINFO.dbo.CATEGORIE WHERE fk_code_cat = code_cat";
             SqlDataReader monReader = cmd.ExecuteReader();
 
             // Remplissage de la liste
@@ -59,7 +59,8 @@ namespace CommercialDAL
                 {
                     prix = float.Parse(monReader["prix_ht_prod"].ToString());
                 }
-                fk_cat =  GestionCategories.GetCategorieById(int.Parse(monReader["fk_code_cat"].ToString()));
+                fk_cat = new Categorie((int)monReader["code_cat"], monReader["libelle_cat"].ToString());
+                //fk_cat =  GestionCategories.GetCategorieById(int.Parse(monReader["fk_code_cat"].ToString()));
                 unProduit = new Produit(id, nom, prix, fk_cat);
                 lesProduits.Add(unProduit);
             }

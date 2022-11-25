@@ -32,5 +32,7 @@ namespace CommercialsBO
         public string Libelle_prod { get => libelle_prod; set => libelle_prod = value; }
         public float Prix_ht_prod { get => prix_ht_prod; set => prix_ht_prod = value; }
         public Categorie Cat { get => cat; set => cat = value; }
+
+        public string CatCode { get => this.Cat.Libelle_cat; }
     }
 }
