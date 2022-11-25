@@ -98,7 +98,7 @@ namespace Gestion_Commercials
 
             if (float.TryParse(txtInfoPrix.Text, out prix))
             {
-                Categorie tempCat = GestionCategories.GetCategorieById(categ);
+                Categorie tempCat = new Categorie(categ, listeInfoCategorie.Text);
                 Produit prod = new Produit(lbl, prix, tempCat);
 
                 verifAjout = GestionProduits.CreerProduit(prod);
@@ -141,10 +141,13 @@ namespace Gestion_Commercials
             }
             else if (e.ColumnIndex == 1)
             {
-                verifSuppression = GestionProduits.DeleteProduit(prod);
-                if (!verifSuppression)
+                if (MessageBox.Show("Voulez-vous vraiment supprimer ce produit ?", "Validation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show("ERREUR LORS DE LA SUPPRESSION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    verifSuppression = GestionProduits.DeleteProduit(prod);
+                    if (!verifSuppression)
+                    {
+                        MessageBox.Show("Ce produit est rattaché à un devis,\nimpossible de le supprimer.", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 

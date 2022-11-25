@@ -102,7 +102,7 @@ namespace CommercialDAL
             // Création d'une liste vide d'objets Categories
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.Categorie WHERE code_cat = @code";
+            cmd.CommandText = "SELECT * FROM DECLICINFO.dbo.CATEGORIE WHERE code_cat = @code";
             cmd.Parameters.AddWithValue("@code", id);
             SqlDataReader monReader = cmd.ExecuteReader();
 

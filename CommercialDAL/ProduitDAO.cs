@@ -120,7 +120,9 @@ namespace CommercialDAL
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand(
-                "DELETE FROM DECLICINFO.dbo.PRODUIT WHERE code_prod = @id",
+                "DELETE FROM DECLICINFO.dbo.PRODUIT " +
+                "WHERE code_prod = @id " +
+                "AND code_prod not in (SELECT fk_code_prod FROM DECLICINFO.dbo.Concerner)",
                 maConnexion
             );
             cmd.Parameters.AddWithValue("@id", unProduit.Id_prod);
