@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCrudDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrudDevis.Designer.cs">
+      <DependentUpon>FrmCrudDevis.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudClient.resx">
       <DependentUpon>FrmCrudClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrudDevis.resx">
+      <DependentUpon>FrmCrudDevis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudProduit.resx">
       <DependentUpon>FrmCrudProduit.cs</DependentUpon>
