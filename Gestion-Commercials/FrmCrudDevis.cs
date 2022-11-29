@@ -32,11 +32,20 @@ namespace Gestion_Commercials
             cbStatut.DisplayMember = "libelle_stat";
             cbStatut.ValueMember = "code_stat";
             cbStatut.DataSource = listeStatut;
-
-            List<Categorie> listeCat = GestionCategories.GetCategories();
+            /*combobox des categories produits*/
+            /*List<Categorie> listeCat = GestionCategories.GetCategories();
             cbCategProd.DisplayMember = "libelle_cat";
             cbCategProd.ValueMember = "code_cat";
-            cbCategProd.DataSource = listeCat;
+            cbCategProd.DataSource = listeCat;*/
+            #endregion
+
+            #region checkedListBox
+            List<Produit> listeProd = GestionProduits.GetProduits();
+            foreach (Produit unProd in listeProd)
+            {
+
+                this.checkListProd.Items.Add(unProd.Libelle_prod, false);
+            }
             #endregion
         }
     }

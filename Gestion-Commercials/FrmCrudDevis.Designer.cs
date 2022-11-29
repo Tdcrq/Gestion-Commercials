@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.checkListProd = new System.Windows.Forms.CheckedListBox();
             this.dataGridViewClient = new System.Windows.Forms.DataGridView();
             this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEvent = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -37,6 +38,7 @@
             this.btnDevis = new System.Windows.Forms.Button();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.gpBoxInformations = new System.Windows.Forms.GroupBox();
+            this.lblProd = new System.Windows.Forms.Label();
             this.txtMontantTTC = new System.Windows.Forms.TextBox();
             this.lblMontantTTC = new System.Windows.Forms.Label();
             this.txtHtAr = new System.Windows.Forms.TextBox();
@@ -56,11 +58,17 @@
             this.cbNomClient = new System.Windows.Forms.ComboBox();
             this.btnAjout = new System.Windows.Forms.Button();
             this.lblNomClient = new System.Windows.Forms.Label();
-            this.cbCategProd = new System.Windows.Forms.ComboBox();
-            this.lblCategProd = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // checkListProd
+            // 
+            this.checkListProd.FormattingEnabled = true;
+            this.checkListProd.Location = new System.Drawing.Point(129, 120);
+            this.checkListProd.Name = "checkListProd";
+            this.checkListProd.Size = new System.Drawing.Size(181, 55);
+            this.checkListProd.TabIndex = 40;
             // 
             // dataGridViewClient
             // 
@@ -145,8 +153,8 @@
             // 
             // gpBoxInformations
             // 
-            this.gpBoxInformations.Controls.Add(this.cbCategProd);
-            this.gpBoxInformations.Controls.Add(this.lblCategProd);
+            this.gpBoxInformations.Controls.Add(this.checkListProd);
+            this.gpBoxInformations.Controls.Add(this.lblProd);
             this.gpBoxInformations.Controls.Add(this.txtMontantTTC);
             this.gpBoxInformations.Controls.Add(this.lblMontantTTC);
             this.gpBoxInformations.Controls.Add(this.txtHtAr);
@@ -175,17 +183,26 @@
             this.gpBoxInformations.TabStop = false;
             this.gpBoxInformations.Text = "Informations";
             // 
+            // lblProd
+            // 
+            this.lblProd.AutoSize = true;
+            this.lblProd.Location = new System.Drawing.Point(23, 120);
+            this.lblProd.Name = "lblProd";
+            this.lblProd.Size = new System.Drawing.Size(48, 16);
+            this.lblProd.TabIndex = 38;
+            this.lblProd.Text = "produit";
+            // 
             // txtMontantTTC
             // 
-            this.txtMontantTTC.Location = new System.Drawing.Point(184, 321);
+            this.txtMontantTTC.Location = new System.Drawing.Point(175, 283);
             this.txtMontantTTC.Name = "txtMontantTTC";
-            this.txtMontantTTC.Size = new System.Drawing.Size(100, 22);
+            this.txtMontantTTC.Size = new System.Drawing.Size(110, 22);
             this.txtMontantTTC.TabIndex = 37;
             // 
             // lblMontantTTC
             // 
             this.lblMontantTTC.AutoSize = true;
-            this.lblMontantTTC.Location = new System.Drawing.Point(181, 302);
+            this.lblMontantTTC.Location = new System.Drawing.Point(172, 264);
             this.lblMontantTTC.Name = "lblMontantTTC";
             this.lblMontantTTC.Size = new System.Drawing.Size(84, 16);
             this.lblMontantTTC.TabIndex = 36;
@@ -193,15 +210,15 @@
             // 
             // txtHtAr
             // 
-            this.txtHtAr.Location = new System.Drawing.Point(184, 277);
+            this.txtHtAr.Location = new System.Drawing.Point(175, 239);
             this.txtHtAr.Name = "txtHtAr";
-            this.txtHtAr.Size = new System.Drawing.Size(100, 22);
+            this.txtHtAr.Size = new System.Drawing.Size(110, 22);
             this.txtHtAr.TabIndex = 35;
             // 
             // lblHtAr
             // 
             this.lblHtAr.AutoSize = true;
-            this.lblHtAr.Location = new System.Drawing.Point(181, 258);
+            this.lblHtAr.Location = new System.Drawing.Point(172, 220);
             this.lblHtAr.Name = "lblHtAr";
             this.lblHtAr.Size = new System.Drawing.Size(103, 16);
             this.lblHtAr.TabIndex = 34;
@@ -209,7 +226,7 @@
             // 
             // txtRemise
             // 
-            this.txtRemise.Location = new System.Drawing.Point(254, 230);
+            this.txtRemise.Location = new System.Drawing.Point(259, 198);
             this.txtRemise.Name = "txtRemise";
             this.txtRemise.Size = new System.Drawing.Size(26, 22);
             this.txtRemise.TabIndex = 33;
@@ -217,15 +234,15 @@
             // lblRemise
             // 
             this.lblRemise.AutoSize = true;
-            this.lblRemise.Location = new System.Drawing.Point(181, 236);
+            this.lblRemise.Location = new System.Drawing.Point(172, 198);
             this.lblRemise.Name = "lblRemise";
-            this.lblRemise.Size = new System.Drawing.Size(67, 16);
+            this.lblRemise.Size = new System.Drawing.Size(81, 16);
             this.lblRemise.TabIndex = 32;
-            this.lblRemise.Text = "Taux TVA";
+            this.lblRemise.Text = "Taux remise";
             // 
             // txtMontantTva
             // 
-            this.txtMontantTva.Location = new System.Drawing.Point(48, 321);
+            this.txtMontantTva.Location = new System.Drawing.Point(39, 283);
             this.txtMontantTva.Name = "txtMontantTva";
             this.txtMontantTva.Size = new System.Drawing.Size(100, 22);
             this.txtMontantTva.TabIndex = 31;
@@ -233,7 +250,7 @@
             // lblMontantTva
             // 
             this.lblMontantTva.AutoSize = true;
-            this.lblMontantTva.Location = new System.Drawing.Point(45, 302);
+            this.lblMontantTva.Location = new System.Drawing.Point(36, 264);
             this.lblMontantTva.Name = "lblMontantTva";
             this.lblMontantTva.Size = new System.Drawing.Size(84, 16);
             this.lblMontantTva.TabIndex = 30;
@@ -241,7 +258,7 @@
             // 
             // txtHtHr
             // 
-            this.txtHtHr.Location = new System.Drawing.Point(48, 277);
+            this.txtHtHr.Location = new System.Drawing.Point(39, 239);
             this.txtHtHr.Name = "txtHtHr";
             this.txtHtHr.Size = new System.Drawing.Size(100, 22);
             this.txtHtHr.TabIndex = 29;
@@ -249,7 +266,7 @@
             // lblHtHr
             // 
             this.lblHtHr.AutoSize = true;
-            this.lblHtHr.Location = new System.Drawing.Point(45, 258);
+            this.lblHtHr.Location = new System.Drawing.Point(36, 220);
             this.lblHtHr.Name = "lblHtHr";
             this.lblHtHr.Size = new System.Drawing.Size(99, 16);
             this.lblHtHr.TabIndex = 28;
@@ -257,7 +274,7 @@
             // 
             // txtTauxTva
             // 
-            this.txtTauxTva.Location = new System.Drawing.Point(118, 230);
+            this.txtTauxTva.Location = new System.Drawing.Point(109, 192);
             this.txtTauxTva.Name = "txtTauxTva";
             this.txtTauxTva.Size = new System.Drawing.Size(26, 22);
             this.txtTauxTva.TabIndex = 27;
@@ -265,7 +282,7 @@
             // lblTauxTva
             // 
             this.lblTauxTva.AutoSize = true;
-            this.lblTauxTva.Location = new System.Drawing.Point(45, 236);
+            this.lblTauxTva.Location = new System.Drawing.Point(36, 198);
             this.lblTauxTva.Name = "lblTauxTva";
             this.lblTauxTva.Size = new System.Drawing.Size(67, 16);
             this.lblTauxTva.TabIndex = 26;
@@ -333,24 +350,6 @@
             this.lblNomClient.TabIndex = 0;
             this.lblNomClient.Text = "nom client";
             // 
-            // cbCategProd
-            // 
-            this.cbCategProd.FormattingEnabled = true;
-            this.cbCategProd.Location = new System.Drawing.Point(129, 112);
-            this.cbCategProd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbCategProd.Name = "cbCategProd";
-            this.cbCategProd.Size = new System.Drawing.Size(181, 24);
-            this.cbCategProd.TabIndex = 39;
-            // 
-            // lblCategProd
-            // 
-            this.lblCategProd.AutoSize = true;
-            this.lblCategProd.Location = new System.Drawing.Point(23, 120);
-            this.lblCategProd.Name = "lblCategProd";
-            this.lblCategProd.Size = new System.Drawing.Size(95, 16);
-            this.lblCategProd.TabIndex = 38;
-            this.lblCategProd.Text = "categorie prod";
-            // 
             // FrmCrudDevis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -403,7 +402,7 @@
         private System.Windows.Forms.Label lblHtAr;
         private System.Windows.Forms.TextBox txtRemise;
         private System.Windows.Forms.Label lblRemise;
-        private System.Windows.Forms.ComboBox cbCategProd;
-        private System.Windows.Forms.Label lblCategProd;
+        private System.Windows.Forms.Label lblProd;
+        private System.Windows.Forms.CheckedListBox checkListProd;
     }
 }
