@@ -55,6 +55,14 @@ namespace CommercialsBO
             this.addresseFac = numFac.ToString() +" "+ rueFac.ToString() +","+ villeFac.ToString() +","+ cpFac.ToString();
         }
 
+        public Client(int code, string nom_cli)
+        {
+            this.code = code;
+            this.nom_cli = nom_cli;
+        }
+
+
+
         public int Code { get => code; set => code = value; }
         public string Nom_cli { get => nom_cli; set => nom_cli = value; }
         public int NumFac { get => numFac; }

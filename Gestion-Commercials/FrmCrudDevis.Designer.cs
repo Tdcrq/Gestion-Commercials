@@ -141,6 +141,7 @@
             this.btnDevis.TabIndex = 32;
             this.btnDevis.Text = "Devis";
             this.btnDevis.UseVisualStyleBackColor = true;
+            this.btnDevis.Click += new System.EventHandler(this.btnDevis_Click);
             // 
             // lblCategorie
             // 
@@ -226,7 +227,7 @@
             // 
             // txtRemise
             // 
-            this.txtRemise.Location = new System.Drawing.Point(259, 198);
+            this.txtRemise.Location = new System.Drawing.Point(259, 192);
             this.txtRemise.Name = "txtRemise";
             this.txtRemise.Size = new System.Drawing.Size(26, 22);
             this.txtRemise.TabIndex = 33;
@@ -236,9 +237,9 @@
             this.lblRemise.AutoSize = true;
             this.lblRemise.Location = new System.Drawing.Point(172, 198);
             this.lblRemise.Name = "lblRemise";
-            this.lblRemise.Size = new System.Drawing.Size(81, 16);
+            this.lblRemise.Size = new System.Drawing.Size(86, 16);
             this.lblRemise.TabIndex = 32;
-            this.lblRemise.Text = "Taux remise";
+            this.lblRemise.Text = "Taux remise*";
             // 
             // txtMontantTva
             // 
@@ -284,9 +285,9 @@
             this.lblTauxTva.AutoSize = true;
             this.lblTauxTva.Location = new System.Drawing.Point(36, 198);
             this.lblTauxTva.Name = "lblTauxTva";
-            this.lblTauxTva.Size = new System.Drawing.Size(67, 16);
+            this.lblTauxTva.Size = new System.Drawing.Size(72, 16);
             this.lblTauxTva.TabIndex = 26;
-            this.lblTauxTva.Text = "Taux TVA";
+            this.lblTauxTva.Text = "Taux TVA*";
             // 
             // cbStatut
             // 
@@ -340,6 +341,7 @@
             this.btnAjout.TabIndex = 20;
             this.btnAjout.Text = "AJOUTER";
             this.btnAjout.UseVisualStyleBackColor = true;
+            this.btnAjout.Click += new System.EventHandler(this.btnAjout_Click);
             // 
             // lblNomClient
             // 
