@@ -111,6 +111,7 @@
             this.btnProduits.TabIndex = 35;
             this.btnProduits.Text = "Produits";
             this.btnProduits.UseVisualStyleBackColor = true;
+            this.btnProduits.Click += new System.EventHandler(this.btnProduits_Click);
             // 
             // btnSyntheseClients
             // 
@@ -131,6 +132,7 @@
             this.btnClients.TabIndex = 33;
             this.btnClients.Text = "Clients";
             this.btnClients.UseVisualStyleBackColor = true;
+            this.btnClients.Click += new System.EventHandler(this.btnClients_Click);
             // 
             // btnDevis
             // 

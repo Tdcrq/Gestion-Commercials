@@ -42,12 +42,6 @@ namespace Gestion_Commercials
 
             #region checkedListBox
             List<Produit> listeProd = GestionProduits.GetProduits();
-            /*foreach (Produit unProd in listeProd)
-            {
-
-                this.checkListProd.Items.Add(unProd.Id_prod, false);
-                this.checkListProd.Items.Add(unProd.Libelle_prod, false);
-            }*/
             checkListProd.DataSource = listeProd;
             checkListProd.DisplayMember = "Libelle_prod";
             checkListProd.ValueMember = "Id_prod";
@@ -61,17 +55,14 @@ namespace Gestion_Commercials
         private void btnAjout_Click(object sender, EventArgs e)
         {
             bool verifAjoutDevis = false;
+            bool verifAjoutConcerner = false;
             int TauxTva;
+            int TauxRemise;
             int i = 0;
 
-            if (txtTauxTva.Text !="" && int.TryParse(txtTauxTva.Text, out TauxTva))
+            if (txtTauxTva.Text !="" && int.TryParse(txtTauxTva.Text, out TauxTva) && txtRemise.Text != "" && int.TryParse(txtRemise.Text, out TauxRemise))
             {
                 #region ajout d'un devis en BDD
-                /*string dateTime = dtpDate.Value.ToString();
-                string[] dateTimeSplit = dateTime.Split(' ');
-                string date = dateTimeSplit[0];
-                string[] dateFormaBd = date.Split('/');
-                date = dateFormaBd[2]+"-"+dateFormaBd[1]+"-"+dateFormaBd[0];*/
                 DateTime date = dtpDate.Value;
 
                 int statut = int.Parse(cbStatut.SelectedValue.ToString());
@@ -80,6 +71,7 @@ namespace Gestion_Commercials
                 Statut unStatut = new Statut(statut, cbStatut.Text);
                 Client unClient = new Client(client, cbNomClient.Text);
                 Devis unDevis = new Devis(TauxTva, date, unStatut, unClient);
+                List<Devis> listeDevisConcerner = new List<Devis>();
 
                 verifAjoutDevis = GestionDevis.CreerDevis(unDevis);
                 if (!verifAjoutDevis)
@@ -88,19 +80,56 @@ namespace Gestion_Commercials
                 }
                 #endregion
                 #region ajout d'un objet concerner en BDD
-                int codeProd;
+                int remProd = int.Parse(txtRemise.Text.ToString());
+                int qteProd = 1/*int.Parse(.ToString())*/;
+                for (i = 0; i <= (checkListProd.Items.Count - 1); i++)
+                {
+                    if (checkListProd.GetItemChecked(i))
+                    {
+                        Produit unProduit = new Produit(int.Parse(checkListProd.SelectedValue.ToString()), checkListProd.Items[i].ToString());
+                        listeDevisConcerner = GestionDevis.GetDevisConcerner();
+                        unDevis = listeDevisConcerner[0];
+                        Concerner concerne = new Concerner(unProduit, unDevis, qteProd, remProd);
 
+                        verifAjoutConcerner = GestionConcerner.CreerConcerner(concerne);
+                        if (!verifAjoutConcerner)
+                        {
+                            MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
                 #endregion
             }
             else
             {
-                MessageBox.Show("Veuillez renseigner le champ taux TVA avec un entier", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Veuillez renseigner les champs taux TVA et taux remise avec un entier", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        #region action menu de gauche
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            FrmCrudClient FrmClient;
+            FrmClient = new FrmCrudClient();
+            this.Hide();
+            FrmClient.ShowDialog();
+        }
+        private void btnProduits_Click(object sender, EventArgs e)
+        {
+            FrmCrudProduit FrmProd;
+            FrmProd = new FrmCrudProduit();
+            this.Hide();
+            FrmProd.ShowDialog();
+        }
         private void btnDevis_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(cbNomClient.SelectedValue);
+            FrmCrudDevis FrmDevis;
+            FrmDevis = new FrmCrudDevis();
+            this.Hide();
+            FrmDevis.ShowDialog();
         }
+        #endregion
+
+        
     }
 }

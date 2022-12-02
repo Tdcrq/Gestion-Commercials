@@ -159,14 +159,7 @@ namespace Gestion_Commercials
             dataGridViewProduit.DataSource = liste;
         }
 
-        private void btnProduits_Click(object sender, EventArgs e)
-        {
-            FrmCrudProduit FrmProd;
-            FrmProd = new FrmCrudProduit();
-            this.Hide();
-            FrmProd.ShowDialog();
-        }
-
+        #region action menu de gauche
         private void btnClients_Click(object sender, EventArgs e)
         {
             FrmCrudClient FrmClient;
@@ -174,5 +167,22 @@ namespace Gestion_Commercials
             this.Hide();
             FrmClient.ShowDialog();
         }
+        private void btnProduits_Click(object sender, EventArgs e)
+        {
+            FrmCrudProduit FrmProd;
+            FrmProd = new FrmCrudProduit();
+            this.Hide();
+            FrmProd.ShowDialog();
+        }
+        private void btnDevis_Click(object sender, EventArgs e)
+        {
+            FrmCrudDevis FrmDevis;
+            FrmDevis = new FrmCrudDevis();
+            this.Hide();
+            FrmDevis.ShowDialog();
+        }
+        #endregion
+
+        
     }
 }

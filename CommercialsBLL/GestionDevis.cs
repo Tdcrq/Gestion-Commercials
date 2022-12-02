@@ -24,5 +24,9 @@ namespace CommercialsBLL
         {
             return DevisDAO.AjoutDevis(devis) != 0;
         }
+        public static List<Devis> GetDevisConcerner()
+        {
+            return DevisDAO.GetDevisConcerner();
+        }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="CategorieDAO.cs" />
     <Compile Include="ClientDAO.cs" />
     <Compile Include="CommercialDAO.cs" />
+    <Compile Include="ConcernerDAO.cs" />
     <Compile Include="ConnexionBD.cs" />
     <Compile Include="DevisDAO.cs" />
     <Compile Include="ProduitDAO.cs" />

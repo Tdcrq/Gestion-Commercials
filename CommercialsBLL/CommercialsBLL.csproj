@@ -51,6 +51,7 @@
     <Compile Include="GestionCategories.cs" />
     <Compile Include="GestionClients.cs" />
     <Compile Include="GestionCommercials.cs" />
+    <Compile Include="GestionConcerner.cs" />
     <Compile Include="GestionDevis.cs" />
     <Compile Include="GestionProduits.cs" />
     <Compile Include="GestionStatut.cs" />

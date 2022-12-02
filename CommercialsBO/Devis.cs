@@ -31,6 +31,14 @@ namespace CommercialsBO
             this.Cli = cli;
         }
 
+        public Devis(int id_devis, int txTva, Statut stat, Client cli)
+        {
+            this.Id_devis = id_devis;
+            this.TxTva = txTva;
+            this.Stat = stat;
+            this.Cli = cli;
+        }
+
         public int Id_devis { get => id_devis; set => id_devis = value; }
         public int TxTva { get => txTva; set => txTva = value; }
         public DateTime Date_dev { get => date_dev; set => date_dev = value; }
