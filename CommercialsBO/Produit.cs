@@ -34,6 +34,13 @@ namespace CommercialsBO
             this.Libelle_prod = libelle_prod;
         }
 
+        public Produit(int id_prod, string libelle_prod, float prix_ht_prod)
+        {
+            this.Id_prod = id_prod;
+            this.Libelle_prod = libelle_prod;
+            this.Prix_ht_prod = prix_ht_prod;
+        }
+
         public int Id_prod { get => id_prod; set => id_prod = value; }
         public string Libelle_prod { get => libelle_prod; set => libelle_prod = value; }
         public float Prix_ht_prod { get => prix_ht_prod; set => prix_ht_prod = value; }

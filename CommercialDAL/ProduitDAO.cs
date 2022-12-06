@@ -94,7 +94,7 @@ namespace CommercialDAL
         {
             int nbEnr;
             // Connexion à la BD
-            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();            
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             /* Préparation de la requête */
             SqlCommand cmd = new SqlCommand(
                 "UPDATE DECLICINFO.dbo.PRODUIT " +
@@ -131,7 +131,6 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
-
     }
 }
 

@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConfirmationDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfirmationDevis.Designer.cs">
+      <DependentUpon>FrmConfirmationDevis.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCrudDevis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmConfirmationDevis.resx">
+      <DependentUpon>FrmConfirmationDevis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
     </EmbeddedResource>

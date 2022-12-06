@@ -55,7 +55,6 @@ namespace Gestion_Commercials
         private void btnAjout_Click(object sender, EventArgs e)
         {
             bool verifAjoutDevis = false;
-            bool verifAjoutConcerner = false;
             int TauxTva;
             int TauxRemise;
             int i = 0;
@@ -79,25 +78,32 @@ namespace Gestion_Commercials
                     MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 #endregion
+
                 #region ajout d'un objet concerner en BDD
+                bool verifAjoutConcerner = false;
                 int remProd = int.Parse(txtRemise.Text.ToString());
                 int qteProd = 1/*int.Parse(.ToString())*/;
-                for (i = 0; i <= (checkListProd.Items.Count - 1); i++)
+                Produit unProduit = null;
+                Concerner concerne = null;
+                List<Concerner> listeConcerner = new List<Concerner>();
+                foreach (Produit prod in checkListProd.CheckedItems)
                 {
-                    if (checkListProd.GetItemChecked(i))
-                    {
-                        Produit unProduit = new Produit(int.Parse(checkListProd.SelectedValue.ToString()), checkListProd.Items[i].ToString());
-                        listeDevisConcerner = GestionDevis.GetDevisConcerner();
-                        unDevis = listeDevisConcerner[0];
-                        Concerner concerne = new Concerner(unProduit, unDevis, qteProd, remProd);
-
-                        verifAjoutConcerner = GestionConcerner.CreerConcerner(concerne);
-                        if (!verifAjoutConcerner)
-                        {
-                            MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                    unProduit = new Produit(int.Parse(prod.Id_prod.ToString()), checkListProd.Items[i].ToString());
+                    listeDevisConcerner = GestionDevis.GetDevisConcerner();
+                    unDevis = listeDevisConcerner[0];
+                    concerne = new Concerner(unProduit, unDevis, qteProd, remProd);
+                    /*listeConcerner.Add(concerne);*/
                 }
+                FrmConfirmationDevis frmConfirmationDevis;
+                frmConfirmationDevis = new FrmConfirmationDevis(unClient, unDevis, listeConcerner);
+                frmConfirmationDevis.ShowDialog();
+
+                /*verifAjoutConcerner = GestionConcerner.CreerConcerner(concerne);
+                if (!verifAjoutConcerner)
+                {
+                    MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }*/
+
                 #endregion
             }
             else
@@ -128,8 +134,7 @@ namespace Gestion_Commercials
             this.Hide();
             FrmDevis.ShowDialog();
         }
-        #endregion
 
-        
+        #endregion
     }
 }
