@@ -92,5 +92,23 @@ namespace CommercialDAL
             maConnexion.Close();
             return lesProduits;
         }
+
+        public static int SupprimerConcerner(DonneesDevis dd)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM DECLICINFO.dbo.Concerner " +
+                "WHERE fk_code_dev = @id_dev ",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id_dev", dd.Dev.Id_devis);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            return nbEnr;
+        }
     }
 }

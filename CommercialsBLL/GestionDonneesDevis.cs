@@ -24,5 +24,16 @@ namespace CommercialsBLL
             }
             return lesDonnees;
         }
+
+        public static bool SupprimerDevis(DonneesDevis dd)
+        {
+            bool verif = false;
+            verif = ConcernerDAO.SupprimerConcerner(dd) != 0;
+            if (!verif)
+            {
+
+            }
+            return verif;
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace CommercialDAL
             Statut stat;
             Client unClient;
             Devis unDevisConcerner;
+            DateTime date;
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             // Création d'une liste vide d'objets Clients
@@ -47,12 +48,13 @@ namespace CommercialDAL
             {
                 code = int.Parse(monReader["code_dev"].ToString());
                 tx_TVA = int.Parse(monReader["tx_tva_dev"].ToString());
+                date = DateTime.Parse(monReader["date_dev"].ToString());
                 stat = new Statut(int.Parse(monReader["code_stat"].ToString()), monReader["libelle_stat"].ToString());
                 unClient = new Client(int.Parse(monReader["code_cli"].ToString()), monReader["nom_cli"].ToString(), int.Parse(monReader["num_fac_cli"].ToString()), 
                                       monReader["rue_fac_cli"].ToString(), monReader["ville_fac_cli"].ToString(), monReader["cp_fac_cli"].ToString(), 
                                       int.Parse(monReader["num_liv_cli"].ToString()),monReader["rue_liv_cli"].ToString(), monReader["ville_liv_cli"].ToString(), 
                                       monReader["cp_liv_cli"].ToString(), monReader["telephone_cli"].ToString(), monReader["fax_cli"].ToString(), monReader["email_cli"].ToString());
-                unDevisConcerner = new Devis(code, tx_TVA, stat, unClient);
+                unDevisConcerner = new Devis(code, tx_TVA, date, stat, unClient);
                 lesDevisConcerners.Add(unDevisConcerner);
             }
             // Fermeture de la connexion
@@ -128,6 +130,7 @@ namespace CommercialDAL
         public static List<Devis> GetAllDevisConcerner()
         {
             int code, tx_TVA;
+            DateTime date;
             Statut stat;
             Client unClient;
             Devis unDevisConcerner;
@@ -149,12 +152,13 @@ namespace CommercialDAL
             {
                 code = int.Parse(monReader["code_dev"].ToString());
                 tx_TVA = int.Parse(monReader["tx_tva_dev"].ToString());
+                date = DateTime.Parse(monReader["date_dev"].ToString());
                 stat = new Statut(int.Parse(monReader["code_stat"].ToString()), monReader["libelle_stat"].ToString());
                 unClient = new Client(int.Parse(monReader["code_cli"].ToString()), monReader["nom_cli"].ToString(), int.Parse(monReader["num_fac_cli"].ToString()),
                                       monReader["rue_fac_cli"].ToString(), monReader["ville_fac_cli"].ToString(), monReader["cp_fac_cli"].ToString(),
                                       int.Parse(monReader["num_liv_cli"].ToString()), monReader["rue_liv_cli"].ToString(), monReader["ville_liv_cli"].ToString(),
                                       monReader["cp_liv_cli"].ToString(), monReader["telephone_cli"].ToString(), monReader["fax_cli"].ToString(), monReader["email_cli"].ToString());
-                unDevisConcerner = new Devis(code, tx_TVA, stat, unClient);
+                unDevisConcerner = new Devis(code, tx_TVA, date, stat, unClient);
                 lesDevisConcerners.Add(unDevisConcerner);
             }
             // Fermeture de la connexion

@@ -18,7 +18,7 @@ namespace CommercialsBO
         {
             this.Id_devis = id_devis;
             this.TxTva = txTva;
-            this.Date_dev = date_dev;
+            this.date_dev = date_dev;
             this.Stat = stat;
             this.Cli = cli;
         }
@@ -26,7 +26,7 @@ namespace CommercialsBO
         public Devis(int txTva, DateTime date_dev, Statut stat, Client cli)
         {
             this.TxTva = txTva;
-            this.Date_dev = date_dev;
+            this.date_dev = date_dev;
             this.Stat = stat;
             this.Cli = cli;
         }
