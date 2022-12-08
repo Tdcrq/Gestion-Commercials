@@ -14,7 +14,7 @@ namespace CommercialsBLL
         {
             List<DonneesDevis> lesDonnees= new List<DonneesDevis>();
             List<Produit> lesProduits;
-            List<Devis> listDev = DevisDAO.GetDevisConcerner();
+            List<Devis> listDev = DevisDAO.GetAllDevisConcerner();
             DonneesDevis uneDonnee;
             foreach (Devis dev in listDev)
             {
