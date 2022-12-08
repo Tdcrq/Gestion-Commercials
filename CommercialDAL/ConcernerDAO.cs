@@ -89,10 +89,6 @@ namespace CommercialDAL
                 unProduit = new Produit(id, nom, prix, fk_cat);
                 lesProduits.Add(unProduit);
             }
-            foreach(Produit produit in lesProduits)
-            {
-                Console.WriteLine(produit.Prix_ht_prod);
-            }
             maConnexion.Close();
             return lesProduits;
         }
