@@ -46,6 +46,7 @@
     <Compile Include="Commercials.cs" />
     <Compile Include="Concerner.cs" />
     <Compile Include="Devis.cs" />
+    <Compile Include="DonneesDevis.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statut.cs" />

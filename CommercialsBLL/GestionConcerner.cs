@@ -28,5 +28,10 @@ namespace CommercialsBLL
         {
             return ConcernerDAO.AjoutConcerner(concerner) != 0;
         }
+
+        public static List<Produit> GetProduitList(Devis dev)
+        {
+            return ConcernerDAO.GetProduitList(dev);
+        }
     }
 }

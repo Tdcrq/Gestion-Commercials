@@ -39,4 +39,10 @@ C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\D
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudDevis.resources
+<<<<<<< HEAD
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationAjputDevis.resources
+=======
+C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationDevis.resources
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationDevis.resources
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudDevis.resources
+>>>>>>> 769fa3d4eb79fdce39b2050f4ec2bcd43e817177

@@ -53,6 +53,7 @@
     <Compile Include="GestionCommercials.cs" />
     <Compile Include="GestionConcerner.cs" />
     <Compile Include="GestionDevis.cs" />
+    <Compile Include="GestionDonneesDevis.cs" />
     <Compile Include="GestionProduits.cs" />
     <Compile Include="GestionStatut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
