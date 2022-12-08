@@ -59,6 +59,12 @@ namespace Gestion_Commercials
             StatutColumn.DataPropertyName = "LibelleStatut";
             StatutColumn.HeaderText = "Statut";
 
+            dataGridViewDevis.Columns.Add(IdDevisColumn);
+            dataGridViewDevis.Columns.Add(NomClientColumn);
+            dataGridViewDevis.Columns.Add(NbProduitColumn);
+            dataGridViewDevis.Columns.Add(PrixTtcColumn);
+            dataGridViewDevis.Columns.Add(StatutColumn);
+
             // Définition du style apporté au datagridview
             DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
             columnHeaderStyle.BackColor = Color.Beige;
@@ -75,12 +81,6 @@ namespace Gestion_Commercials
             cbNomClient.DisplayMember = "nom_cli";
             cbNomClient.ValueMember = "Code";
             cbNomClient.DataSource = listeClient;
-
-            dataGridViewDevis.Columns.Add(IdDevisColumn);
-            dataGridViewDevis.Columns.Add(NomClientColumn);
-            dataGridViewDevis.Columns.Add(NbProduitColumn);
-            dataGridViewDevis.Columns.Add(PrixTtcColumn);
-            dataGridViewDevis.Columns.Add(StatutColumn);
 
             List<Statut> listeStatut = GestionStatut.GetStatut();
             cbStatut.DisplayMember = "libelle_stat";
