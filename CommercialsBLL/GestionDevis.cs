@@ -28,5 +28,10 @@ namespace CommercialsBLL
         {
             return DevisDAO.GetDevisConcerner();
         }
+
+        public static Devis GetDevisParId(int id)
+        {
+            return DevisDAO.GetDevisParId(id);
+        }
     }
 }

@@ -24,7 +24,6 @@ namespace CommercialDAL
         public static List<Devis> GetDevisConcerner()
         {
             int code, tx_TVA;
-            DateTime date;
             Statut stat;
             Client unClient;
             Devis unDevisConcerner;
@@ -35,8 +34,7 @@ namespace CommercialDAL
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
             cmd.CommandText = "select * from DECLICINFO.dbo.DEVIS, DECLICINFO.dbo.STATUT, DECLICINFO.dbo.CLIENT " +
-                              "WHERE code_dev = (SELECT MAX(code_dev) FROM DECLICINFO.dbo.DEVIS) " +
-                              "and fk_code_stat = code_stat " +
+                              "WHERE fk_code_stat = code_stat " +
                               "and fk_code_cli = code_cli";
             SqlDataReader monReader = cmd.ExecuteReader();
 
@@ -76,6 +74,51 @@ namespace CommercialDAL
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
+        }
+
+        public static Devis GetDevisParId(int id)
+        {
+            int code, tx_TVA;
+            Statut stat;
+            Client unClient;
+            Devis leDevis;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT * " +
+                "FROM DECLICINFO.dbo.DEVIS, DECLICINFO.dbo.STATUT, DECLICINFO.dbo.CLIENT " +
+                "WHERE code_dev = @id",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            // Remplissage de l'objet Devis
+            code = int.Parse(monReader["code_dev"].ToString());
+            tx_TVA = int.Parse(monReader["tx_tva_dev"].ToString());
+            stat = new Statut(
+                int.Parse(monReader["code_stat"].ToString()), 
+                monReader["libelle_stat"].ToString()
+            );
+            unClient = new Client(
+                int.Parse(monReader["code_cli"].ToString()), 
+                monReader["nom_cli"].ToString(), 
+                int.Parse(monReader["num_fac_cli"].ToString()),
+                monReader["rue_fac_cli"].ToString(), 
+                monReader["ville_fac_cli"].ToString(), 
+                monReader["cp_fac_cli"].ToString(),
+                int.Parse(monReader["num_liv_cli"].ToString()), 
+                monReader["rue_liv_cli"].ToString(), 
+                monReader["ville_liv_cli"].ToString(),
+                monReader["cp_liv_cli"].ToString(), 
+                monReader["telephone_cli"].ToString(), 
+                monReader["fax_cli"].ToString(), 
+                monReader["email_cli"].ToString()
+            );
+            leDevis = new Devis(code, tx_TVA, stat, unClient);
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return leDevis;
         }
     }
 }

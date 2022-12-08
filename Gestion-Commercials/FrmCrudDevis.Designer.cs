@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.checkListProd = new System.Windows.Forms.CheckedListBox();
-            this.dataGridViewClient = new System.Windows.Forms.DataGridView();
+            this.dataGridViewDevis = new System.Windows.Forms.DataGridView();
             this.btnDataGridViewModifier = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEvent = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnProduits = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             this.cbNomClient = new System.Windows.Forms.ComboBox();
             this.btnAjout = new System.Windows.Forms.Button();
             this.lblNomClient = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDevis)).BeginInit();
             this.gpBoxInformations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,21 +70,21 @@
             this.checkListProd.Size = new System.Drawing.Size(181, 55);
             this.checkListProd.TabIndex = 40;
             // 
-            // dataGridViewClient
+            // dataGridViewDevis
             // 
-            this.dataGridViewClient.AllowUserToAddRows = false;
-            this.dataGridViewClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewDevis.AllowUserToAddRows = false;
+            this.dataGridViewDevis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDevis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDataGridViewModifier,
             this.btnEvent});
-            this.dataGridViewClient.Location = new System.Drawing.Point(260, 130);
-            this.dataGridViewClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridViewClient.Name = "dataGridViewClient";
-            this.dataGridViewClient.RowHeadersVisible = false;
-            this.dataGridViewClient.RowHeadersWidth = 51;
-            this.dataGridViewClient.RowTemplate.Height = 24;
-            this.dataGridViewClient.Size = new System.Drawing.Size(764, 393);
-            this.dataGridViewClient.TabIndex = 36;
+            this.dataGridViewDevis.Location = new System.Drawing.Point(260, 130);
+            this.dataGridViewDevis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewDevis.Name = "dataGridViewDevis";
+            this.dataGridViewDevis.RowHeadersVisible = false;
+            this.dataGridViewDevis.RowHeadersWidth = 51;
+            this.dataGridViewDevis.RowTemplate.Height = 24;
+            this.dataGridViewDevis.Size = new System.Drawing.Size(764, 393);
+            this.dataGridViewDevis.TabIndex = 36;
             // 
             // btnDataGridViewModifier
             // 
@@ -359,7 +359,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1428, 564);
-            this.Controls.Add(this.dataGridViewClient);
+            this.Controls.Add(this.dataGridViewDevis);
             this.Controls.Add(this.btnProduits);
             this.Controls.Add(this.btnSyntheseClients);
             this.Controls.Add(this.btnClients);
@@ -368,7 +368,7 @@
             this.Controls.Add(this.gpBoxInformations);
             this.Name = "FrmCrudDevis";
             this.Text = "DEVIS";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDevis)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);
             this.gpBoxInformations.PerformLayout();
             this.ResumeLayout(false);
@@ -378,7 +378,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewClient;
+        private System.Windows.Forms.DataGridView dataGridViewDevis;
         private System.Windows.Forms.DataGridViewButtonColumn btnDataGridViewModifier;
         private System.Windows.Forms.DataGridViewButtonColumn btnEvent;
         private System.Windows.Forms.Button btnProduits;

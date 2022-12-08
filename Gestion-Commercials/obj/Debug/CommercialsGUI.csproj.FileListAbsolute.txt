@@ -40,3 +40,5 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Ge
 C:\Users\tducr\source\repos\PPE-C#\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudDevis.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationDevis.resources
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationDevis.resources
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudDevis.resources

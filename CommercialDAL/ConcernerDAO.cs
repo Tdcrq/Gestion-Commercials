@@ -42,5 +42,59 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
+
+        public static List<Produit> GetProduitList(Devis dev)
+        {
+            int id;
+            Categorie fk_cat;
+            string nom;
+            float prix;
+            Produit unProduit;
+            List<Produit> lesProduits = new List<Produit>();
+
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT P.code_prod, Cat.code_cat, Cat.libelle_cat, P.libelle_prod, ((P.prix_ht_prod - C.remise_prod) * (1+(D.tx_tva_dev/100))) AS prix_ttc_prod " +
+                "FROM DECLICINFO.dbo.PRODUIT P, DECLICINFO.dbo.Concerner C, DECLICINFO.dbo.DEVIS D, DECLICINFO.dbo.CATEGORIE Cat " +
+                "WHERE C.fk_code_prod = P.code_prod " +
+                "AND Cat.code_cat = P.fk_code_cat " +
+                "AND C.fk_code_dev = D.code_dev " +
+                "AND C.fk_code_dev = @id_dev",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id_dev", dev.Id_devis);
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+            while (monReader.Read())
+            {
+                id = int.Parse(monReader["code_prod"].ToString());
+                if (monReader["libelle_prod"] == DBNull.Value)
+                {
+                    nom = default(string);
+                }
+                else
+                {
+                    nom = monReader["libelle_prod"].ToString();
+                }
+                if (monReader["prix_ttc_prod"] == DBNull.Value)
+                {
+                    prix = default(float);
+                }
+                else
+                {
+                    prix = float.Parse(monReader["prix_ttc_prod"].ToString());
+                }
+                fk_cat = new Categorie((int)monReader["code_cat"], monReader["libelle_cat"].ToString());
+                //fk_cat =  GestionCategories.GetCategorieById(int.Parse(monReader["fk_code_cat"].ToString()));
+                unProduit = new Produit(id, nom, prix, fk_cat);
+                lesProduits.Add(unProduit);
+            }
+            foreach(Produit produit in lesProduits)
+            {
+                Console.WriteLine(produit.Prix_ht_prod);
+            }
+            maConnexion.Close();
+            return lesProduits;
+        }
     }
 }

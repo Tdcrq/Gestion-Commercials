@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,52 @@ namespace Gestion_Commercials
             InitializeComponent();
             ConnexionBD.SetchaineConnexion(ConfigurationManager.ConnectionStrings["Gestion_Commercials.Properties.Settings.DECLICINFOConnectionString"]);
 
+            #region DGV
+            // Blocage de la génération automatique des colonnes
+            dataGridViewDevis.AutoGenerateColumns = false;
+            dataGridViewDevis.ColumnHeadersVisible = true;
+
+            // Colonne 1
+            DataGridViewTextBoxColumn IdDevisColumn = new DataGridViewTextBoxColumn();
+            IdDevisColumn.DataPropertyName = "IdDevis";
+            IdDevisColumn.HeaderText = "Identifiant Devis";
+            IdDevisColumn.Visible = false;
+
+            // Colonne 2
+            DataGridViewTextBoxColumn NomClientColumn = new DataGridViewTextBoxColumn();
+            NomClientColumn.DataPropertyName = "NomCli";
+            NomClientColumn.HeaderText = "Nom Client";
+
+            // Colonne 3
+            DataGridViewTextBoxColumn DateDevisColumn = new DataGridViewTextBoxColumn();
+            DateDevisColumn.DataPropertyName = "DateDevis";
+            DateDevisColumn.HeaderText = "Date du Devis";
+            
+            // Colonne 4
+            DataGridViewTextBoxColumn NbProduitColumn = new DataGridViewTextBoxColumn();
+            NbProduitColumn.DataPropertyName = "NbProduit";
+            NbProduitColumn.HeaderText = "Nombre de Produits";
+
+            // Colonne 5
+            DataGridViewTextBoxColumn PrixTtcColumn = new DataGridViewTextBoxColumn();
+            PrixTtcColumn.DataPropertyName = "PrixTTC";
+            PrixTtcColumn.HeaderText = "Prix TTC";
+
+            // Colonne 6
+            DataGridViewTextBoxColumn StatutColumn= new DataGridViewTextBoxColumn();
+            StatutColumn.DataPropertyName = "LibelleStatut";
+            StatutColumn.HeaderText = "Statut";
+
+            // Définition du style apporté au datagridview
+            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
+            columnHeaderStyle.BackColor = Color.Beige;
+            columnHeaderStyle.Font = new Font("Verdana", 10, FontStyle.Bold);
+            dataGridViewDevis.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+
+            List<DonneesDevis> listDevis = new List<DonneesDevis>();
+            listDevis = GestionDonneesDevis.GetDonneesDevis();
+            dataGridViewDevis.DataSource = listDevis;
+            #endregion
 
             #region comboBox
             List<Client> listeClient = GestionClients.GetClients();
@@ -29,10 +76,17 @@ namespace Gestion_Commercials
             cbNomClient.ValueMember = "Code";
             cbNomClient.DataSource = listeClient;
 
+            dataGridViewDevis.Columns.Add(IdDevisColumn);
+            dataGridViewDevis.Columns.Add(NomClientColumn);
+            dataGridViewDevis.Columns.Add(NbProduitColumn);
+            dataGridViewDevis.Columns.Add(PrixTtcColumn);
+            dataGridViewDevis.Columns.Add(StatutColumn);
+
             List<Statut> listeStatut = GestionStatut.GetStatut();
             cbStatut.DisplayMember = "libelle_stat";
             cbStatut.ValueMember = "code_stat";
             cbStatut.DataSource = listeStatut;
+
             /*combobox des categories produits*/
             /*List<Categorie> listeCat = GestionCategories.GetCategories();
             cbCategProd.DisplayMember = "libelle_cat";
@@ -46,6 +100,7 @@ namespace Gestion_Commercials
             checkListProd.DisplayMember = "Libelle_prod";
             checkListProd.ValueMember = "Id_prod";
             #endregion
+
             #region dateTimePicker
             dtpDate.Format = DateTimePickerFormat.Custom;
             dtpDate.CustomFormat = "MM-dd-yyyy ";
