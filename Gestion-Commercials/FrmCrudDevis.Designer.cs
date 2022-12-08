@@ -367,6 +367,7 @@
             this.Controls.Add(this.lblCategorie);
             this.Controls.Add(this.gpBoxInformations);
             this.Name = "FrmCrudDevis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DEVIS";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClient)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);

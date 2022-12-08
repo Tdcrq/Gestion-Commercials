@@ -9,7 +9,7 @@ namespace CommercialsBO
     public class Devis
     {
         private Int32 id_devis;
-        private Int32 txTva;
+        private float txTva;
         private DateTime date_dev;
         private Statut stat;
         private Client cli;
@@ -39,8 +39,14 @@ namespace CommercialsBO
             this.Cli = cli;
         }
 
+        public Devis(int id_devis, int txTva)
+        {
+            this.Id_devis = id_devis;
+            this.TxTva = txTva;
+        }
+
         public int Id_devis { get => id_devis; set => id_devis = value; }
-        public int TxTva { get => txTva; set => txTva = value; }
+        public float TxTva { get => txTva; set => txTva = value; }
         public DateTime Date_dev { get => date_dev; set => date_dev = value; }
         public Client Cli { get => cli; set => cli = value; }
         public Statut Stat { get => stat; set => stat = value; }
