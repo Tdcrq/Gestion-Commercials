@@ -73,6 +73,7 @@
             // dataGridViewDevis
             // 
             this.dataGridViewDevis.AllowUserToAddRows = false;
+            this.dataGridViewDevis.AllowUserToDeleteRows = false;
             this.dataGridViewDevis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDevis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDataGridViewModifier,
@@ -80,6 +81,7 @@
             this.dataGridViewDevis.Location = new System.Drawing.Point(260, 130);
             this.dataGridViewDevis.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewDevis.Name = "dataGridViewDevis";
+            this.dataGridViewDevis.ReadOnly = true;
             this.dataGridViewDevis.RowHeadersVisible = false;
             this.dataGridViewDevis.RowHeadersWidth = 51;
             this.dataGridViewDevis.RowTemplate.Height = 24;
