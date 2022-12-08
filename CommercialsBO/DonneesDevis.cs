@@ -40,7 +40,7 @@ namespace CommercialsBO
         public string LibelleStatut { get => this.Stat.Libelle_stat; }
 
         public Client Cli1 { get => cli; set => cli = value; }
-        public Concerner Concerner1 { get => concerner; set => concerner = value; }
+        public Concerner Concerner { get => concerner; set => concerner = value; }
         public Devis Dev1 { get => dev; set => dev = value; }
         public List<Produit> ProduitList1 { get => produitList; set => produitList = value; }
         public Statut Stat1 { get => stat; set => stat = value; }

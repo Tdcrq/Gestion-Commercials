@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommercialsBO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Gestion_Commercials
 {
     public partial class FrmConfirmationModifDevis : Form
     {
-        public FrmConfirmationModifDevis()
+        public FrmConfirmationModifDevis(DonneesDevis dd)
         {
             InitializeComponent();
         }
