@@ -1,6 +1,6 @@
 ﻿namespace Gestion_Commercials
 {
-    partial class FrmConfirmationAjputDevis
+    partial class FrmConfirmationAjoutDevis
     {
         /// <summary>
         /// Required designer variable.

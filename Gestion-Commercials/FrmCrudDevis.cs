@@ -145,8 +145,8 @@ namespace Gestion_Commercials
                     listeDevisConcerner = GestionDevis.GetDevisConcerner();
                     listeProduitsConcerner.Add(prod);
                 }
-                FrmConfirmationAjputDevis frmConfirmationDevis;
-                frmConfirmationDevis = new FrmConfirmationAjputDevis(unClient, unDevis, listeProduitsConcerner);
+                FrmConfirmationAjoutDevis frmConfirmationDevis;
+                frmConfirmationDevis = new FrmConfirmationAjoutDevis(unClient, unDevis, listeProduitsConcerner);
                 frmConfirmationDevis.ShowDialog();
 
                 #endregion
@@ -154,6 +154,20 @@ namespace Gestion_Commercials
             else
             {
                 MessageBox.Show("Veuillez renseigner les champs taux TVA et taux remise avec un entier", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DgvEvent(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                FrmConfirmationModifDevis frmComfirmationModifDevis;
+                frmComfirmationModifDevis = new FrmConfirmationModifDevis();
+                frmComfirmationModifDevis.ShowDialog();
+            }
+            else if (e.ColumnIndex == 1)
+            {
+
             }
         }
 

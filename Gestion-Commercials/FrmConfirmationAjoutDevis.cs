@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace Gestion_Commercials
 {
-    public partial class FrmConfirmationAjputDevis : Form
+    public partial class FrmConfirmationAjoutDevis : Form
     {
-        public FrmConfirmationAjputDevis(Client cli, Devis dev, List<Produit> listeConcerner)
+        public FrmConfirmationAjoutDevis(Client cli, Devis dev, List<Produit> listeConcerner)
         {
             InitializeComponent();
 
