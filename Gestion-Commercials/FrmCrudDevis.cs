@@ -145,8 +145,8 @@ namespace Gestion_Commercials
                     listeDevisConcerner = GestionDevis.GetDevisConcerner();
                     listeProduitsConcerner.Add(prod);
                 }
-                FrmConfirmationAjputDevis frmConfirmationDevis;
-                frmConfirmationDevis = new FrmConfirmationAjputDevis(unClient, unDevis, listeProduitsConcerner);
+                FrmConfirmationAjoutDevis frmConfirmationDevis;
+                frmConfirmationDevis = new FrmConfirmationAjoutDevis(unClient, unDevis, listeProduitsConcerner);
                 frmConfirmationDevis.ShowDialog();
 
                 #endregion
