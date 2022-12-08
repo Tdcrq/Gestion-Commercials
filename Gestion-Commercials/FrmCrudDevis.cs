@@ -134,30 +134,20 @@ namespace Gestion_Commercials
                 }
                 #endregion
 
-                #region ajout d'un objet concerner en BDD
-                bool verifAjoutConcerner = false;
-                int remProd = int.Parse(txtRemise.Text.ToString());
-                int qteProd = 1/*int.Parse(.ToString())*/;
+                #region recuperation des produit du devis et redirection vers FrmConfirmationDevis
                 Produit unProduit = null;
-                Concerner concerne = null;
-                List<Concerner> listeConcerner = new List<Concerner>();
+
+                List<Produit> listeProduitsConcerner = new List<Produit>();
+
                 foreach (Produit prod in checkListProd.CheckedItems)
                 {
                     unProduit = new Produit(int.Parse(prod.Id_prod.ToString()), checkListProd.Items[i].ToString());
                     listeDevisConcerner = GestionDevis.GetDevisConcerner();
-                    unDevis = listeDevisConcerner[0];
-                    concerne = new Concerner(unProduit, unDevis, qteProd, remProd);
-                    /*listeConcerner.Add(concerne);*/
+                    listeProduitsConcerner.Add(prod);
                 }
-                FrmConfirmationDevis frmConfirmationDevis;
-                frmConfirmationDevis = new FrmConfirmationDevis(unClient, unDevis, listeConcerner);
+                FrmConfirmationAjputDevis frmConfirmationDevis;
+                frmConfirmationDevis = new FrmConfirmationAjputDevis(unClient, unDevis, listeProduitsConcerner);
                 frmConfirmationDevis.ShowDialog();
-
-                /*verifAjoutConcerner = GestionConcerner.CreerConcerner(concerne);
-                if (!verifAjoutConcerner)
-                {
-                    MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
 
                 #endregion
             }

@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Runtime.Remoting.Messaging;
 
 namespace CommercialDAL
 {
@@ -130,6 +132,56 @@ namespace CommercialDAL
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
+        }
+
+        public static List<Produit> GetProduitsConfirmation(List<Produit> listeConcerner)
+        {
+            int id;
+            string nom;
+            float prix;
+            Produit unProduit;
+            // Création d'une liste vide d'objets Produits
+            List<Produit> lesProduits = new List<Produit>();
+
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = maConnexion;
+            cmd.CommandText = "select code_prod, libelle_prod, prix_ht_prod from DECLICINFO.dbo.PRODUIT where code_prod in (@checkedProd);";
+            foreach(Produit prod in listeConcerner)
+            {
+                cmd.Parameters.AddWithValue("@checkedProd", prod.Id_prod);
+                SqlDataReader monReader = cmd.ExecuteReader();
+
+                // Remplissage de la liste
+                while (monReader.Read())
+                {
+                    id = int.Parse(monReader["code_prod"].ToString());
+                    if (monReader["libelle_prod"] == DBNull.Value)
+                    {
+                        nom = default(string);
+                    }
+                    else
+                    {
+                        nom = monReader["libelle_prod"].ToString();
+                    }
+                    if (monReader["prix_ht_prod"] == DBNull.Value)
+                    {
+                        prix = default(float);
+                    }
+                    else
+                    {
+                        prix = float.Parse(monReader["prix_ht_prod"].ToString());
+                    }
+                    unProduit = new Produit(id, nom, prix);
+                    lesProduits.Add(unProduit);
+                }
+                monReader.Close();
+                cmd.Parameters.Clear();
+            }
+            // Fermeture de la connexion
+            maConnexion.Close();
+            return lesProduits;
         }
     }
 }
