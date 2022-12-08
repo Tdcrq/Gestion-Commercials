@@ -155,6 +155,9 @@ namespace Gestion_Commercials
             {
                 MessageBox.Show("Veuillez renseigner les champs taux TVA et taux remise avec un entier", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            List<DonneesDevis> listDevis = new List<DonneesDevis>();
+            listDevis = GestionDonneesDevis.GetDonneesDevis();
+            dataGridViewDevis.DataSource = listDevis;
         }
 
         private void DgvEvent(object sender, DataGridViewCellEventArgs e)
