@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace CommercialDAL
 {
@@ -180,6 +181,24 @@ namespace CommercialDAL
             }
             maConnexion.Close();
             return lesConcerner;
+        }
+
+        public static int SupprimerConcernerProduit(Produit prod)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM DECLICINFO.dbo.Concerner " +
+                "WHERE fk_code_prod = @id " ,
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", prod.Id_prod);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            return nbEnr;
         }
     }
 }

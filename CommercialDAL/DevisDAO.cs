@@ -165,5 +165,23 @@ namespace CommercialDAL
             maConnexion.Close();
             return lesDevisConcerners;
         }
+
+        public static int SupprimerDevis(Devis dev)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM DECLICINFO.dbo.DEVIS " +
+                "WHERE code_dev = @id ",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", dev.Id_devis);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            return nbEnr;
+        }
     }
 }
