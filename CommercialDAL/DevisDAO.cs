@@ -44,9 +44,9 @@ namespace CommercialDAL
                 code = int.Parse(monReader["code_dev"].ToString());
                 tx_TVA = int.Parse(monReader["tx_tva_dev"].ToString());
                 stat = new Statut(int.Parse(monReader["code_stat"].ToString()), monReader["libelle_stat"].ToString());
-                unClient = new Client(int.Parse(monReader["code_cli"].ToString()), monReader["nom_cli"].ToString(), int.Parse(monReader["num_fac_cli"].ToString()), 
-                                      monReader["rue_fac_cli"].ToString(), monReader["ville_fac_cli"].ToString(), monReader["cp_fac_cli"].ToString(), 
-                                      int.Parse(monReader["num_liv_cli"].ToString()),monReader["rue_liv_cli"].ToString(), monReader["ville_liv_cli"].ToString(), 
+                unClient = new Client(int.Parse(monReader["code_cli"].ToString()), monReader["nom_cli"].ToString(), int.Parse(monReader["num_fac_cli"].ToString()),
+                                      monReader["rue_fac_cli"].ToString(), monReader["ville_fac_cli"].ToString(), monReader["cp_fac_cli"].ToString(),
+                                      int.Parse(monReader["num_liv_cli"].ToString()),monReader["rue_liv_cli"].ToString(), monReader["ville_liv_cli"].ToString(),
                                       monReader["cp_liv_cli"].ToString(), monReader["telephone_cli"].ToString(), monReader["fax_cli"].ToString(), monReader["email_cli"].ToString());
                 unDevisConcerner = new Devis(code, tx_TVA, stat, unClient);
                 lesDevisConcerners.Add(unDevisConcerner);
@@ -67,8 +67,8 @@ namespace CommercialDAL
             );
             cmd.Parameters.AddWithValue("@TVA", unDevis.TxTva);
             cmd.Parameters.AddWithValue("@date", unDevis.Date_dev);
-            cmd.Parameters.AddWithValue("@fk_code_stat", unDevis.Cli.Code);
-            cmd.Parameters.AddWithValue("@fk_code_cli", unDevis.Stat.Code_stat);
+            cmd.Parameters.AddWithValue("@fk_code_stat", unDevis.Stat.Code_stat);
+            cmd.Parameters.AddWithValue("@fk_code_cli", unDevis.Cli.Code);
             /* Exécution de la requête + stockage du nbre de ligne impactée */
             nbEnr = cmd.ExecuteNonQuery();
             // Fermeture de la connexion

@@ -61,7 +61,7 @@ namespace Gestion_Commercials
 
             remProdColumn.HeaderText = "remise produit";
             remProdColumn.ReadOnly = false;
-            remProdColumn.Width = 120;
+                
 
 
             // Ajout des 2 en-têtes de colonne au datagridview

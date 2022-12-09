@@ -141,7 +141,7 @@ namespace Gestion_Commercials
 
                 foreach (Produit prod in checkListProd.CheckedItems)
                 {
-                    unProduit = new Produit(int.Parse(prod.Id_prod.ToString()), checkListProd.Items[i].ToString());
+                    unProduit = new Produit(int.Parse(prod.Id_prod.ToString()), prod.Libelle_prod.ToString());
                     listeDevisConcerner = GestionDevis.GetDevisConcerner();
                     listeProduitsConcerner.Add(prod);
                 }
@@ -155,14 +155,31 @@ namespace Gestion_Commercials
             {
                 MessageBox.Show("Veuillez renseigner les champs taux TVA et taux remise avec un entier", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            List<DonneesDevis> listDevis = new List<DonneesDevis>();
+            listDevis = GestionDonneesDevis.GetDonneesDevis();
+            dataGridViewDevis.DataSource = listDevis;
         }
 
         private void DgvEvent(object sender, DataGridViewCellEventArgs e)
         {
+            DonneesDevis dd;
+            List<DonneesDevis> listDevis = new List<DonneesDevis>();
+            listDevis = GestionDonneesDevis.GetDonneesDevis();
+
+            Client cli = listDevis[e.RowIndex].Cli;
+            Devis dev = listDevis[e.RowIndex].Dev;
+
+            List<Produit> listProd = new List<Produit>();
+            listProd = listDevis[e.RowIndex].ProduitList;
+
+            Statut stat = listDevis[e.RowIndex].Stat;
+
+            dd = new DonneesDevis(cli, dev, listProd, stat);
+
             if (e.ColumnIndex == 0)
             {
                 FrmConfirmationModifDevis frmComfirmationModifDevis;
-                frmComfirmationModifDevis = new FrmConfirmationModifDevis();
+                frmComfirmationModifDevis = new FrmConfirmationModifDevis(dd);
                 frmComfirmationModifDevis.ShowDialog();
             }
             else if (e.ColumnIndex == 1)

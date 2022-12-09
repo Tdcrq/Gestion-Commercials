@@ -32,19 +32,21 @@
             this.cbNomClient = new System.Windows.Forms.ComboBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.lblDate = new System.Windows.Forms.Label();
-            this.cbStatut = new System.Windows.Forms.ComboBox();
             this.lblProduit = new System.Windows.Forms.Label();
             this.lblProd = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnDataGridViewSupprimer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAjout = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAjoutProd = new System.Windows.Forms.Button();
             this.gbNvProduit = new System.Windows.Forms.GroupBox();
+            this.txtQteProd = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cbStatut = new System.Windows.Forms.ComboBox();
+            this.cbProduit = new System.Windows.Forms.ComboBox();
+            this.dataGridViewModifDevis = new System.Windows.Forms.DataGridView();
+            this.supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblRemProd = new System.Windows.Forms.Label();
+            this.txtRemProd = new System.Windows.Forms.TextBox();
             this.gbNvProduit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModifDevis)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNomClient
@@ -72,7 +74,7 @@
             this.dtpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDate.Location = new System.Drawing.Point(238, 81);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(318, 30);
+            this.dtpDate.Size = new System.Drawing.Size(330, 30);
             this.dtpDate.TabIndex = 25;
             // 
             // lblDate
@@ -84,16 +86,6 @@
             this.lblDate.Size = new System.Drawing.Size(50, 25);
             this.lblDate.TabIndex = 24;
             this.lblDate.Text = "date";
-            // 
-            // cbStatut
-            // 
-            this.cbStatut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStatut.FormattingEnabled = true;
-            this.cbStatut.Location = new System.Drawing.Point(46, 66);
-            this.cbStatut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbStatut.Name = "cbStatut";
-            this.cbStatut.Size = new System.Drawing.Size(181, 33);
-            this.cbStatut.TabIndex = 27;
             // 
             // lblProduit
             // 
@@ -111,31 +103,9 @@
             this.lblProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProd.Location = new System.Drawing.Point(294, 39);
             this.lblProd.Name = "lblProd";
-            this.lblProd.Size = new System.Drawing.Size(151, 25);
+            this.lblProd.Size = new System.Drawing.Size(145, 25);
             this.lblProd.TabIndex = 41;
-            this.lblProd.Text = "quantiter produit";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.btnDataGridViewSupprimer});
-            this.dataGridView1.Location = new System.Drawing.Point(23, 349);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(750, 203);
-            this.dataGridView1.TabIndex = 43;
-            // 
-            // btnDataGridViewSupprimer
-            // 
-            this.btnDataGridViewSupprimer.HeaderText = "sup";
-            this.btnDataGridViewSupprimer.MinimumWidth = 6;
-            this.btnDataGridViewSupprimer.Name = "btnDataGridViewSupprimer";
-            this.btnDataGridViewSupprimer.ReadOnly = true;
-            this.btnDataGridViewSupprimer.Width = 125;
+            this.lblProd.Text = "quantité produit";
             // 
             // btnAjout
             // 
@@ -147,30 +117,40 @@
             this.btnAjout.Text = "valider";
             this.btnAjout.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAjoutProd
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(195, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 44);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "valider";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAjoutProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjoutProd.Location = new System.Drawing.Point(299, 105);
+            this.btnAjoutProd.Name = "btnAjoutProd";
+            this.btnAjoutProd.Size = new System.Drawing.Size(122, 44);
+            this.btnAjoutProd.TabIndex = 46;
+            this.btnAjoutProd.Text = "valider";
+            this.btnAjoutProd.UseVisualStyleBackColor = true;
+            this.btnAjoutProd.Click += new System.EventHandler(this.btnAjoutProd_Click);
             // 
             // gbNvProduit
             // 
-            this.gbNvProduit.Controls.Add(this.textBox1);
+            this.gbNvProduit.Controls.Add(this.txtRemProd);
+            this.gbNvProduit.Controls.Add(this.lblRemProd);
+            this.gbNvProduit.Controls.Add(this.txtQteProd);
             this.gbNvProduit.Controls.Add(this.lblProduit);
-            this.gbNvProduit.Controls.Add(this.button1);
-            this.gbNvProduit.Controls.Add(this.cbStatut);
+            this.gbNvProduit.Controls.Add(this.btnAjoutProd);
+            this.gbNvProduit.Controls.Add(this.cbProduit);
             this.gbNvProduit.Controls.Add(this.lblProd);
             this.gbNvProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbNvProduit.Location = new System.Drawing.Point(143, 136);
+            this.gbNvProduit.Location = new System.Drawing.Point(23, 136);
             this.gbNvProduit.Name = "gbNvProduit";
-            this.gbNvProduit.Size = new System.Drawing.Size(533, 167);
+            this.gbNvProduit.Size = new System.Drawing.Size(750, 167);
             this.gbNvProduit.TabIndex = 47;
             this.gbNvProduit.TabStop = false;
-            this.gbNvProduit.Text = "Ajouter un produit";
+            this.gbNvProduit.Text = "Pour ajouter un produit";
+            // 
+            // txtQteProd
+            // 
+            this.txtQteProd.Location = new System.Drawing.Point(280, 69);
+            this.txtQteProd.Name = "txtQteProd";
+            this.txtQteProd.Size = new System.Drawing.Size(182, 30);
+            this.txtQteProd.TabIndex = 47;
             // 
             // label1
             // 
@@ -182,42 +162,84 @@
             this.label1.TabIndex = 47;
             this.label1.Text = "statut";
             // 
-            // comboBox1
+            // cbStatut
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(592, 78);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(181, 33);
-            this.comboBox1.TabIndex = 48;
+            this.cbStatut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatut.FormattingEnabled = true;
+            this.cbStatut.Location = new System.Drawing.Point(592, 78);
+            this.cbStatut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbStatut.Name = "cbStatut";
+            this.cbStatut.Size = new System.Drawing.Size(181, 33);
+            this.cbStatut.TabIndex = 48;
             // 
-            // textBox1
+            // cbProduit
             // 
-            this.textBox1.Location = new System.Drawing.Point(280, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 30);
-            this.textBox1.TabIndex = 47;
+            this.cbProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProduit.FormattingEnabled = true;
+            this.cbProduit.Location = new System.Drawing.Point(46, 66);
+            this.cbProduit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbProduit.Name = "cbProduit";
+            this.cbProduit.Size = new System.Drawing.Size(181, 33);
+            this.cbProduit.TabIndex = 27;
+            // 
+            // dataGridViewModifDevis
+            // 
+            this.dataGridViewModifDevis.AllowUserToAddRows = false;
+            this.dataGridViewModifDevis.AllowUserToDeleteRows = false;
+            this.dataGridViewModifDevis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewModifDevis.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.supprimer});
+            this.dataGridViewModifDevis.Location = new System.Drawing.Point(23, 373);
+            this.dataGridViewModifDevis.Name = "dataGridViewModifDevis";
+            this.dataGridViewModifDevis.RowHeadersVisible = false;
+            this.dataGridViewModifDevis.RowHeadersWidth = 51;
+            this.dataGridViewModifDevis.RowTemplate.Height = 24;
+            this.dataGridViewModifDevis.Size = new System.Drawing.Size(750, 150);
+            this.dataGridViewModifDevis.TabIndex = 49;
+            // 
+            // supprimer
+            // 
+            this.supprimer.HeaderText = "supp";
+            this.supprimer.MinimumWidth = 6;
+            this.supprimer.Name = "supprimer";
+            this.supprimer.Width = 125;
+            // 
+            // lblRemProd
+            // 
+            this.lblRemProd.AutoSize = true;
+            this.lblRemProd.Location = new System.Drawing.Point(515, 39);
+            this.lblRemProd.Name = "lblRemProd";
+            this.lblRemProd.Size = new System.Drawing.Size(112, 25);
+            this.lblRemProd.TabIndex = 48;
+            this.lblRemProd.Text = "taux remise";
+            // 
+            // txtRemProd
+            // 
+            this.txtRemProd.Location = new System.Drawing.Point(498, 69);
+            this.txtRemProd.Name = "txtRemProd";
+            this.txtRemProd.Size = new System.Drawing.Size(182, 30);
+            this.txtRemProd.TabIndex = 49;
             // 
             // FrmConfirmationModifDevis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 655);
+            this.Controls.Add(this.dataGridViewModifDevis);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbStatut);
             this.Controls.Add(this.gbNvProduit);
             this.Controls.Add(this.btnAjout);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.cbNomClient);
             this.Controls.Add(this.lblNomClient);
             this.Name = "FrmConfirmationModifDevis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmComfirmationModif";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbNvProduit.ResumeLayout(false);
             this.gbNvProduit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModifDevis)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,16 +251,18 @@
         private System.Windows.Forms.ComboBox cbNomClient;
         private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.ComboBox cbStatut;
         private System.Windows.Forms.Label lblProduit;
         private System.Windows.Forms.Label lblProd;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAjout;
-        private System.Windows.Forms.DataGridViewButtonColumn btnDataGridViewSupprimer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAjoutProd;
         private System.Windows.Forms.GroupBox gbNvProduit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbStatut;
+        private System.Windows.Forms.TextBox txtQteProd;
+        private System.Windows.Forms.ComboBox cbProduit;
+        private System.Windows.Forms.DataGridView dataGridViewModifDevis;
+        private System.Windows.Forms.DataGridViewButtonColumn supprimer;
+        private System.Windows.Forms.TextBox txtRemProd;
+        private System.Windows.Forms.Label lblRemProd;
     }
 }

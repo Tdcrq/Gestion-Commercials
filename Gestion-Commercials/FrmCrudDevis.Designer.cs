@@ -87,6 +87,7 @@
             this.dataGridViewDevis.RowTemplate.Height = 24;
             this.dataGridViewDevis.Size = new System.Drawing.Size(764, 393);
             this.dataGridViewDevis.TabIndex = 36;
+            this.dataGridViewDevis.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvEvent);
             // 
             // btnDataGridViewModifier
             // 

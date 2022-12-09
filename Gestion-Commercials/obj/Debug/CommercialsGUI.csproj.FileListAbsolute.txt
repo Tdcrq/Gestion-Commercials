@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.exe.config
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.exe
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.pdb
@@ -10,6 +9,8 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\Co
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\bin\Debug\CommercialsBO.pdb
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.AssemblyReference.cache
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.SuggestedBindingRedirects.cache
+C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationAjoutDevis.resources
+C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationModifDevis.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudDevis.resources
@@ -20,29 +21,3 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Co
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CopyComplete
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.exe
 C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.pdb
-C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationAjoutDevis.resources
-C:\Users\hugop\Source\Repos\Gestion-Commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationModifDevis.resources
-=======
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.exe.config
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.exe
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\Gestion-Commercials.pdb
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialDAL.dll
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialsBLL.dll
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialsBO.dll
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialDAL.pdb
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialsBLL.pdb
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\bin\Debug\CommercialsBO.pdb
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.AssemblyReference.cache
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.SuggestedBindingRedirects.cache
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConfirmationAjoutDevis.resources
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmConnexion.resources
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudClient.resources
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudDevis.resources
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmCrudProduit.resources
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.Properties.Resources.resources
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.GenerateResource.cache
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CoreCompileInputs.cache
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CopyComplete
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.exe
-C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion-Commercials.pdb
->>>>>>> 07a04a32e7394562c307f8ec0e3d480d3d67f516
