@@ -92,5 +92,52 @@ namespace CommercialDAL
             maConnexion.Close();
             return lesProduits;
         }
+
+        public static int SupprimerConcerner(DonneesDevis dd)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "DELETE FROM DECLICINFO.dbo.Concerner " +
+                "WHERE fk_code_dev = @id_dev ",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id_dev", dd.Dev.Id_devis);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            return nbEnr;
+        }
+
+        public static Concerner GetConcernerParId(Produit prod, Devis dev)
+        {
+            Concerner c;
+            int qte = 0;
+            float remise = 0;
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT remise_prod, qte_prod " +
+                "FROM DECLICINFO.dbo.PRODUIT P, DECLICINFO.dbo.Concerner C, DECLICINFO.dbo.DEVIS D " +
+                "WHERE C.fk_code_prod = P.code_prod " +
+                "AND C.fk_code_dev = D.code_dev " +
+                "AND C.fk_code_dev = @id_dev " +
+                "AND C.fk_code_prod = @id_prod",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id_dev", dev.Id_devis);
+            cmd.Parameters.AddWithValue("@id_prod", prod.Id_prod);
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+            while (monReader.Read())
+            {
+                qte = int.Parse(monReader["qte_prod"].ToString());
+                remise = float.Parse(monReader["remise_prod"].ToString());
+            }
+            c = new Concerner(prod, dev, qte, remise);
+            maConnexion.Close();
+            return c;
+        }
     }
 }

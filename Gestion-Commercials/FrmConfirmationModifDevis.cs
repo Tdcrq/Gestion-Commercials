@@ -98,14 +98,14 @@ namespace Gestion_Commercials
             #endregion
         }
 
-        /*private void btnAjoutProd_Click(object sender, EventArgs e)
+        private void btnAjoutProd_Click(object sender, EventArgs e)
         {
-            int qte = int.Parse(txtQteProd.Text);
+            /*int qte = int.Parse(txtQteProd.Text);
             float rem = float.Parse(txtRemProd.Text);
             Produit prod = new Produit(int.Parse(cbProduit.SelectedValue.ToString()), cbProduit.Text);
             Devis dev = new Devis();
-            Concerner concerne = new Concerner(prod, dev, qte, rem);
+            Concerner concerne = new Concerner(prod, dev, qte, rem);*/
 
-        }*/
+        }
     }
 }

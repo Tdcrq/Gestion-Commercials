@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Gestion_Commercials
@@ -28,39 +29,40 @@ namespace Gestion_Commercials
             dataGridViewDevis.AutoGenerateColumns = false;
             dataGridViewDevis.ColumnHeadersVisible = true;
 
-            // Colonne 1
+            // Colonne 2
             DataGridViewTextBoxColumn IdDevisColumn = new DataGridViewTextBoxColumn();
             IdDevisColumn.DataPropertyName = "IdDevis";
             IdDevisColumn.HeaderText = "Identifiant Devis";
-            IdDevisColumn.Visible = false;
+            //IdDevisColumn.Visible = false;
 
-            // Colonne 2
+            // Colonne 3
             DataGridViewTextBoxColumn NomClientColumn = new DataGridViewTextBoxColumn();
             NomClientColumn.DataPropertyName = "NomCli";
             NomClientColumn.HeaderText = "Nom Client";
 
-            // Colonne 3
+            // Colonne 4
             DataGridViewTextBoxColumn DateDevisColumn = new DataGridViewTextBoxColumn();
             DateDevisColumn.DataPropertyName = "DateDevis";
             DateDevisColumn.HeaderText = "Date du Devis";
             
-            // Colonne 4
+            // Colonne 5
             DataGridViewTextBoxColumn NbProduitColumn = new DataGridViewTextBoxColumn();
             NbProduitColumn.DataPropertyName = "NbProduit";
             NbProduitColumn.HeaderText = "Nombre de Produits";
 
-            // Colonne 5
+            // Colonne 6
             DataGridViewTextBoxColumn PrixTtcColumn = new DataGridViewTextBoxColumn();
             PrixTtcColumn.DataPropertyName = "PrixTTC";
             PrixTtcColumn.HeaderText = "Prix TTC";
 
-            // Colonne 6
+            // Colonne 7
             DataGridViewTextBoxColumn StatutColumn= new DataGridViewTextBoxColumn();
             StatutColumn.DataPropertyName = "LibelleStatut";
             StatutColumn.HeaderText = "Statut";
 
             dataGridViewDevis.Columns.Add(IdDevisColumn);
             dataGridViewDevis.Columns.Add(NomClientColumn);
+            dataGridViewDevis.Columns.Add(DateDevisColumn);
             dataGridViewDevis.Columns.Add(NbProduitColumn);
             dataGridViewDevis.Columns.Add(PrixTtcColumn);
             dataGridViewDevis.Columns.Add(StatutColumn);
@@ -113,11 +115,10 @@ namespace Gestion_Commercials
             int TauxTva;
             int TauxRemise;
             int i = 0;
-
             if (txtTauxTva.Text !="" && int.TryParse(txtTauxTva.Text, out TauxTva) && txtRemise.Text != "" && int.TryParse(txtRemise.Text, out TauxRemise))
             {
                 #region ajout d'un devis en BDD
-                DateTime date = dtpDate.Value;
+                DateTime date = DateTime.Parse(dtpDate.Value.ToString("yyyy-MM-dd"));
 
                 int statut = int.Parse(cbStatut.SelectedValue.ToString());
                 int client = int.Parse(cbNomClient.SelectedValue.ToString());
@@ -181,10 +182,13 @@ namespace Gestion_Commercials
                 FrmConfirmationModifDevis frmComfirmationModifDevis;
                 frmComfirmationModifDevis = new FrmConfirmationModifDevis(dd);
                 frmComfirmationModifDevis.ShowDialog();
-            }
+            } 
             else if (e.ColumnIndex == 1)
             {
-
+                foreach (Produit prod in listProd)
+                {
+                    //Concerner c = new Concerner(prod, dev, dd.NbProduit, );
+                }
             }
         }
 
