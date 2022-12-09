@@ -33,5 +33,10 @@ namespace CommercialsBLL
         {
             return ConcernerDAO.GetProduitList(dev);
         }
+
+        public static Concerner GetConcernerParId(Produit prod, Devis dev)
+        {
+            return ConcernerDAO.GetConcernerParId(prod, dev);
+        }
     }
 }

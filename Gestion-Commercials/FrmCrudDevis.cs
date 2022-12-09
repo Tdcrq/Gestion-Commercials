@@ -115,7 +115,6 @@ namespace Gestion_Commercials
             int TauxTva;
             int TauxRemise;
             int i = 0;
-            /*
             if (txtTauxTva.Text !="" && int.TryParse(txtTauxTva.Text, out TauxTva) && txtRemise.Text != "" && int.TryParse(txtRemise.Text, out TauxRemise))
             {
                 #region ajout d'un devis en BDD
@@ -156,7 +155,7 @@ namespace Gestion_Commercials
             else
             {
                 MessageBox.Show("Veuillez renseigner les champs taux TVA et taux remise avec un entier", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
             List<DonneesDevis> listDevis = new List<DonneesDevis>();
             listDevis = GestionDonneesDevis.GetDonneesDevis();
             dataGridViewDevis.DataSource = listDevis;
@@ -176,7 +175,7 @@ namespace Gestion_Commercials
             List<Produit> listProd = new List<Produit>();
             listProd = listDevis[e.RowIndex].ProduitList;
 
-            Statut stat = listDevis[int.Parse(e.ToString())].Stat;
+            Statut stat = listDevis[e.RowIndex].Stat;
 
             dd = new DonneesDevis(cli, dev, listProd, stat);
 
