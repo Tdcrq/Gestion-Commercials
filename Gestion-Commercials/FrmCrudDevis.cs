@@ -163,6 +163,7 @@ namespace Gestion_Commercials
 
         private void DgvEvent(object sender, DataGridViewCellEventArgs e)
         {
+            bool verifSuppression;
             DonneesDevis dd;
             List<DonneesDevis> listDevis = new List<DonneesDevis>();
             listDevis = GestionDonneesDevis.GetDonneesDevis();
@@ -185,10 +186,17 @@ namespace Gestion_Commercials
             } 
             else if (e.ColumnIndex == 1)
             {
-                foreach (Produit prod in listProd)
+                if (MessageBox.Show("Voulez-vous vraiment supprimer ce devis ?", "Validation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //Concerner c = new Concerner(prod, dev, dd.NbProduit, );
+                    verifSuppression = GestionDevis.SupprimerDevis(dev);
+                    if (!verifSuppression)
+                    {
+                        MessageBox.Show("Erreur du côté serveur lors de la suppression de ce devis. \nVeuillez réessayer dans quelques instants.", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                /* Actualisation  des données du DGV */
+                listDevis = GestionDonneesDevis.GetDonneesDevis();
+                dataGridViewDevis.DataSource = listDevis;
             }
         }
 

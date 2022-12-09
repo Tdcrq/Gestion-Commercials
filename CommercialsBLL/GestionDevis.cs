@@ -33,5 +33,10 @@ namespace CommercialsBLL
         {
             return DevisDAO.GetDevisParId(id);
         }
+
+        public static bool SupprimerDevis(Devis dev)
+        {
+            return DevisDAO.SupprimerDevis(dev) != 0;
+        }
     }
 }
