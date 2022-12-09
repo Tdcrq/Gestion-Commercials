@@ -54,7 +54,7 @@ namespace CommercialDAL
 
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand(
-                "SELECT P.code_prod, Cat.code_cat, Cat.libelle_cat, P.libelle_prod, ((P.prix_ht_prod - C.remise_prod) * (1+(D.tx_tva_dev/100))) AS prix_ttc_prod " +
+                "SELECT P.code_prod, Cat.code_cat, Cat.libelle_cat, P.libelle_prod, ((P.prix_ht_prod - C.remise_prod) * (1+(D.tx_tva_dev/100)))*C.qte_prod AS prix_ttc_prod " +
                 "FROM DECLICINFO.dbo.PRODUIT P, DECLICINFO.dbo.Concerner C, DECLICINFO.dbo.DEVIS D, DECLICINFO.dbo.CATEGORIE Cat " +
                 "WHERE C.fk_code_prod = P.code_prod " +
                 "AND Cat.code_cat = P.fk_code_cat " +
