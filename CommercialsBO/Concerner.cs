@@ -30,5 +30,8 @@ namespace CommercialsBO
         public Devis Dev { get => dev; set => dev = value; }
         public int Qte_prod { get => qte_prod; set => qte_prod = value; }
         public float Remise_prod { get => remise_prod; set => remise_prod = value; }
+        public int Id_prod { get => Prod.Id_prod; set => Prod.Id_prod = value; }
+        public string Libelle_prod { get => Prod.Libelle_prod; set => Prod.Libelle_prod = value; }
+        public float Prix_prod { get => Prod.Prix_ht_prod; set => Prod.Prix_ht_prod = value; }
     }
 }

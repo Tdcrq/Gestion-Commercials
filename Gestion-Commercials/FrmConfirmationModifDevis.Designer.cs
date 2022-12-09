@@ -37,14 +37,15 @@
             this.btnAjout = new System.Windows.Forms.Button();
             this.btnAjoutProd = new System.Windows.Forms.Button();
             this.gbNvProduit = new System.Windows.Forms.GroupBox();
+            this.txtRemProd = new System.Windows.Forms.TextBox();
+            this.lblRemProd = new System.Windows.Forms.Label();
             this.txtQteProd = new System.Windows.Forms.TextBox();
+            this.cbProduit = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbStatut = new System.Windows.Forms.ComboBox();
-            this.cbProduit = new System.Windows.Forms.ComboBox();
             this.dataGridViewModifDevis = new System.Windows.Forms.DataGridView();
             this.supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblRemProd = new System.Windows.Forms.Label();
-            this.txtRemProd = new System.Windows.Forms.TextBox();
+            this.lblIdDevis = new System.Windows.Forms.Label();
             this.gbNvProduit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewModifDevis)).BeginInit();
             this.SuspendLayout();
@@ -110,11 +111,11 @@
             // btnAjout
             // 
             this.btnAjout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjout.Location = new System.Drawing.Point(651, 578);
+            this.btnAjout.Location = new System.Drawing.Point(576, 575);
             this.btnAjout.Name = "btnAjout";
-            this.btnAjout.Size = new System.Drawing.Size(122, 44);
+            this.btnAjout.Size = new System.Drawing.Size(197, 44);
             this.btnAjout.TabIndex = 44;
-            this.btnAjout.Text = "valider";
+            this.btnAjout.Text = "valider modification ";
             this.btnAjout.UseVisualStyleBackColor = true;
             // 
             // btnAjoutProd
@@ -145,12 +146,38 @@
             this.gbNvProduit.TabStop = false;
             this.gbNvProduit.Text = "Pour ajouter un produit";
             // 
+            // txtRemProd
+            // 
+            this.txtRemProd.Location = new System.Drawing.Point(498, 69);
+            this.txtRemProd.Name = "txtRemProd";
+            this.txtRemProd.Size = new System.Drawing.Size(182, 30);
+            this.txtRemProd.TabIndex = 49;
+            // 
+            // lblRemProd
+            // 
+            this.lblRemProd.AutoSize = true;
+            this.lblRemProd.Location = new System.Drawing.Point(515, 39);
+            this.lblRemProd.Name = "lblRemProd";
+            this.lblRemProd.Size = new System.Drawing.Size(112, 25);
+            this.lblRemProd.TabIndex = 48;
+            this.lblRemProd.Text = "taux remise";
+            // 
             // txtQteProd
             // 
             this.txtQteProd.Location = new System.Drawing.Point(280, 69);
             this.txtQteProd.Name = "txtQteProd";
             this.txtQteProd.Size = new System.Drawing.Size(182, 30);
             this.txtQteProd.TabIndex = 47;
+            // 
+            // cbProduit
+            // 
+            this.cbProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProduit.FormattingEnabled = true;
+            this.cbProduit.Location = new System.Drawing.Point(46, 66);
+            this.cbProduit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbProduit.Name = "cbProduit";
+            this.cbProduit.Size = new System.Drawing.Size(181, 33);
+            this.cbProduit.TabIndex = 27;
             // 
             // label1
             // 
@@ -171,16 +198,6 @@
             this.cbStatut.Name = "cbStatut";
             this.cbStatut.Size = new System.Drawing.Size(181, 33);
             this.cbStatut.TabIndex = 48;
-            // 
-            // cbProduit
-            // 
-            this.cbProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProduit.FormattingEnabled = true;
-            this.cbProduit.Location = new System.Drawing.Point(46, 66);
-            this.cbProduit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbProduit.Name = "cbProduit";
-            this.cbProduit.Size = new System.Drawing.Size(181, 33);
-            this.cbProduit.TabIndex = 27;
             // 
             // dataGridViewModifDevis
             // 
@@ -204,27 +221,23 @@
             this.supprimer.Name = "supprimer";
             this.supprimer.Width = 125;
             // 
-            // lblRemProd
+            // lblIdDevis
             // 
-            this.lblRemProd.AutoSize = true;
-            this.lblRemProd.Location = new System.Drawing.Point(515, 39);
-            this.lblRemProd.Name = "lblRemProd";
-            this.lblRemProd.Size = new System.Drawing.Size(112, 25);
-            this.lblRemProd.TabIndex = 48;
-            this.lblRemProd.Text = "taux remise";
-            // 
-            // txtRemProd
-            // 
-            this.txtRemProd.Location = new System.Drawing.Point(498, 69);
-            this.txtRemProd.Name = "txtRemProd";
-            this.txtRemProd.Size = new System.Drawing.Size(182, 30);
-            this.txtRemProd.TabIndex = 49;
+            this.lblIdDevis.AutoSize = true;
+            this.lblIdDevis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdDevis.Location = new System.Drawing.Point(23, 13);
+            this.lblIdDevis.Name = "lblIdDevis";
+            this.lblIdDevis.Size = new System.Drawing.Size(78, 25);
+            this.lblIdDevis.TabIndex = 50;
+            this.lblIdDevis.Text = "id devis";
+            this.lblIdDevis.Visible = false;
             // 
             // FrmConfirmationModifDevis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(819, 655);
+            this.Controls.Add(this.lblIdDevis);
             this.Controls.Add(this.dataGridViewModifDevis);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbStatut);
@@ -264,5 +277,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn supprimer;
         private System.Windows.Forms.TextBox txtRemProd;
         private System.Windows.Forms.Label lblRemProd;
+        private System.Windows.Forms.Label lblIdDevis;
     }
 }

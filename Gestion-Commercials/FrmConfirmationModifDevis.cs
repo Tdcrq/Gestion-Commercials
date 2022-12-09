@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,46 +18,50 @@ namespace Gestion_Commercials
         public FrmConfirmationModifDevis(DonneesDevis dd)
         {
             InitializeComponent();
+            #region labelle
+            lblIdDevis.Text = dd.IdDevis.ToString();
+            #endregion
+
             #region DGV
             // Blocage de la génération automatique des colonnes
             dataGridViewModifDevis.AutoGenerateColumns = false;
             dataGridViewModifDevis.ColumnHeadersVisible = true;
 
-            // Colonne 1
-            DataGridViewTextBoxColumn IdDevisColumn = new DataGridViewTextBoxColumn();
-            IdDevisColumn.DataPropertyName = "Id_prod";
-            IdDevisColumn.HeaderText = "Identifiant Produit";
-            IdDevisColumn.Visible = false;
+           // Colonne 1
+            DataGridViewTextBoxColumn IdProdColumn = new DataGridViewTextBoxColumn();
+            IdProdColumn.DataPropertyName = "Id_prod";
+            IdProdColumn.HeaderText = "Identifiant Produit";
+            IdProdColumn.Visible = false;
 
             // Colonne 2
             DataGridViewTextBoxColumn libelleProduitColumn = new DataGridViewTextBoxColumn();
-            libelleProduitColumn.DataPropertyName = "libelle_prod";
+            libelleProduitColumn.DataPropertyName = "Libelle_prod";
             libelleProduitColumn.HeaderText = "Libelle Produits";
             libelleProduitColumn.ReadOnly = true;
 
             // Colonne 3
-            DataGridViewTextBoxColumn PrixTtcColumn = new DataGridViewTextBoxColumn();
-            PrixTtcColumn.DataPropertyName = "Prix_ht_prod";
-            PrixTtcColumn.HeaderText = "Prix TTC";
-            PrixTtcColumn.ReadOnly = true;
+            DataGridViewTextBoxColumn PrixTColumn = new DataGridViewTextBoxColumn();
+            PrixTColumn.DataPropertyName = "Prix_prod";
+            PrixTColumn.HeaderText = "Prix TTC";
+            PrixTColumn.ReadOnly = true;
 
             // Colonne 4
             DataGridViewTextBoxColumn QuantiterColumn = new DataGridViewTextBoxColumn();
-            QuantiterColumn.DataPropertyName = "";
+            QuantiterColumn.DataPropertyName = "Qte_prod";
             QuantiterColumn.HeaderText = "quantiter produit";
             QuantiterColumn.Width = 140;
             QuantiterColumn.ReadOnly = false;
 
             // Colonne 5
             DataGridViewTextBoxColumn RemiseColumn = new DataGridViewTextBoxColumn();
-            RemiseColumn.DataPropertyName = "";
+            RemiseColumn.DataPropertyName = "Remise_prod";
             RemiseColumn.HeaderText = "remise produit";
             RemiseColumn.Width = 120;
-            PrixTtcColumn.ReadOnly = false;
+            PrixTColumn.ReadOnly = false;
 
-            dataGridViewModifDevis.Columns.Add(IdDevisColumn);
+            dataGridViewModifDevis.Columns.Add(IdProdColumn);
             dataGridViewModifDevis.Columns.Add(libelleProduitColumn);
-            dataGridViewModifDevis.Columns.Add(PrixTtcColumn);
+            dataGridViewModifDevis.Columns.Add(PrixTColumn);
             dataGridViewModifDevis.Columns.Add(QuantiterColumn);
             dataGridViewModifDevis.Columns.Add(RemiseColumn);
 
@@ -67,8 +72,9 @@ namespace Gestion_Commercials
             dataGridViewModifDevis.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
 
             Devis dev = new Devis(int.Parse(dd.Dev.Id_devis.ToString()), int.Parse(dd.Dev.TxTva.ToString()));
-            List<Produit> listProduitConcerner = new List<Produit>();
-            listProduitConcerner = GestionConcerner.GetProduitList(dev);
+
+            List<Concerner> listProduitConcerner = new List<Concerner>();
+            listProduitConcerner = GestionConcerner.GetConcernerList(dev);
             dataGridViewModifDevis.DataSource = listProduitConcerner;
             #endregion
 
@@ -94,18 +100,27 @@ namespace Gestion_Commercials
             #region dateTimePicker
             dtpDate.Format = DateTimePickerFormat.Custom;
             dtpDate.CustomFormat = "MM-dd-yyyy ";
-            /*dtpDate.Value = dd.DateDevis;*/
+            dtpDate.Value = DateTime.Parse(dd.DateDevis.ToString());
             #endregion
         }
 
         private void btnAjoutProd_Click(object sender, EventArgs e)
         {
-            /*int qte = int.Parse(txtQteProd.Text);
+            bool verifAjout = false;
+            int qte = int.Parse(txtQteProd.Text);
             float rem = float.Parse(txtRemProd.Text);
             Produit prod = new Produit(int.Parse(cbProduit.SelectedValue.ToString()), cbProduit.Text);
-            Devis dev = new Devis();
-            Concerner concerne = new Concerner(prod, dev, qte, rem);*/
+            Devis dev = new Devis(int.Parse(lblIdDevis.Text.ToString()));
+            Concerner concerne = new Concerner(prod, dev, qte, rem);
 
+            verifAjout = GestionConcerner.CreerConcerner(concerne);
+            if (!verifAjout)
+            {
+                MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            List<Produit> listProduitConcerner = new List<Produit>();
+            listProduitConcerner = GestionConcerner.GetProduitList(dev);
+            dataGridViewModifDevis.DataSource = listProduitConcerner;
         }
     }
 }

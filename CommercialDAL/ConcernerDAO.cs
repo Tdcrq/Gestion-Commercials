@@ -54,7 +54,7 @@ namespace CommercialDAL
 
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand(
-                "SELECT P.code_prod, Cat.code_cat, Cat.libelle_cat, P.libelle_prod, ((P.prix_ht_prod - C.remise_prod) * (1+(D.tx_tva_dev/100))) AS prix_ttc_prod " +
+                "SELECT P.code_prod, Cat.code_cat, Cat.libelle_cat, P.libelle_prod, ((P.prix_ht_prod - C.remise_prod) * (1+(D.tx_tva_dev/100)))*C.qte_prod AS prix_ttc_prod " +
                 "FROM DECLICINFO.dbo.PRODUIT P, DECLICINFO.dbo.Concerner C, DECLICINFO.dbo.DEVIS D, DECLICINFO.dbo.CATEGORIE Cat " +
                 "WHERE C.fk_code_prod = P.code_prod " +
                 "AND Cat.code_cat = P.fk_code_cat " +
@@ -138,6 +138,48 @@ namespace CommercialDAL
             c = new Concerner(prod, dev, qte, remise);
             maConnexion.Close();
             return c;
+        }
+
+        public static List<Concerner> GetConcernerList(Devis devis)
+        {
+            Produit prod;
+            Devis dev;
+            int qte;
+            float rem;
+            List<Concerner> lesConcerner = new List<Concerner>();
+
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM DECLICINFO.dbo.Concerner, DECLICINFO.dbo.PRODUIT where fk_code_dev = @id_dev AND fk_code_prod = code_prod;",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id_dev", devis.Id_devis);
+
+            SqlDataReader monReader = cmd.ExecuteReader();
+            while (monReader.Read())
+            {
+                if (monReader["qte_prod"] == DBNull.Value)
+                {
+                    qte = default(int);
+                }
+                else
+                {
+                    qte = int.Parse(monReader["qte_prod"].ToString());
+                }
+                if (monReader["remise_prod"] == DBNull.Value)
+                {
+                    rem = default(float);
+                }
+                else
+                {
+                    rem = float.Parse(monReader["remise_prod"].ToString());
+                }
+                prod = new Produit(int.Parse(monReader["code_prod"].ToString()), monReader["libelle_prod"].ToString(), float.Parse(monReader["prix_ht_prod"].ToString()));
+                dev = new Devis((int)monReader["fk_code_dev"]);
+                Concerner concerne = new Concerner(prod, dev, qte, rem);
+                lesConcerner.Add(concerne);
+            }
+            maConnexion.Close();
+            return lesConcerner;
         }
     }
 }

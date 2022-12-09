@@ -33,7 +33,7 @@ namespace Gestion_Commercials
             DataGridViewTextBoxColumn IdDevisColumn = new DataGridViewTextBoxColumn();
             IdDevisColumn.DataPropertyName = "IdDevis";
             IdDevisColumn.HeaderText = "Identifiant Devis";
-            //IdDevisColumn.Visible = false;
+            IdDevisColumn.Visible = false;
 
             // Colonne 3
             DataGridViewTextBoxColumn NomClientColumn = new DataGridViewTextBoxColumn();
