@@ -21,6 +21,12 @@ namespace CommercialsBO
             this.remise_prod = remise_prod;
         }
 
+        public Concerner(Produit prod, Devis dev)
+        {
+            this.prod = prod;
+            this.dev = dev;
+        }
+
         public Concerner(Produit prod)
         {
             this.prod = prod;

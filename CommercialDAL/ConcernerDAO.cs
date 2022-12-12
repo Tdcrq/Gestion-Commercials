@@ -183,7 +183,7 @@ namespace CommercialDAL
             return lesConcerner;
         }
 
-        public static int SupprimerConcernerProduit(Produit prod)
+        public static int SupprimerConcerner(Devis dev, Produit prod)
         {
             int nbEnr;
             // Connexion à la BD
@@ -192,10 +192,34 @@ namespace CommercialDAL
 
             SqlCommand cmd = new SqlCommand(
                 "DELETE FROM DECLICINFO.dbo.Concerner " +
-                "WHERE fk_code_prod = @id " ,
+                "WHERE fk_code_prod = @id_prod " +
+                "ANd fk_code_dev = @id_dev",
                 maConnexion
             );
-            cmd.Parameters.AddWithValue("@id", prod.Id_prod);
+            cmd.Parameters.AddWithValue("@id_prod", prod.Id_prod);
+            cmd.Parameters.AddWithValue("@id_dev", dev.Id_devis);
+            nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            return nbEnr;
+        }
+
+        public static int ModifierConcerner(Concerner concerne)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+
+
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE DECLICINFO.dbo.Concerner set qte_prod = @qte_prod, remise_prod = @rem_prod " +
+                "where fk_code_dev = @code_dev " +
+                "AND fk_code_prod = @code_prod;",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@qte_prod", concerne.Qte_prod);
+            cmd.Parameters.AddWithValue("@rem_prod", concerne.Remise_prod);
+            cmd.Parameters.AddWithValue("@code_dev", concerne.Dev.Id_devis);
+            cmd.Parameters.AddWithValue("@code_prod", concerne.Prod.Id_prod);
             nbEnr = cmd.ExecuteNonQuery();
             maConnexion.Close();
             return nbEnr;

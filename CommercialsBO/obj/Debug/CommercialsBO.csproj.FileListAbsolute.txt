@@ -10,3 +10,9 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBO\obj\Debug\Commerci
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.csproj.CoreCompileInputs.cache
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.dll
 C:\Users\hugop\Source\Repos\Gestion-Commercials\CommercialsBO\obj\Debug\CommercialsBO.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\CommercialsBO\bin\Debug\CommercialsBO.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\CommercialsBO\bin\Debug\CommercialsBO.pdb
+C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\CommercialsBO\obj\Debug\CommercialsBO.csproj.AssemblyReference.cache
+C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\CommercialsBO\obj\Debug\CommercialsBO.csproj.CoreCompileInputs.cache
+C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\CommercialsBO\obj\Debug\CommercialsBO.dll
+C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\CommercialsBO\obj\Debug\CommercialsBO.pdb

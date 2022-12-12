@@ -43,5 +43,15 @@ namespace CommercialsBLL
         {
             return ConcernerDAO.GetConcernerList(dev);
         }
+
+        public static bool SupprimerConcerner(Devis dev, Produit prod)
+        {
+            return ConcernerDAO.SupprimerConcerner(dev, prod) != 0;
+        }
+
+        public static bool ModifierConcerner(Concerner concerne)
+        {
+            return ConcernerDAO.ModifierConcerner(concerne) != 0;
+        }
     }
 }

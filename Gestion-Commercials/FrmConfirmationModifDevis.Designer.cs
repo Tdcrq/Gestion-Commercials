@@ -117,6 +117,7 @@
             this.btnAjout.TabIndex = 44;
             this.btnAjout.Text = "valider modification ";
             this.btnAjout.UseVisualStyleBackColor = true;
+            this.btnAjout.Click += new System.EventHandler(this.btnAjout_Click);
             // 
             // btnAjoutProd
             // 

@@ -38,5 +38,9 @@ namespace CommercialsBLL
         {
             return DevisDAO.SupprimerDevis(dev) != 0;
         }
+        public static bool ModifierDevis(Devis dev)
+        {
+            return DevisDAO.ModifierDevis(dev) != 0;
+        }
     }
 }

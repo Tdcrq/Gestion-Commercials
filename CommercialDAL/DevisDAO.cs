@@ -34,7 +34,7 @@ namespace CommercialDAL
             List<Devis> lesDevisConcerners = new List<Devis>();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = maConnexion;
-            cmd.CommandText = 
+            cmd.CommandText =
                 "SELECT * " +
                 "FROM DECLICINFO.dbo.DEVIS, DECLICINFO.dbo.STATUT, DECLICINFO.dbo.CLIENT " +
                 "WHERE code_dev = (SELECT MAX(code_dev) " +
@@ -52,7 +52,7 @@ namespace CommercialDAL
                 stat = new Statut(int.Parse(monReader["code_stat"].ToString()), monReader["libelle_stat"].ToString());
                 unClient = new Client(int.Parse(monReader["code_cli"].ToString()), monReader["nom_cli"].ToString(), int.Parse(monReader["num_fac_cli"].ToString()),
                                       monReader["rue_fac_cli"].ToString(), monReader["ville_fac_cli"].ToString(), monReader["cp_fac_cli"].ToString(),
-                                      int.Parse(monReader["num_liv_cli"].ToString()),monReader["rue_liv_cli"].ToString(), monReader["ville_liv_cli"].ToString(),
+                                      int.Parse(monReader["num_liv_cli"].ToString()), monReader["rue_liv_cli"].ToString(), monReader["ville_liv_cli"].ToString(),
                                       monReader["cp_liv_cli"].ToString(), monReader["telephone_cli"].ToString(), monReader["fax_cli"].ToString(), monReader["email_cli"].ToString());
                 unDevisConcerner = new Devis(code, tx_TVA, date, stat, unClient);
                 lesDevisConcerners.Add(unDevisConcerner);
@@ -103,22 +103,22 @@ namespace CommercialDAL
             code = int.Parse(monReader["code_dev"].ToString());
             tx_TVA = int.Parse(monReader["tx_tva_dev"].ToString());
             stat = new Statut(
-                int.Parse(monReader["code_stat"].ToString()), 
+                int.Parse(monReader["code_stat"].ToString()),
                 monReader["libelle_stat"].ToString()
             );
             unClient = new Client(
-                int.Parse(monReader["code_cli"].ToString()), 
-                monReader["nom_cli"].ToString(), 
+                int.Parse(monReader["code_cli"].ToString()),
+                monReader["nom_cli"].ToString(),
                 int.Parse(monReader["num_fac_cli"].ToString()),
-                monReader["rue_fac_cli"].ToString(), 
-                monReader["ville_fac_cli"].ToString(), 
+                monReader["rue_fac_cli"].ToString(),
+                monReader["ville_fac_cli"].ToString(),
                 monReader["cp_fac_cli"].ToString(),
-                int.Parse(monReader["num_liv_cli"].ToString()), 
-                monReader["rue_liv_cli"].ToString(), 
+                int.Parse(monReader["num_liv_cli"].ToString()),
+                monReader["rue_liv_cli"].ToString(),
                 monReader["ville_liv_cli"].ToString(),
-                monReader["cp_liv_cli"].ToString(), 
-                monReader["telephone_cli"].ToString(), 
-                monReader["fax_cli"].ToString(), 
+                monReader["cp_liv_cli"].ToString(),
+                monReader["telephone_cli"].ToString(),
+                monReader["fax_cli"].ToString(),
                 monReader["email_cli"].ToString()
             );
             leDevis = new Devis(code, tx_TVA, stat, unClient);
@@ -180,6 +180,27 @@ namespace CommercialDAL
             );
             cmd.Parameters.AddWithValue("@id", dev.Id_devis);
             nbEnr = cmd.ExecuteNonQuery();
+            maConnexion.Close();
+            return nbEnr;
+        }
+
+        public static int ModifierDevis(Devis dev)
+        {
+            int nbEnr;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "UPDATE DECLICINFO.dbo.DEVIS SET date_dev = @date_dev, fk_code_stat = @fk_code_stat, fk_code_cli = @fk_code_cli " +
+                "where code_dev = @code_dev;",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@date_dev", dev.Date_dev.ToString("yyyy-MM-dd"));
+            cmd.Parameters.AddWithValue("@fk_code_stat", dev.Stat.Code_stat);
+            cmd.Parameters.AddWithValue("@fk_code_cli", dev.Cli.Code);
+            cmd.Parameters.AddWithValue("@code_dev", dev.Id_devis);
+            /* Exécution de la requête + stockage du nbre de ligne impactée */
+            nbEnr = cmd.ExecuteNonQuery();
+            // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
         }
