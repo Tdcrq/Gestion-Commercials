@@ -57,6 +57,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmConfirmationModifDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfirmationModifDevis.Designer.cs">
+      <DependentUpon>FrmConfirmationModifDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmationAjoutDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfirmationAjoutDevis.Designer.cs">
+      <DependentUpon>FrmConfirmationAjoutDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCrudDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrudDevis.Designer.cs">
+      <DependentUpon>FrmCrudDevis.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,11 +95,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmConfirmationAjoutDevis.resx">
+      <DependentUpon>FrmConfirmationAjoutDevis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfirmationModifDevis.resx">
+      <DependentUpon>FrmConfirmationModifDevis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConnexion.resx">
       <DependentUpon>FrmConnexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudClient.resx">
       <DependentUpon>FrmCrudClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrudDevis.resx">
+      <DependentUpon>FrmCrudDevis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudProduit.resx">
       <DependentUpon>FrmCrudProduit.cs</DependentUpon>

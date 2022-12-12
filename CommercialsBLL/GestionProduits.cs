@@ -46,6 +46,10 @@ namespace CommercialsBLL
         {
             return ProduitDAO.DeleteProduit(prod) != 0;
         }
+        public static List<Produit> GetProduitsConfirmation(List<Produit> produits)
+        {
+            return ProduitDAO.GetProduitsConfirmation(produits);
+        }
     }
 }
 

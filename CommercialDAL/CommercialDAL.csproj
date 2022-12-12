@@ -51,9 +51,12 @@
     <Compile Include="CategorieDAO.cs" />
     <Compile Include="ClientDAO.cs" />
     <Compile Include="CommercialDAO.cs" />
+    <Compile Include="ConcernerDAO.cs" />
     <Compile Include="ConnexionBD.cs" />
+    <Compile Include="DevisDAO.cs" />
     <Compile Include="ProduitDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatutDAO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

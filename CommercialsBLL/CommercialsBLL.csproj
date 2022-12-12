@@ -51,7 +51,11 @@
     <Compile Include="GestionCategories.cs" />
     <Compile Include="GestionClients.cs" />
     <Compile Include="GestionCommercials.cs" />
+    <Compile Include="GestionConcerner.cs" />
+    <Compile Include="GestionDevis.cs" />
+    <Compile Include="GestionDonneesDevis.cs" />
     <Compile Include="GestionProduits.cs" />
+    <Compile Include="GestionStatut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

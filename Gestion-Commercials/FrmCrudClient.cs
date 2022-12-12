@@ -100,14 +100,7 @@ namespace Gestion_Commercials
         }
 
 
-        private void btnProduits_Click(object sender, EventArgs e)
-        {
-            FrmCrudProduit FrmProd;
-            FrmProd = new FrmCrudProduit();
-            this.Hide();
-            FrmProd.ShowDialog();
-        }
-
+        #region action menu de gauche
         private void btnClients_Click(object sender, EventArgs e)
         {
             FrmCrudClient FrmClient;
@@ -115,6 +108,21 @@ namespace Gestion_Commercials
             this.Hide();
             FrmClient.ShowDialog();
         }
+        private void btnProduits_Click(object sender, EventArgs e)
+        {
+            FrmCrudProduit FrmProd;
+            FrmProd = new FrmCrudProduit();
+            this.Hide();
+            FrmProd.ShowDialog();
+        }
+        private void btnDevis_Click(object sender, EventArgs e)
+        {
+            FrmCrudDevis FrmDevis;
+            FrmDevis = new FrmCrudDevis();
+            this.Hide();
+            FrmDevis.ShowDialog();
+        }
+        #endregion
 
         private void AjouterClient(object sender, EventArgs e)
         {
@@ -241,5 +249,7 @@ namespace Gestion_Commercials
                 MessageBox.Show("Veuillez renseigner tous les champs", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
     }
 }

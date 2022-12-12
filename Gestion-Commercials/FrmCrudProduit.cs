@@ -106,11 +106,6 @@ namespace Gestion_Commercials
                 {
                     MessageBox.Show("ERREUR LORS DE L'INSERTION", "ECHEC", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                // Création d'un objet List d'Produit à afficher dans le datagridview
-                List<Produit> liste = new List<Produit>();
-                liste = GestionProduits.GetProduits();
-                // Rattachement de la List à la source de données du datagridview
-                dataGridViewProduit.DataSource = liste;
             }
             else
             {
@@ -159,14 +154,7 @@ namespace Gestion_Commercials
             dataGridViewProduit.DataSource = liste;
         }
 
-        private void btnProduits_Click(object sender, EventArgs e)
-        {
-            FrmCrudProduit FrmProd;
-            FrmProd = new FrmCrudProduit();
-            this.Hide();
-            FrmProd.ShowDialog();
-        }
-
+        #region action menu de gauche
         private void btnClients_Click(object sender, EventArgs e)
         {
             FrmCrudClient FrmClient;
@@ -174,5 +162,22 @@ namespace Gestion_Commercials
             this.Hide();
             FrmClient.ShowDialog();
         }
+        private void btnProduits_Click(object sender, EventArgs e)
+        {
+            FrmCrudProduit FrmProd;
+            FrmProd = new FrmCrudProduit();
+            this.Hide();
+            FrmProd.ShowDialog();
+        }
+        private void btnDevis_Click(object sender, EventArgs e)
+        {
+            FrmCrudDevis FrmDevis;
+            FrmDevis = new FrmCrudDevis();
+            this.Hide();
+            FrmDevis.ShowDialog();
+        }
+        #endregion
+
+        
     }
 }

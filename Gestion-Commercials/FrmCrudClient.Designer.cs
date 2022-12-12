@@ -140,6 +140,7 @@
             this.btnDevis.TabIndex = 25;
             this.btnDevis.Text = "Devis";
             this.btnDevis.UseVisualStyleBackColor = true;
+            this.btnDevis.Click += new System.EventHandler(this.btnDevis_Click);
             // 
             // lblCategorie
             // 
