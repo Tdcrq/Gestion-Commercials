@@ -226,6 +226,7 @@
             this.Controls.Add(this.gpBoxInformations);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCrudProduit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PRODUIT";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduit)).EndInit();
             this.gpBoxInformations.ResumeLayout(false);

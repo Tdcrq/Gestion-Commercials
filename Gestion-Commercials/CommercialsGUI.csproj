@@ -93,6 +93,12 @@
     <Compile Include="FrmCrudProduit.Designer.cs">
       <DependentUpon>FrmCrudProduit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSyntheseClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSyntheseClient.Designer.cs">
+      <DependentUpon>FrmSyntheseClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmConfirmationAjoutDevis.resx">
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrudProduit.resx">
       <DependentUpon>FrmCrudProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSyntheseClient.resx">
+      <DependentUpon>FrmSyntheseClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
