@@ -68,3 +68,4 @@ C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\Gestion-Commercials\bin
 C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\Gestion-Commercials\bin\Debug\CommercialsBO.pdb
 C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\Gestion-Commercials\obj\Debug\CommercialsGUI.csproj.CopyComplete
 C:\Users\hugop\Source\Repos\Gestion-Commercials-avec-ref\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmSyntheseClient.resources
+C:\Users\tducr\source\repos\PPE-C#\gestion-commercials\Gestion-Commercials\obj\Debug\Gestion_Commercials.FrmSyntheseClient.resources

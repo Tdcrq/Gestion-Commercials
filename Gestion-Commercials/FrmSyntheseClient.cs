@@ -27,39 +27,39 @@ namespace Gestion_Commercials
 
             dataGridViewSyntheseClients.ColumnHeadersVisible = true;
 
-            // Création d'une en-tête de colonne pour la colonne 
+            // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
 
             IdColumn.DataPropertyName = "code";
             IdColumn.HeaderText = "Id";
             IdColumn.Visible = false;
 
-            // Création d'une en-tête de colonne pour la colonne 
+            // Création d'une en-tête de colonne pour la colonne 2
             DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
             NomColumn.DataPropertyName = "nom_cli";
             NomColumn.HeaderText = "nom";
             NomColumn.Width = 43;
 
-            // Création d'une en-tête de colonne pour la colonne 
+            // Création d'une en-tête de colonne pour la colonne 3
             DataGridViewTextBoxColumn nbrDevisColumn = new DataGridViewTextBoxColumn();
 
             nbrDevisColumn.DataPropertyName = "nbrDevis";
             nbrDevisColumn.HeaderText = "nombre de devis";
 
-            // Création d'une en-tête de colonne pour la colonne 
+            // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn nbrDevisFiniColumn = new DataGridViewTextBoxColumn();
 
             nbrDevisFiniColumn.DataPropertyName = "nbrDevisFini";
             nbrDevisFiniColumn.HeaderText = "nombre de devi fini";
 
-            // Création d'une en-tête de colonne pour la colonne 
+            // Création d'une en-tête de colonne pour la colonne 5
             DataGridViewTextBoxColumn mtnTotalColumn = new DataGridViewTextBoxColumn();
 
             mtnTotalColumn.DataPropertyName = "mtnTotal";
             mtnTotalColumn.HeaderText = "montant total";
 
-            // Création d'une en-tête de colonne pour la colonne 
+            // Création d'une en-tête de colonne pour la colonne 6
             DataGridViewTextBoxColumn dateDernierDeviColumn = new DataGridViewTextBoxColumn();
 
             dateDernierDeviColumn.DataPropertyName = "dateDernierDevi";
@@ -82,12 +82,12 @@ namespace Gestion_Commercials
 
             dataGridViewSyntheseClients.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
 
-            // Création d'un objet List client à afficher dans le datagridview
-            List<> liste = new List<>();
-            liste = 
+            //// Création d'un objet List client à afficher dans le datagridview
+            //List<> liste = new List<>();
+            //liste = 
 
-            // Rattachement de la List à la source de données du datagridview
-            dataGridViewSyntheseClients.DataSource = liste;
+            //// Rattachement de la List à la source de données du datagridview
+            //dataGridViewSyntheseClients.DataSource = liste;
             #endregion
         }
     }
