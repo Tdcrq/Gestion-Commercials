@@ -56,6 +56,7 @@
     <Compile Include="GestionDonneesDevis.cs" />
     <Compile Include="GestionProduits.cs" />
     <Compile Include="GestionStatut.cs" />
+    <Compile Include="GestionSyntheses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

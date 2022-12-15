@@ -59,6 +59,11 @@ namespace CommercialsBO
             this.Id_devis = id_devis;
         }
 
+        public Devis(DateTime date)
+        {
+            this.Date_dev = date;
+        }
+
         public int Id_devis { get => id_devis; set => id_devis = value; }
         public float TxTva { get => txTva; set => txTva = value; }
         public DateTime Date_dev { get => date_dev; set => date_dev = value; }

@@ -204,5 +204,25 @@ namespace CommercialDAL
             maConnexion.Close();
             return nbEnr;
         }
+
+        public static Devis getDernierDevis(Client client)
+        {
+            Devis leDevis;
+            DateTime date;
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT MAX(date_dev) " +
+                "FROM DECLICINFO.dbo.DEVIS, DECLICINFO.dbo.CLIENT " +
+                "WHERE fk_code_cli = @id",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", client.Code);
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            date = DateTime.Parse(monReader["date_dev"].ToString());
+            leDevis = new Devis(date);
+            return leDevis;
+        }
     }
 }
