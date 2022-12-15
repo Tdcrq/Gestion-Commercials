@@ -10,19 +10,25 @@ namespace CommercialsBO
     {
         private Client cli;
         private List<Devis> listDevis;
-        private List<Concerner> listConcerner;
+        private int nbDevisAcceptes;
+        private float montantTotalHt;
+        private string dateDernierDevis;
 
-        public SyntheseClient(Client cli, List<Devis> listDevis, List<Concerner> concernerList)
+        public SyntheseClient(Client cli, List<Devis> listDevis, int nbDevisAcceptes, float montantTotalHt, DateTime dateDernierDevis)
         {
             this.Cli = cli;
             this.ListDevis = listDevis;
-            this.ListConcerner = concernerList;
+            this.NbDevisAcceptes = nbDevisAcceptes;
+            this.MontantTotalHt = montantTotalHt;
+            this.dateDernierDevis = dateDernierDevis.ToString("dd-MM-Y");
         }
 
         public Client Cli { get => cli; set => cli = value; }
-        public string NomCli { get => this.Cli.Nom_cli; set => this.Cli.Nom_cli = value; }
+        public string NomClient { get => this.Cli.Nom_cli; }
         public List<Devis> ListDevis { get => listDevis; set => listDevis = value; }
-        public int NbDevis { get => ListDevis.Count; }
-        public List<Concerner> ListConcerner { get => listConcerner; set => listConcerner = value; }
+        public int NbDevis { get => this.ListDevis.Count; }
+        public int NbDevisAcceptes { get => nbDevisAcceptes; set => nbDevisAcceptes = value; }
+        public float MontantTotalHt { get => montantTotalHt; set => montantTotalHt = value; }
+        public string DateDernierDevis { get => dateDernierDevis; }
     }
 }

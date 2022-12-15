@@ -14,20 +14,13 @@ namespace CommercialsBLL
         {
             /// <summary>Renvoie la somme totale des pirx des devis pour un client</summary>
             float somme = 0;
-            foreach(Devis dev in SCli.ListDevis)
-            {
-                foreach(Concerner c in SCli.ListConcerner)
-                {
-                    somme += c.Qte_prod * c.Prix_prod;
-                }
-            }
             return somme;
         }
 
-        public Devis getDernierDevis(Client cli)
-        {
-            ///<summary>Renvoie le dernier devis effectué pour un client</summary>
-            return DevisDAO.getDernierDevis(cli);
-        }
+        //public Devis getDernierDevis(Client cli)
+        //{
+        //    ///<summary>Renvoie le dernier devis effectué pour un client</summary>
+        //    return DevisDAO.getDernierDevis(cli);
+        //}
     }
 }
