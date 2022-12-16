@@ -30,7 +30,7 @@ namespace Gestion_Commercials
             // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
 
-            IdColumn.DataPropertyName = "CodeClient";
+            IdColumn.DataPropertyName = "codeCli";
             IdColumn.HeaderText = "Id";
             IdColumn.Visible = false;
 
@@ -46,12 +46,14 @@ namespace Gestion_Commercials
 
             nbrDevisColumn.DataPropertyName = "NbDevis";
             nbrDevisColumn.HeaderText = "nombre de devis";
+            nbrDevisColumn.Width = 140;
 
             // Création d'une en-tête de colonne pour la colonne 4
             DataGridViewTextBoxColumn nbrDevisFiniColumn = new DataGridViewTextBoxColumn();
 
             nbrDevisFiniColumn.DataPropertyName = "NbDevisAcceptes";
             nbrDevisFiniColumn.HeaderText = "nombre de devi fini";
+            nbrDevisFiniColumn.Width = 150;
 
             // Création d'une en-tête de colonne pour la colonne 5
             DataGridViewTextBoxColumn mtnTotalColumn = new DataGridViewTextBoxColumn();
@@ -64,7 +66,7 @@ namespace Gestion_Commercials
 
             dateDernierDeviColumn.DataPropertyName = "DateDernierDevis";
             dateDernierDeviColumn.HeaderText = "date du dernier devi";
-            dateDernierDeviColumn.Width = 40;
+            dateDernierDeviColumn.Width = 150;
 
             // Ajout des 2 en-têtes de colonne au datagridview
             dataGridViewSyntheseClients.Columns.Add(IdColumn);

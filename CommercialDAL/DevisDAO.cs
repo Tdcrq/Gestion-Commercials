@@ -223,13 +223,16 @@ namespace CommercialDAL
 
             if (monReader.HasRows)
             {
-                if (monReader["nb_devis_fini"] == DBNull.Value)
+                if (monReader.Read())
                 {
-                    nbDeviFini = default(int);
-                }
-                else
-                {
-                    nbDeviFini = int.Parse(monReader["nb_devis_fini"].ToString());
+                    if (monReader["nb_devis_fini"] == DBNull.Value)
+                    {
+                        nbDeviFini = default(int);
+                    }
+                    else
+                    {
+                        nbDeviFini = int.Parse(monReader["nb_devis_fini"].ToString());
+                    }
                 }
             }
             monReader.Close();
@@ -254,13 +257,16 @@ namespace CommercialDAL
 
             if (monReader.HasRows)
             {
-                if (monReader["max_date_dev"] == DBNull.Value)
+                if (monReader.Read())
                 {
-                    max_date_dev = default(DateTime);
-                }
-                else
-                {
-                    max_date_dev = DateTime.Parse(monReader["max_date_dev"].ToString());
+                    if (monReader["max_date_dev"] == DBNull.Value)
+                    {
+                        max_date_dev = default(DateTime);
+                    }
+                    else
+                    {
+                        max_date_dev = DateTime.Parse(monReader["max_date_dev"].ToString());
+                    }
                 }
             }
 

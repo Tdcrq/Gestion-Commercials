@@ -24,6 +24,8 @@ namespace CommercialsBO
         }
 
         public Client Cli { get => cli; set => cli = value; }
+
+        public int codeCli { get => this.Cli.Code; }
         public string NomClient { get => this.Cli.Nom_cli; }
         public int CodeClient { get => this.Cli.Code; }
         public List<Devis> ListDevis { get => listDevis; set => listDevis = value; }

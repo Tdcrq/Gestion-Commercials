@@ -252,14 +252,18 @@ namespace CommercialDAL
 
             if (monReader.HasRows)
             {
-                if (monReader["total"] == DBNull.Value)
+                if (monReader.Read())
                 {
-                    montantTotal = default(float);
+                    if (monReader["total"] == DBNull.Value)
+                    {
+                        montantTotal = default(float);
+                    }
+                    else
+                    {
+                        montantTotal = float.Parse(monReader["total"].ToString());
+                    }
                 }
-                else
-                {
-                    montantTotal = float.Parse(monReader["nb_devis_fini"].ToString());
-                }
+                
             }
             monReader.Close();
             cmd.Parameters.Clear();
