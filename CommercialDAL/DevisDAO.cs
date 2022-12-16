@@ -205,12 +205,46 @@ namespace CommercialDAL
             return nbEnr;
         }
 
-        public static DateTime getDernierDevis(Client client)
+        public static int GetNbDevisAcceptes(Client cli)
         {
+            int nbDeviFini = default(int);
             // Connexion à la BD
             SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
             SqlCommand cmd = new SqlCommand(
-                "SELECT MAX(date_dev) " +
+                "SELECT nom_cli, COUNT(fk_code_stat) AS 'nb_devis_fini' from DECLICINFO.dbo.Client, DECLICINFO.dbo.Devis " +
+                "WHERE fk_code_stat = 2 " +
+                "AND code_cli = fk_code_cli " +
+                "AND code_cli  = @id " +
+                "GROUP BY nom_cli",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", cli.Code);
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            if (monReader.HasRows)
+            {
+                if (monReader["nb_devis_fini"] == DBNull.Value)
+                {
+                    nbDeviFini = default(int);
+                }
+                else
+                {
+                    nbDeviFini = int.Parse(monReader["nb_devis_fini"].ToString());
+                }
+            }
+            monReader.Close();
+            cmd.Parameters.Clear();
+            return nbDeviFini;
+            /*return int.Parse(monReader["nb_devis_fini"].ToString());*/
+        }
+
+        public static DateTime getDernierDevis(Client client)
+        {
+            DateTime max_date_dev = default(DateTime);
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "SELECT MAX(date_dev) AS 'max_date_dev' " +
                 "FROM DECLICINFO.dbo.DEVIS " +
                 "WHERE fk_code_cli = @id",
                 maConnexion
@@ -218,7 +252,21 @@ namespace CommercialDAL
             cmd.Parameters.AddWithValue("@id", client.Code);
             SqlDataReader monReader = cmd.ExecuteReader();
 
-            return DateTime.Parse(monReader["date_dev"].ToString());
+            if (monReader.HasRows)
+            {
+                if (monReader["max_date_dev"] == DBNull.Value)
+                {
+                    max_date_dev = default(DateTime);
+                }
+                else
+                {
+                    max_date_dev = DateTime.Parse(monReader["max_date_dev"].ToString());
+                }
+            }
+
+            monReader.Close();
+            cmd.Parameters.Clear();
+            return max_date_dev;
         }
     }
 }

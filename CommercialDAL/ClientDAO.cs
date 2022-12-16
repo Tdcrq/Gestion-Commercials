@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using CommercialsBLL;
 using CommercialsBO;
 
 namespace CommercialDAL
@@ -229,6 +230,40 @@ namespace CommercialDAL
             // Fermeture de la connexion
             maConnexion.Close();
             return nbEnr;
+        }
+
+        public static float GetMontantTotalHt(Client cli)
+        {
+            float montantTotal = default(float);
+            // Connexion à la BD
+            SqlConnection maConnexion = ConnexionBD.GetConnexionBD().GetSqlConnexion();
+            SqlCommand cmd = new SqlCommand(
+                "select code_cli, SUM(prix_ht_prod * qte_prod) AS 'total' " +
+                "from DECLICINFO.dbo.CLIENT, DECLICINFO.dbo.DEVIS, DECLICINFO.dbo.PRODUIT, DECLICINFO.dbo.Concerner " +
+                "where code_cli = @id " +
+                "AND code_cli = fk_code_cli " +
+                "AND code_prod = fk_code_prod " +
+                "AND code_dev = fk_code_dev " +
+                "group by code_cli",
+                maConnexion
+            );
+            cmd.Parameters.AddWithValue("@id", cli.Code);
+            SqlDataReader monReader = cmd.ExecuteReader();
+
+            if (monReader.HasRows)
+            {
+                if (monReader["total"] == DBNull.Value)
+                {
+                    montantTotal = default(float);
+                }
+                else
+                {
+                    montantTotal = float.Parse(monReader["nb_devis_fini"].ToString());
+                }
+            }
+            monReader.Close();
+            cmd.Parameters.Clear();
+            return montantTotal;
         }
     }
 }
