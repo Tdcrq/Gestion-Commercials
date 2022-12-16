@@ -27,13 +27,25 @@ namespace CommercialsBLL
         {
             List<SyntheseClient> list = new List<SyntheseClient>();
             List<Client> lesClients = ClientDAO.GetClient();
-            List<Devis> listDev = DevisDAO.GetAllDevisConcerner();
+            List<Devis> temp = new List<Devis>();
             int nbDevisAcceptes;
             float montantTotalHt;
             DateTime dateDernierDevis;
             SyntheseClient syntheseClient;
             foreach (Client cli in lesClients)
             {
+                List<Devis> listDev = DevisDAO.GetAllDevisConcerner();
+                foreach (Devis d in listDev)
+                {
+                    if (cli.Code != d.Cli.Code)
+                    {
+                        temp.Add(d);
+                    }
+                }
+                foreach (Devis d2 in temp)
+                {
+                    listDev.Remove(d2);
+                }
                 nbDevisAcceptes = DevisDAO.GetNbDevisAcceptes(cli);
                 montantTotalHt = ClientDAO.GetMontantTotalHt(cli);
                 dateDernierDevis = DevisDAO.getDernierDevis(cli);

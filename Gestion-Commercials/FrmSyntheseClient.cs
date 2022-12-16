@@ -30,14 +30,14 @@ namespace Gestion_Commercials
             // Création d'une en-tête de colonne pour la colonne 1
             DataGridViewTextBoxColumn IdColumn = new DataGridViewTextBoxColumn();
 
-            IdColumn.DataPropertyName = "Cli.code";
+            IdColumn.DataPropertyName = "CodeClient";
             IdColumn.HeaderText = "Id";
             IdColumn.Visible = false;
 
             // Création d'une en-tête de colonne pour la colonne 2
             DataGridViewTextBoxColumn NomColumn = new DataGridViewTextBoxColumn();
 
-            NomColumn.DataPropertyName = "Cli.nom_cli";
+            NomColumn.DataPropertyName = "NomClient";
             NomColumn.HeaderText = "nom";
             NomColumn.Width = 43;
 
@@ -89,6 +89,47 @@ namespace Gestion_Commercials
             //attachement de la List à la source de données du datagridview
             dataGridViewSyntheseClients.DataSource = liste;
             #endregion
+        }
+
+        private void btnAnnulFiltr_Click(object sender, EventArgs e)
+        {
+            // Création d'un objet List client à afficher dans le datagridview
+            List<SyntheseClient> liste = new List<SyntheseClient>();
+            liste = GestionSyntheses.GetSyntheseClient();
+
+            //attachement de la List à la source de données du datagridview
+            dataGridViewSyntheseClients.DataSource = liste;
+        }
+
+        private void btnAjoutFiltr_Click(object sender, EventArgs e)
+        {
+            List<SyntheseClient> temp = new List<SyntheseClient>();
+            List<SyntheseClient> liste = new List<SyntheseClient>();
+            liste = GestionSyntheses.GetSyntheseClient();
+
+            DateTime debutFiltre = dTPDebutFiltre.Value;
+            DateTime finFiltre = dTPFinFiltre.Value;
+
+            foreach (SyntheseClient sC in liste)
+            {
+                foreach (Devis d in sC.ListDevis)
+                {
+                    if (!temp.Contains(sC))
+                    {
+                        if (d.Date_dev < debutFiltre && d.Date_dev > finFiltre)
+                        {
+                            temp.Add(sC);
+                        }
+                    }
+                }
+            }
+
+            foreach (SyntheseClient sC2 in temp)
+            {
+                liste.Remove(sC2);
+            }
+
+            dataGridViewSyntheseClients.DataSource = liste;
         }
     }
 }

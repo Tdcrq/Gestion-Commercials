@@ -20,11 +20,12 @@ namespace CommercialsBO
             this.ListDevis = listDevis;
             this.NbDevisAcceptes = nbDevisAcceptes;
             this.MontantTotalHt = montantTotalHt;
-            this.dateDernierDevis = dateDernierDevis.ToString("dd-MM-Y");
+            this.dateDernierDevis = dateDernierDevis.ToString("dd-MM-yyyy");
         }
 
         public Client Cli { get => cli; set => cli = value; }
         public string NomClient { get => this.Cli.Nom_cli; }
+        public int CodeClient { get => this.Cli.Code; }
         public List<Devis> ListDevis { get => listDevis; set => listDevis = value; }
         public int NbDevis { get => this.ListDevis.Count; }
         public int NbDevisAcceptes { get => nbDevisAcceptes; set => nbDevisAcceptes = value; }
