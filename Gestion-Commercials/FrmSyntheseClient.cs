@@ -105,7 +105,10 @@ namespace Gestion_Commercials
 
         private void btnAjoutFiltr_Click(object sender, EventArgs e)
         {
-            List<SyntheseClient> temp = new List<SyntheseClient>();
+            Console.WriteLine("!---------TEST---------!");
+            List<SyntheseClient> bl = new List<SyntheseClient>();
+            List<SyntheseClient> listeBlanche = new List<SyntheseClient>();
+            List<Devis> lbDevis = new List<Devis>();
             List<SyntheseClient> liste = new List<SyntheseClient>();
             liste = GestionSyntheses.GetSyntheseClient();
 
@@ -116,22 +119,27 @@ namespace Gestion_Commercials
             {
                 foreach (Devis d in sC.ListDevis)
                 {
-                    if (!temp.Contains(sC))
+                    Console.WriteLine(d.Date_dev <= debutFiltre || d.Date_dev >= finFiltre);
+                    if (d.Date_dev < debutFiltre || d.Date_dev > finFiltre)
                     {
-                        if (d.Date_dev < debutFiltre && d.Date_dev > finFiltre)
-                        {
-                            temp.Add(sC);
-                        }
+                        bl.Add(sC);
+                    }
+                    else
+                    {
+                        lbDevis.Add(d);
+                        listeBlanche.Add(sC);
                     }
                 }
             }
 
-            foreach (SyntheseClient sC2 in temp)
+            foreach (Devis _ in lbDevis)
             {
-                liste.Remove(sC2);
+
             }
 
-            dataGridViewSyntheseClients.DataSource = liste;
+            listeBlanche = listeBlanche.Distinct().ToList();
+
+            dataGridViewSyntheseClients.DataSource = listeBlanche;
         }
     }
 }
